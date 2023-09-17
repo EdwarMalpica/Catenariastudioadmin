@@ -1,0 +1,22 @@
+.login-form{
+    padding:4rem 1rem;    
+}
+
+mat-card {
+  max-width: 300px;
+  margin: 2rem auto;
+  text-align: center;
+  height: 350px;
+}
+
+full-widht-input, button {
+  width: 100%;
+}
+
+.separator {
+  margin-bottom: 2rem;
+}
+
+.diagonal-gradient {
+  background: linear-gradient(to bottom right, #08697000, #00A1B5);
+}

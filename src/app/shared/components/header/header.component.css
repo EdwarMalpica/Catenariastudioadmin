@@ -1,0 +1,16 @@
+.spacer{
+    flex: 1 1 auto;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.radial-gradient {
+  background: linear-gradient(#1E214500,#086970,#086970, #00A1B5, #086970, #1E214500);
+}
+
+.cate.title{
+    color:#fff;
+}
