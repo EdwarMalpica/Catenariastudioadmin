@@ -7,10 +7,25 @@ a{
     color: #fff;
 }
 
-.radial-gradient {
-  background: linear-gradient(#1E214500,#086970,#086970, #00A1B5, #086970, #1E214500);
+.header-nav {
+  background: radial-gradient(126.75% 126.75% at 50% 50%, #086970 0%, rgba(30, 33, 69, 1) 100%);
 }
 
-.cate.title{
-    color:#fff;
+.titleFont {
+  height: 36px;
+  font-family: 'Bahiana';
+  font-size: 36px;
+}
+
+.subTitleFont {
+  font-size: 14px;
+  font-family: 'Bahiana';
+  text-align: center;
+}
+
+.cate-title {
+  color: #FFF;
+  text-align: center;
+  font-style: normal;
+  line-height: normal;
 }

@@ -17,6 +17,25 @@ full-widht-input, button {
   margin-bottom: 2rem;
 }
 
-.diagonal-gradient {
-  background: linear-gradient(to bottom right, #08697000, #00A1B5);
+.secondFont {
+  height: 36px;
+  font-family: 'Bahiana';
+  font-size: 26px;
+}
+
+.thirdFont {
+  font-size: 14px;
+  font-family: 'Bahiana';
+}
+
+.credentials {
+  border-radius: 20px;
+  background: rgba(8, 105, 112, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+.btnPrimary {
+  border-radius: 5px;
+  border: 1px solid #086970;
+  background: #FFF;
 }
