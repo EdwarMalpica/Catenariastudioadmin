@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,11 +10,18 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { MaterialModule } from '@app/material.module';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
 
+import { PerfilComponent } from './perfil/perfil.component';
+import {MatIconModule} from '@angular/material/icon';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PerfilComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -21,6 +29,9 @@ import { SidebarModule } from './shared/components/sidebar/sidebar.module';
     BrowserAnimationsModule,
     MaterialModule,
     SidebarModule,
+    FormsModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
