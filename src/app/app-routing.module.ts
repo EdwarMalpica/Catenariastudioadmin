@@ -4,11 +4,11 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   { path: 'perfil', component: PerfilComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
-  { path: 'noutFound', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
-  { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
-  { path: 'login', loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginModule) }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+   { path: 'home', loadChildren: () => import('./pages/home/home-routing.module').then(m => m.HomeRoutingModule) },
+  { path: 'noutFound', loadChildren: () => import('./pages/not-found/not-found-routing.module').then(m => m.NotFoundRoutingModule) },
+  { path: 'admin', loadChildren: () => import('./pages/admin/admin-routing.module').then(m => m.AdminRoutingModule) },
+  { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) }
 ];
 
 
