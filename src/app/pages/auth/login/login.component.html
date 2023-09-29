@@ -10,17 +10,19 @@
               <h2>Login</h2>
             </div>
             <p>Ingrese su usuario y contraseña</p>
-            <mat-form-field class="full-width-input">
-              <input type="email" matInput placeholder="Nombre de usuario" required />
-            </mat-form-field>
-            <mat-form-field class="full-width-input ">
-              <input type="password" matInput placeholder="Contraseña" required />
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-              <button class="whiteText fs-6 btnPrimary">
-                Iniciar sesión
-              </button>
-            </mat-form-field>
+            <form class="mt-5" (submit)="login()">
+              <div class="full-width-input">
+                <input type="email" matInput [(ngModel)]="username" placeholder="Nombre de usuario" name="username" required />
+              </div>
+              <div class="full-width-input ">
+                <input type="password" matInput [(ngModel)]="password" placeholder="Contraseña" name="password" required />
+              </div>
+              <div class="full-width-input col-md-6 mx-auto">
+                <button class="submit whiteText fs-6 btnPrimary">
+                  Iniciar sesión
+                </button>
+              </div>
+            </form>
           </mat-card-content>
         </mat-card>
       </div>

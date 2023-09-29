@@ -13,6 +13,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
 import { LoginModule } from './pages/auth/login/login.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -31,8 +33,10 @@ import { LoginModule } from './pages/auth/login/login.module';
     MaterialModule,
     SidebarModule,
     FormsModule,
+    MatFormFieldModule,
     MatIconModule,
-    LoginModule
+    LoginModule,
+    HttpClientModule,
 
   ],
   providers: [],
