@@ -1,0 +1,170 @@
+/* Importa los estilos de Bootstrap */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Importa los estilos de Angular Material */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+.main-container{
+  width: 100%;
+  // margin-top: 70px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5 );
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)), url("/assets/img/back.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+
+.container{
+  padding: 40px;
+  /* background: rgba(255, 255, 255, 0.2); */
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* background: red; */
+}
+
+.card-container  {
+  /* background: yellow; */
+  padding: 50px 20px 20px 20px ;
+
+
+}
+
+.title {
+  font-family: 'Quicksand', sans-serif;
+  /* margin-top: 650px; */
+  /* padding-bottom: 100px; */
+  font-size: 40px;
+  font-weight: 490;/*Semibold*/
+  /*Espacio entre título e inputs y labels*/
+  padding-bottom: 40px;
+  color: #000000;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: #000000;
+
+}
+
+.btn-css {
+  margin: 20px;
+}
+
+.btn-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons{
+  text-align: center;
+  margin: 20px;
+  /* margin: 0;
+  padding: 0; */
+}
+
+
+.btn-acept {
+  background: #ffffff;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #086970;
+  border-width: 1px;
+  padding: 13px 20px 13px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  /* align-items: center; */
+  justify-content: center;
+  width: 180px;
+  left: 741px;
+  top: 654px;
+  box-shadow: 0px 0px 20px 0px rgba(70, 238, 250, 1);
+  text-align: left;
+  font: 700 20px "Quicksand", sans-serif;
+  color: #000000;
+  text-align: left;
+  font: 700 20px "Quicksand", sans-serif;
+
+
+}
+
+.btn-acept {
+  // background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
+  box-shadow: 0px 0px 20px #46EEFA;
+}
+
+.btn-cancel {
+  // background: linear-gradient(315deg, #FF0A0A -0.12%, #010B0D 99.88%);
+  box-shadow: 0px 0px 20px #FA4646;
+
+  background: #ffffff;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #700808;
+  border-width: 1px;
+  padding: 13px 20px 13px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  left: 741px;
+  top: 654px;
+  box-shadow: 0px 0px 20px 0px rgba(70, 238, 250, 1);
+  color: #d60c0c;
+  text-align: left;
+  font: 700 20px "Quicksand", sans-serif;
+}
+
+.lockIcon{
+  font-size: 18px;
+  color: #8C8C8C;
+
+}
+
+
+:host ::ng-deep .mat-checked .mat-slide-toggle-bar {
+  background-color: red;
+}
+
+
+
+/* Cambiar el color del icono de editar a rojo */
+.editar-icon {
+  color: #086970; /* Cambia este color según tus preferencias */
+}
+
+/* Cambiar el color del interruptor deslizante en estado desactivado */
+.mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-bar {
+  background-color: red;
+
+}
+
+/* Cambiar el color del interruptor deslizante en estado activado */
+.mat-slide-toggle-checked .mat-slide-toggle-bar {
+  background-color: red; /* Cambia el color según tus preferencias */
+}
+
+/* Cambiar el color del interruptor deslizante en estado desactivado */
+.mat-slide-toggle:not(.mat-slide-toggle-checked) .mat-slide-toggle-bar {
+  background-color: yellow; /* Cambia el color según tus preferencias */
+}
+
+/* Cambia el color de fondo del mat-mini-fab a verde */
+.custom-fab {
+  background-color: #086970; /* Cambia este color según tus preferencias */
+  color: white; /* Cambia el color del texto/icono si es necesario */
+}
