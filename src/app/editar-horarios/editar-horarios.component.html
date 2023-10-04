@@ -1,0 +1,92 @@
+
+<div class="main-container">
+  <div class="card-container container ">
+    <h2 class="title">Horarios de Atención</h2>
+    <div class="row ">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <!-- Acá van las filas, en este caso el encabezado de las columnas -->
+              <th class="subtitle">Habilitado</th>
+              <th class="subtitle">Días</th>
+              <!-- <th class="subtitle">Acciones</th> -->
+              <th class="subtitle">Horas</th>
+              <th class="subtitle">Adicionar</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let horario of horarios">
+
+              <td>
+                <!-- <mat-icon class="lockIcon"> lock</mat-icon> -->
+                <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon>
+                <mat-slide-toggle [(ngModel)]="horario.habilitado" color="primary"></mat-slide-toggle>
+              </td>
+
+              <!-- <mat-icon class="lockIcon">lock</mat-icon> -->
+              <td> <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon><strong>{{ horario.dia }}</strong>
+              </td>
+              <!-- <td>
+                <button mat-icon-button class="editar-icon" color="primary" (click)="editarHorario(horario)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="eliminarHorario(horario)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td> -->
+
+              <td>
+
+                <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip>
+
+
+                <!-- <mat-chip-list>
+                  <mat-chip *ngFor="let hora of horario.horas">
+                    {{ hora }}
+                    <button matChipRemove color="warn" (click)="eliminarHora(horario, hora)">X</button>
+                  </mat-chip>
+                </mat-chip-list> -->
+
+
+                <!-- <mat-chip-list>
+                  <mat-chip [selectable]="true" [removable]="true" (removed)="quitarHoraInicio()">
+                    {{ horaInicio }}
+                    <mat-icon matChipRemove *ngIf="horaInicio">cancel</mat-icon>
+                  </mat-chip>
+                  <mat-chip [selectable]="true" [removable]="true" (removed)="quitarHoraFin()">
+                    {{ horaFin }}
+                    <mat-icon matChipRemove *ngIf="horaFin">cancel</mat-icon>
+                  </mat-chip>
+                </mat-chip-list> -->
+
+
+
+              </td>
+              <td>
+                <button mat-mini-fab class="custom-fab" (click)="agregarHora(horario)" [disabled]="!horario.habilitado">
+                  <mat-icon>add</mat-icon></button>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+          <div class="col-md-auto buttons">
+            <button class="btn mt-3 btn-acept btn-css d-inline text-center"
+              (click)="redirigirAEdicion()">Editar</button>
+              <!-- <button class="btn mt-3 btn-acept btn-css d-inline text-center"
+              >Aceptar</button> -->
+            <button class="btn mt-3 btn-cancel btn-css d-inline text-center" (click)="guardarHorarios(horariosToGuardar)">Cancelar
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

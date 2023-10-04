@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
+import { EditarHorariosComponent } from './editar-horarios/editar-horarios.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,9 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./pages/admin/admin-routing.module').then(m => m.AdminRoutingModule) },
   { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) },
   { path: 'horarios-atencion', component: HorariosAtencionComponent},
+  { path: 'editar-horarios', component: EditarHorariosComponent},
+
+
 
 ];
 
