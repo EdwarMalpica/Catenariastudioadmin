@@ -14,6 +14,16 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
 import { LoginModule } from './pages/auth/login/login.module';
 
+// Para componente de horario-atención --> MatIconModule, BrowserAnimationsModule
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatChipsModule} from '@angular/material/chips';
+
+
+
+
 
 
 @NgModule({
@@ -22,6 +32,7 @@ import { LoginModule } from './pages/auth/login/login.module';
     HeaderComponent,
     FooterComponent,
     PerfilComponent,
+    HorariosAtencionComponent
 
   ],
   imports: [
@@ -32,7 +43,11 @@ import { LoginModule } from './pages/auth/login/login.module';
     SidebarModule,
     FormsModule,
     MatIconModule,
-    LoginModule
+    LoginModule,
+    MatButtonModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatChipsModule
 
   ],
   providers: [],
