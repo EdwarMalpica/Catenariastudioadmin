@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
 import { EditarHorariosComponent } from './editar-horarios/editar-horarios.component';
+import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) },
   { path: 'horarios-atencion', component: HorariosAtencionComponent},
   { path: 'editar-horarios', component: EditarHorariosComponent},
+
+
 
 
 

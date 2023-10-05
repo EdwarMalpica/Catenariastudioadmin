@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,10 +22,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatChipsModule} from '@angular/material/chips';
 import { EditarHorariosComponent } from './editar-horarios/editar-horarios.component';
 
-
-
-
-
+//Ventanas modales
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
+import { DialogoEliminarComponent } from './editar-horarios/dialogo-eliminar/dialogo-eliminar.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -35,7 +36,9 @@ import { EditarHorariosComponent } from './editar-horarios/editar-horarios.compo
     FooterComponent,
     PerfilComponent,
     HorariosAtencionComponent,
-    EditarHorariosComponent
+    EditarHorariosComponent,
+    DialogoNuevoHorarioComponent,
+    DialogoEliminarComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +52,13 @@ import { EditarHorariosComponent } from './editar-horarios/editar-horarios.compo
     MatButtonModule,
     MatTableModule,
     MatSlideToggleModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    // MatDialogRef
 
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
