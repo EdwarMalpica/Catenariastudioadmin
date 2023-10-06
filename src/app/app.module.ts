@@ -20,6 +20,9 @@ import { MatTableModule } from '@angular/material/table';
 import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatChipsModule} from '@angular/material/chips';
+import { MenuComponent } from './shared/components/menu/menu.component';
+
+
 
 
 
@@ -32,7 +35,8 @@ import {MatChipsModule} from '@angular/material/chips';
     HeaderComponent,
     FooterComponent,
     PerfilComponent,
-    HorariosAtencionComponent
+    HorariosAtencionComponent,
+    MenuComponent
 
   ],
   imports: [

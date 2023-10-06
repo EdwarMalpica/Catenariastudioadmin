@@ -1,9 +1,9 @@
-<mat-toolbar color="primary" class="header-nav">
-  <ng-container *ngIf="!isAdmin; else viewAdmin">
+
+    <ng-container *ngIf="!isAdmin; else viewAdmin">
     <div class="cate-title">
-      <a class="navbar-brand white-text" href="#">
+      <a class="navbar-brand" href="#">
         <div class="row">
-          <div class="col-4">
+          <div class="col-4 icon-container">
             <img src="./assets/img/logo.png" alt="">
           </div>
           <div class="col-8 d-flex flex-column justify-content-center">
@@ -14,7 +14,10 @@
       </a>
     </div>
   </ng-container>
-</mat-toolbar>
+
+<!-- <mat-toolbar  class="header-nav"> -->
+
+<!-- </mat-toolbar> -->
 
 <ng-template #viewAdmin>
   <button mat-icon-button (click)="onToggleSidenav()">
