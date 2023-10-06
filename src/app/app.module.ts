@@ -26,7 +26,8 @@ import { EditarHorariosComponent } from './editar-horarios/editar-horarios.compo
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
 import { DialogoEliminarComponent } from './editar-horarios/dialogo-eliminar/dialogo-eliminar.component';
-import { MatDialogRef } from '@angular/material/dialog';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 
 @NgModule({
@@ -55,7 +56,7 @@ import { MatDialogRef } from '@angular/material/dialog';
     MatChipsModule,
     MatDialogModule,
     ReactiveFormsModule,
-    // MatDialogRef
+    SweetAlert2Module
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

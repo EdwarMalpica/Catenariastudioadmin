@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoNuevoHorarioComponent } from './dialogo-nuevo-horario/dialogo-nuevo-horario.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-horarios',
@@ -38,8 +39,8 @@ export class EditarHorariosComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         for (let i = 0; i < this.horarios.length; i++) {
-          if (this.horarios[i].dia==dia) {
-            this.horarios[i].horas.push(result.horaInicio + " " + result.horaFin );
+          if (this.horarios[i].dia == dia) {
+            this.horarios[i].horas.push(result.horaInicio + " " + result.horaFin);
           }
         }
       }
@@ -47,25 +48,45 @@ export class EditarHorariosComponent {
   }
 
   //Para eliminar los horarios en los mat-chip
-  deleteSchedule(dia: string, hora: string){
-    for (let i = 0; i < this.horarios.length; i++) {
-      if (this.horarios[i].dia==dia) {
-        for (let j = 0; j < this.horarios[i].horas.length; j++) {
-          if (this.horarios[i].horas[j] == hora) {
-            //elimina 1 en la posición 1
-        this.horarios[i].horas.splice(j, 1);
-        break;
+  deleteSchedule(dia: string, hora: string) {
+    Swal.fire({
+      title: '¿Desea eliminar este horario?',
+      icon: 'info',
+
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        'Aceptar',
+
+      cancelButtonText:
+        'Cancelar',
+
+    }).then((answer) => {
+
+      if (answer.isConfirmed) {
+        for (let i = 0; i < this.horarios.length; i++) {
+          if (this.horarios[i].dia == dia) {
+            for (let j = 0; j < this.horarios[i].horas.length; j++) {
+              if (this.horarios[i].horas[j] == hora) {
+                //elimina 1 en la posición 1
+                this.horarios[i].horas.splice(j, 1);
+                break;
+              }
+
+            }
           }
-
         }
+
       }
-  }
+
+    });
   }
 
-   // Lógica para guardar los horarios
+  // Lógica para guardar los horarios
   guardarHorarios(horarios: any[]): void {
     // Simula el guardado de horarios en el servidor
-    this.horarios = horarios;
+
   }
 
 }
