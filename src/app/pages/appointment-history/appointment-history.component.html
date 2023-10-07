@@ -1,0 +1,39 @@
+<div class="body">
+    <div style="width: 100%; display: flex; justify-content: center;"></div><img src="./assets/background.png" style="position: absolute; height: 1000px; width: 100%"></div>
+    <div class="main_container">
+        <h1 class="text header_text">HISTORIAL DE CITAS</h1>
+        <h2 class="text sub_text">A continuación encontrarás el historial el citas gestionadas en este perfil:</h2>
+        <div class="dropdown_container">
+            <app-dropdown [options_dropdown] =" this.options_dropdown"></app-dropdown>
+        </div>
+        <div class="appointments_container">
+            <div class="box">
+                <div class="row_box">
+                    <h2 class="title_box">Nombre</h2>
+                    <h2 class="title_box">Fecha de cita</h2>
+                    <h2 class="title_box">Estado</h2>
+                    <h2 class="title_box" style="border-right: none;">Detalles</h2>
+                </div>    
+                
+                <div class="row_separator"> </div>  
+                
+                <div *ngFor="let appointment of appointments" class="subcontainer">
+                    <div class="row_box" >
+                        <h2 class="subtitle_box">{{appointment.name}}</h2>
+                        <h2 class="subtitle_box">{{appointment.date}}</h2>
+                        <div class="icons_confirm" *ngIf="!appointment.state">
+                            <button style="background: none; border: none" class="icons"><img src="./assets/appoiment_confirmed.png" class="icons"></button>
+                            <button style="background: none; border: none" class="icons"><img src="./assets/appoiment_cancel.png" class="icons"></button>
+                        </div>
+                        <h2 class="subtitle_box" *ngIf="appointment.is_confirmed && appointment.state" >Confirmado</h2>
+                        <h2 class="subtitle_box" *ngIf="!appointment.is_confirmed && appointment.state">Cancelada</h2>
+                        <div><button style="background: none; border: none;width: auto;"><img src="./assets/details.png" class="icons"></button></div>
+                    </div>
+                    <div class="row_separator"> </div>  
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    

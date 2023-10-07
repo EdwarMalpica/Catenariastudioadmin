@@ -1,0 +1,42 @@
+<div class="body">
+  <div style="width: 100%; display: flex; justify-content: center;">
+    <img
+      src="./assets/background.png"
+      style="position: absolute; height: 1000px; width: 100%"
+    />
+  </div>
+  <div style="width: 100%;display: flex;justify-content: center;position: relative; margin-top: 50px;">
+    <h1 class="text header_text">HISTORIAL DE CITAS</h1>
+  </div>
+
+  <div
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    "
+  >
+    <div class="info_appointment">
+      <div class="subinfo_container">
+        <h1 class="text subinfo_title">Nombre de Usario</h1>
+        <h2 class="subinfo_info">{{ appointment.name }}</h2>
+      </div>
+      <div class="text subinfo_container">
+        <h1 class="subinfo_title">Fecha de la cita</h1>
+        <h2 class="subinfo_info">{{ appointment.date }}</h2>
+      </div>
+      <div class="text subinfo_container">
+        <h1 class="subinfo_title">Datos de contacto</h1>
+        <h2 class="subinfo_info">{{ appointment.mail }}</h2>
+      </div>
+      <div class="text subinfo_container">
+        <h1 class="subinfo_title">Mensajes</h1>
+        <h2 class="subinfo_info">{{ appointment.message }}</h2>
+      </div>
+    </div>
+</div>
+    <div style="width: 100%;display: flex; justify-content: center; position: relative; margin-top: 50px;">
+        <button class="btn_back" (click)='redirectToRoute()'>Volver</button>
+    </div>
+</div>
