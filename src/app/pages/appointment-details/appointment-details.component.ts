@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Appointent } from '../appointment-history/appointment-history.component';
+import { Appointment } from '../appointment-history/appointment-history.component';
 import { Router } from '@angular/router';
 
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AppointmentDetailsComponent {
 
-  appointment = new Appointent("Juan Gonzalez","28-07-23","U","mail@gmail.com","Estly interesado en el nuevo proyect");
+  appointment = new Appointment("Juan Gonzalez","28-07-23","U","mail@gmail.com","Estly interesado en el nuevo proyect");
 
   constructor(private router: Router) { }
 
