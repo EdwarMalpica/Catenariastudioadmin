@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppointmentHistoryComponent } from './pages/appointment-history/appointment-history.component';
+import { DropdownComponent } from './componentes/dropdown/dropdown.component';
+import { AppointmentDetailsComponent } from './pages/appointment-details/appointment-details.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MaterialModule } from '@app/material.module';
 
@@ -32,6 +35,9 @@ import {MatChipsModule} from '@angular/material/chips';
   declarations: [
     AppComponent,
     HeaderComponent,
+    AppointmentHistoryComponent,
+    DropdownComponent,
+    AppointmentDetailsComponent
     FooterComponent,
     PerfilComponent,
     HorariosAtencionComponent
