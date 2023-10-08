@@ -14,10 +14,11 @@ export class AppointmentHistoryComponent {
 
 
   option_selected_dropdown = "";
-  options_dropdown = ['citas proximas' , 'citas confimadas' , "citas canceladas"];
+  options_dropdown = [ "todas las citas",'citas confimadas' , "citas canceladas",'citas proximas'  ,"citas sin confimar"];
   confirmedAppointments: Appointment[] = [];
   canceledAppointments: Appointment[] = [];
   unconfirmedAppointments: Appointment[] = [];
+  futureAppointments: Appointment[] = [];
   endpoint_get_appointments = "citas"
   
   
@@ -27,7 +28,7 @@ export class AppointmentHistoryComponent {
   isLoaded = false;
 
   constructor(private dataManagerService: DataManagerService, private router: Router) {
-    this.filter_by_status();
+    
   }
   
 
@@ -40,6 +41,7 @@ export class AppointmentHistoryComponent {
           this.appointments = data.citas;
           this.current_appointments_selected = this.appointments
           this.isLoaded = true;
+          this.filter_by_status();
         });      
     } catch (error) {
       
@@ -54,6 +56,10 @@ export class AppointmentHistoryComponent {
       this.current_appointments_selected = this.confirmedAppointments
     }else if(this.option_selected_dropdown == this.options_dropdown[2]){
       this.current_appointments_selected = this.canceledAppointments
+    }else if(this.option_selected_dropdown == this.options_dropdown[3]){
+      this.current_appointments_selected = this.futureAppointments
+    }else if(this.option_selected_dropdown == this.options_dropdown[4]){
+      this.current_appointments_selected = this.unconfirmedAppointments
     }
   }
 
@@ -61,17 +67,32 @@ export class AppointmentHistoryComponent {
   filter_by_status(){
     if(this.appointments != undefined){
       for (const appointment of this.appointments) {
+
+        console.log("ESTADO DE LA CITA ACTUAL EVALUADA: " , appointment.estado_cita_id)
         if (appointment.estado_cita_id === 2) {
           this.confirmedAppointments.push(appointment);
         } else if (appointment.estado_cita_id=== 3) {
           this.canceledAppointments.push(appointment);
-        } else if (appointment.estado_cita_id === 2) {
+        } else if (appointment.estado_cita_id === 1) {
           this.unconfirmedAppointments.push(appointment);
+        } else if(this.isFutureDate(appointment.fecha_cita))
+          this.futureAppointments.push(appointment)
         }
-      }
-      console.log("Ya se ejecuto, se obtuvo lo siguiente: " , this.confirmedAppointments);
 
+      }
     }
+  
+
+
+  /**
+   * Filtrar citas futuras
+   * @param appointmentDate 
+   * @returns 
+   */
+  isFutureDate(appointmentDate: string): boolean {
+    const appointmentDateObj = new Date(appointmentDate);
+    const currentDate = new Date();
+    return appointmentDateObj > currentDate;
   }
 
   /**
