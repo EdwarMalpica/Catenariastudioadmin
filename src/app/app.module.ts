@@ -27,17 +27,13 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatChipsModule} from '@angular/material/chips';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AppointmentHistoryComponent,
     DropdownComponent,
-    AppointmentDetailsComponent
+    AppointmentDetailsComponent,
     FooterComponent,
     PerfilComponent,
     HorariosAtencionComponent
@@ -53,15 +49,11 @@ import {MatChipsModule} from '@angular/material/chips';
     MatFormFieldModule,
     MatIconModule,
     LoginModule,
-
     HttpClientModule,
-
     MatButtonModule,
     MatTableModule,
     MatSlideToggleModule,
     MatChipsModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
