@@ -9,8 +9,14 @@ mat-card {
   height: 350px;
 }
 
-full-widht-input, button {
+.full-width-input {
+  margin-top: 20px;
+  height: 8vh;
+}
+
+button {
   width: 100%;
+  height: 30px;
 }
 
 .separator {

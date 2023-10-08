@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppointmentHistoryComponent } from './pages/appointment-history/appointment-history.component';
+import { AppointmentDetailsComponent } from './pages/appointment-details/appointment-details.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
 
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./pages/admin/admin-routing.module').then(m => m.AdminRoutingModule) },
   { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) },
   { path: 'horarios-atencion', component: HorariosAtencionComponent},
+  { path : 'appointment', component : AppointmentHistoryComponent},
+  { path : 'appointment-detail/:id', component : AppointmentDetailsComponent}
 
 ];
 
@@ -21,4 +25,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+
+}

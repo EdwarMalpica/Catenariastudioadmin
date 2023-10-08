@@ -1,0 +1,50 @@
+/* Estilo para el botón desplegable */
+.dropbtn {
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #00A1B5;
+    background: #FFF;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .triangle_button{
+      color: #00A1B5;
+  }
+  
+  
+  /* Estilo para el contenido desplegable */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  /* Mostrar el contenido cuando se hace clic en el botón */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Estilo para los elementos de la lista desplegable */
+  .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  /* Cambiar el color del elemento de la lista cuando se pasa el ratón por encima */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  
+  
