@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Agregar nuevo horario</h1>
+<div mat-dialog-content class="container">
+  <form [formGroup]="formulario">
+    <div class="form-group">
+      <label for="horaInicio">Hora de Inicio</label>
+      <input type="time" class="form-control" id="horaInicio" formControlName="horaInicio" >
+    </div>
+    <div class="form-group">
+      <label for="horaFin">Hora de Fin</label>
+      <input type="time" class="form-control" id="horaFin" formControlName="horaFin">
+    </div>
+    <!-- <button type="submit" class="btn btn-primary">Guardar Horas</button> -->
+  </form>
+</div>
+<div class="buttons ">
+  <button mat-button mat-dialog-close style="margin-right: 5px;">Cancelar</button>
+  <button mat-button (click)="addSchedule()">Guardar</button>
+</div>

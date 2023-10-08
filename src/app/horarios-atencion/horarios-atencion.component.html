@@ -7,12 +7,6 @@
         <table class="table">
           <thead>
             <tr>
-              <!-- Acá van las filas, en este caso el encabezado de las columnas -->
-              <th class="subtitle">Habilitado</th>
-              <th class="subtitle">Días</th>
-              <th class="subtitle">Horas</th>
-              <th class="subtitle">Adicionar</th>
-
             </tr>
           </thead>
           <tbody>
@@ -31,7 +25,7 @@
 
               <td>
 
-                <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip>
+                <mat-chip *ngFor="let hora of horario.franjas" class="hora-chip">{{ hora.hora_inicio }} - {{ hora.hora_fin }}</mat-chip>
 
               </td>
               <td>

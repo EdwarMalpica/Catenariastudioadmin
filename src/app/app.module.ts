@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,13 @@ import { MatTableModule } from '@angular/material/table';
 import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatChipsModule} from '@angular/material/chips';
+import { EditarHorariosComponent } from './editar-horarios/editar-horarios.component';
+
+//Ventanas modales
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
+import { DialogoEliminarComponent } from './editar-horarios/dialogo-eliminar/dialogo-eliminar.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MenuComponent } from './shared/components/menu/menu.component';
 
 
@@ -40,7 +47,10 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     FooterComponent,
     PerfilComponent,
     HorariosAtencionComponent,
-    MenuComponent
+    EditarHorariosComponent,
+    DialogoNuevoHorarioComponent,
+    DialogoEliminarComponent,
+    MenuComponent,
 
   ],
   imports: [
@@ -57,8 +67,14 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     MatButtonModule,
     MatTableModule,
     MatSlideToggleModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    SweetAlert2Module,
+    HttpClientModule
+
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
