@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-// import { HttpClient } from '@angular/common/http';
+import { HorariosService } from '@app/services/horarios.service';
+import { HorariosResponse } from '@app/models/dtos/horarios-response.interface';
+
 
 
 @Component({
@@ -25,17 +27,18 @@ export class HorariosAtencionComponent {
 
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private horariosService: HorariosService) {
     // Definición de horarios:
     this.horarios = [
-      // { dia: 'lunes', hora_inicio: '08:00 AM', inicio: '09:00 AM', hora: '10:00 AM' , habilitado: true },
-      { habilitado: true, dia: 'lunes', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM'  },
-      { habilitado: true, dia: 'martes', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM'  },
-      { habilitado: true, dia: 'miércoles', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM' },
-      { habilitado: true,dia: 'jueves', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM'},
-      { habilitado: true,dia: 'viernes', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM' },
-      { habilitado: true,dia: 'sábado', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM' },
+      // // { dia: 'lunes', hora_inicio: '08:00 AM', inicio: '09:00 AM', hora: '10:00 AM' , habilitado: true },
+      // { habilitado: true, dia: 'lunes', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM'  },
+      // { habilitado: true, dia: 'martes', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM'  },
+      // { habilitado: true, dia: 'miércoles', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM' },
+      // { habilitado: true,dia: 'jueves', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM'},
+      // { habilitado: true,dia: 'viernes', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM' },
+      // { habilitado: true,dia: 'sábado', horas: this. generarFranjasHorarias(), horaInicio: '08:00 AM', horaFin: '04:00 PM' },
     ];
+    this.loadSchedules();
   }
 
 
@@ -120,5 +123,15 @@ export class HorariosAtencionComponent {
   this.router.navigate(['/tu-vista-de-edicion'], { state: { horario } });
 }
 
+private loadSchedules(): void{
+  this.horariosService.getSchedule().subscribe(
+    (schedules: HorariosResponse)=>{
+      console.log(schedules);
+      this.horarios=schedules.horarios;
+    }
+  );
+
+
+}
 
 }

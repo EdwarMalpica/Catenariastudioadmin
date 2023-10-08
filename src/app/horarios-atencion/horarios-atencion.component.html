@@ -31,7 +31,7 @@
 
               <td>
 
-                <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip>
+                <mat-chip *ngFor="let hora of horario.franjas" class="hora-chip">{{ hora.hora_inicio }} - {{ hora.hora_fin }}</mat-chip>
 
               </td>
               <td>

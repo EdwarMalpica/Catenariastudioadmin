@@ -33,9 +33,12 @@
                 <!-- <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip> -->
 
 
-                <ng-container *ngFor="let hora of horario.horas">
+                <ng-container *ngFor="let hora of horario.franjas">
                   <mat-chip-row (removed)="deleteSchedule(horario.dia, hora) ">
-                    {{hora}}
+                    {{hora.hora_inicio}}
+
+                    -
+                    {{hora.hora_fin}}
                     <button matChipRemove>
                       <mat-icon>cancel</mat-icon>
                     </button>
@@ -45,7 +48,7 @@
               </td>
               <td>
                 <button mat-mini-fab class="custom-fab" (click)="openDialog(horario.dia)"
-                  [disabled]="!horario.habilitado">
+                  >
                   <mat-icon>add</mat-icon></button>
               </td>
 
@@ -54,10 +57,10 @@
         </table>
         <div class="d-flex justify-content-center">
           <div class="col-md-auto buttons">
-            <button class="btn mt-3 btn-acept btn-css d-inline text-center"
+            <button class="btn mt-3 btn-acept btn-css d-inline text-center" (click)="saveSchedules()"
               >Aceptar</button>
             <button class="btn mt-3 btn-cancel btn-css d-inline text-center"
-              (click)="guardarHorarios(horariosToGuardar)">Cancelar
+              >Cancelar
             </button>
           </div>
         </div>
