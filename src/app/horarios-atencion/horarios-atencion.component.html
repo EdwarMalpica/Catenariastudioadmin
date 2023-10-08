@@ -1,0 +1,58 @@
+
+<div class="main-container">
+  <div class="card-container container ">
+    <h2 class="title">Horarios de Atención</h2>
+    <div class="row ">
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <!-- Acá van las filas, en este caso el encabezado de las columnas -->
+              <th class="subtitle">Habilitado</th>
+              <th class="subtitle">Días</th>
+              <th class="subtitle">Horas</th>
+              <th class="subtitle">Adicionar</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let horario of horarios">
+
+              <td>
+                <!-- <mat-icon class="lockIcon"> lock</mat-icon> -->
+                <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon>
+                <mat-slide-toggle [(ngModel)]="horario.habilitado" color="primary" [disabled]="true"></mat-slide-toggle>
+              </td>
+
+              <!-- <mat-icon class="lockIcon">lock</mat-icon> -->
+              <td> <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon><strong>{{ horario.dia }}</strong>
+              </td>
+
+
+              <td>
+
+                <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip>
+
+              </td>
+              <td>
+                <button mat-mini-fab class="custom-fab" (click)="agregarHora(horario)" [disabled]="!horario.habilitado" [disabled]="true">
+                  <mat-icon>add</mat-icon></button>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+          <div class="col-md-auto buttons">
+            <button class="btn mt-3 btn-acept btn-css d-inline text-center" (click)="redirigirAEdicion(horarioAEditar)"
+              >Editar</button>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -2,13 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppointmentHistoryComponent } from './pages/appointment-history/appointment-history.component';
 import { AppointmentDetailsComponent } from './pages/appointment-details/appointment-details.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
+
 
 const routes: Routes = [
+  { path: 'perfil', component: PerfilComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+   { path: 'home', loadChildren: () => import('./pages/home/home-routing.module').then(m => m.HomeRoutingModule) },
+  { path: 'noutFound', loadChildren: () => import('./pages/not-found/not-found-routing.module').then(m => m.NotFoundRoutingModule) },
+  { path: 'admin', loadChildren: () => import('./pages/admin/admin-routing.module').then(m => m.AdminRoutingModule) },
+  { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) },
+  { path: 'horarios-atencion', component: HorariosAtencionComponent},
   { path : 'appointment', component : AppointmentHistoryComponent},
-  { path : 'appointment-detail/:id', component : AppointmentDetailsComponent},
-
+  { path : 'appointment-detail/:id', component : AppointmentDetailsComponent}
 
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
