@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppointmentHistoryComponent } from './pages/appointment-history/appointment-history.component';
+import { AppointmentDetailsComponent } from './pages/appointment-details/appointment-details.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
 import { EditarHorariosComponent } from './editar-horarios/editar-horarios.component';
@@ -15,10 +17,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) },
   { path: 'horarios-atencion', component: HorariosAtencionComponent},
   { path: 'editar-horarios', component: EditarHorariosComponent},
-
-
-
-
+  { path : 'appointment', component : AppointmentHistoryComponent},
+  { path : 'appointment-detail/:id', component : AppointmentDetailsComponent}
 
 ];
 
@@ -28,4 +28,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+
+}

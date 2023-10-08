@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppointmentHistoryComponent } from './pages/appointment-history/appointment-history.component';
+import { DropdownComponent } from './componentes/dropdown/dropdown.component';
+import { AppointmentDetailsComponent } from './pages/appointment-details/appointment-details.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { MaterialModule } from '@app/material.module';
 
@@ -13,6 +16,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
 import { LoginModule } from './pages/auth/login/login.module';
+import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 // Para componente de horario-atención --> MatIconModule, BrowserAnimationsModule
 import { MatButtonModule } from '@angular/material/button';
@@ -27,7 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
 import { DialogoEliminarComponent } from './editar-horarios/dialogo-eliminar/dialogo-eliminar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './shared/components/menu/menu.component';
 
 
 
@@ -36,12 +41,17 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HeaderComponent,
+    AppointmentHistoryComponent,
+    DropdownComponent,
+    AppointmentDetailsComponent,
     FooterComponent,
     PerfilComponent,
     HorariosAtencionComponent,
     EditarHorariosComponent,
     DialogoNuevoHorarioComponent,
     DialogoEliminarComponent,
+    MenuComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -50,8 +60,10 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     SidebarModule,
     FormsModule,
+    MatFormFieldModule,
     MatIconModule,
     LoginModule,
+    HttpClientModule,
     MatButtonModule,
     MatTableModule,
     MatSlideToggleModule,

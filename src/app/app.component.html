@@ -1,3 +1,4 @@
+
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side">
     <mat-toolbar color="primary">
@@ -6,9 +7,17 @@
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header (toggleSidenav)="sidenav.toggle()"></app-header>
-
-     <router-outlet class="router-container" ></router-outlet>
+    <div class="row background-header">
+      <div class="col-3" >
+        <app-header  (toggleSidenav)="sidenav.toggle()"></app-header>
+      </div >
+      <div class="col-9" >
+        <app-menu></app-menu>
+      </div>
+    </div>
+    <div class="row">
+      <router-outlet></router-outlet>
+    </div>
 
   </mat-sidenav-content>
 </mat-sidenav-container>

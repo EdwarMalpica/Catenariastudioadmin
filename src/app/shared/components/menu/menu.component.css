@@ -1,0 +1,39 @@
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+ul li a {
+  font-size: 25px;
+  font-family: 'Bahiana', sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  /* justify-content: flex-end; */
+  height: 100%;
+
+
+}
+
+li {
+  display: inline;
+  margin-right: 20px; /* Espacio entre elementos del menú  -- ajustar!!!!! */
+}
+
+a {
+  text-decoration: none;
+  color: #fff; /* Color de texto de los enlaces */
+}
+
+a:hover {
+  text-decoration: underline; /* Cambiar estilo al pasar el mouse sobre los enlaces */
+}
