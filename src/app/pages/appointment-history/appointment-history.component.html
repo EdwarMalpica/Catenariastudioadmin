@@ -17,16 +17,16 @@
                 
                 <div class="row_separator"> </div>  
                 
-                <div *ngFor="let appointment of current_appointments_selected" class="subcontainer">
+               <div *ngFor="let appointment of current_appointments_selected"  class="subcontainer">
                     <div class="row_box" >
-                        <h2 class="subtitle_box">{{appointment.name}}</h2>
-                        <h2 class="subtitle_box">{{appointment.date}}</h2>
-                        <div class="icons_confirm" *ngIf="!appointment.state">
+                        <h2 class="subtitle_box">{{appointment.user.name}}</h2>
+                        <h2 class="subtitle_box">{{appointment.fecha_cita}}</h2>
+                        <div class="icons_confirm" *ngIf="appointment.estado_cita_id == 1">
                             <button style="background: none; border: none" class="icons"><img src="./assets/appoiment_confirmed.png" class="icons"></button>
                             <button style="background: none; border: none" class="icons"><img src="./assets/appoiment_cancel.png" class="icons"></button>
                         </div>
-                        <h2 class="subtitle_box" *ngIf="appointment.is_confirmed && appointment.state" >Confirmado</h2>
-                        <h2 class="subtitle_box" *ngIf="!appointment.is_confirmed && appointment.state">Cancelada</h2>
+                        <h2 class="subtitle_box" *ngIf="appointment.estado_cita_id == 2 " >Confirmado</h2>
+                        <h2 class="subtitle_box" *ngIf="appointment.estado_cita_id == 3">Cancelada</h2>
                         <div><button style="background: none; border: none;width: auto;"><img src="./assets/details.png" class="icons"></button></div>
                     </div>
                     <div class="row_separator"> </div>  

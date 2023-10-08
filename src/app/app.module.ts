@@ -8,6 +8,8 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { AppointmentHistoryComponent } from './pages/appointment-history/appointment-history.component';
 import { DropdownComponent } from './componentes/dropdown/dropdown.component';
 import { AppointmentDetailsComponent } from './pages/appointment-details/appointment-details.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { AppointmentDetailsComponent } from './pages/appointment-details/appoint
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]

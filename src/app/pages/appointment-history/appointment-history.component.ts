@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Appointment, AppointmentList } from 'src/app/data_management/appointment_model';
+import { DataManagerService } from 'src/app/data_management/data_manager';
 
 @Component({
   selector: 'app-appointment-history',
@@ -13,19 +16,39 @@ export class AppointmentHistoryComponent {
   confirmedAppointments: Appointment[] = [];
   canceledAppointments: Appointment[] = [];
   unconfirmedAppointments: Appointment[] = [];
+  endpoint_get_appointments = "citas"
   
   
-  appointments = [new Appointment("Juan Gonzales","28-07-23","U","mail@gmail.com","Estly interesado en el nuevo proyect"),
-  new Appointment("Gabriela Quevedo","28-07-23","CO","mail@gmail.com","Estly interesado en el nuevo proyect"),
-  new Appointment("Laura Casas","28-07-23","CA","mail@gmail.com","Estly interesado en el nuevo proyect"),
-  new Appointment("Esteban Malpica","28-07-23","CO","mail@gmail.com","Estly interesado en el nuevo proyect"),]
   
-  current_appointments_selected:Appointment[] = this.appointments;
+  // appointments = [new Appointment("Juan Gonzales","28-07-23","U","mail@gmail.com","Estly interesado en el nuevo proyect"),
+  // new Appointment("Gabriela Quevedo","28-07-23","CO","mail@gmail.com","Estly interesado en el nuevo proyect"),
+  // new Appointment("Laura Casas","28-07-23","CA","mail@gmail.com","Estly interesado en el nuevo proyect"),
+  // new Appointment("Esteban Malpica","28-07-23","CO","mail@gmail.com","Estly interesado en el nuevo proyect"),]
+  
+  appointments?:Appointment[] 
+  current_appointments_selected?:Appointment[];
+  isLoaded = false;
 
-  constructor(){
+  constructor(private dataManagerService: DataManagerService) {
     this.filter_by_status();
   }
   
+
+  ngOnInit(): void {
+    try {
+      this.dataManagerService
+        .getAppontensBy(this.endpoint_get_appointments)
+        .subscribe((report) => {
+          let data:AppointmentList = report;
+          this.appointments = data.citas;
+          this.current_appointments_selected = this.appointments
+          this.isLoaded = true;
+        });      
+    } catch (error) {
+      
+    }
+  }
+
   receiveMessage($event: string) {
     this.option_selected_dropdown = $event;
     if(this.option_selected_dropdown == this.options_dropdown[0]){
@@ -39,50 +62,23 @@ export class AppointmentHistoryComponent {
 
 
   filter_by_status(){
-    for (const appointment of this.appointments) {
-      if (appointment.status === 'CO') {
-        this.confirmedAppointments.push(appointment);
-      } else if (appointment.status=== 'CA') {
-        this.canceledAppointments.push(appointment);
-      } else if (appointment.status === 'U') {
-        this.unconfirmedAppointments.push(appointment);
+    if(this.appointments != undefined){
+      for (const appointment of this.appointments) {
+        if (appointment.estado_cita_id === 2) {
+          this.confirmedAppointments.push(appointment);
+        } else if (appointment.estado_cita_id=== 3) {
+          this.canceledAppointments.push(appointment);
+        } else if (appointment.estado_cita_id === 2) {
+          this.unconfirmedAppointments.push(appointment);
+        }
       }
+      console.log("Ya se ejecuto, se obtuvo lo siguiente: " , this.confirmedAppointments);
+
     }
-    console.log("Ya se ejecuto, se obtuvo lo siguiente: " , this.confirmedAppointments);
   }
 
 }
 
 
 
-export class Appointment{
 
-  name:string = "";
-  date:string = "";
-  state:boolean = false;
-  is_confirmed =  false;
-  mail =  "";
-  message =  "";
-  status = "";
-
-  constructor(name:string,date:string,state:string,mail:string,message:string){
-      this.name = name;
-      this.date = date;
-      this.status = state;
-      this.state = this.set_state(state)//VA A TENER 3 VALORES CO ( CONFIRMED ) CA (CANCELED) O U (UNCONFIRMED OR UNCANCELED)
-      this.is_confirmed = this.set_is_confirmed(state)
-      this.message = message
-      this.mail = mail
-  }
-
-  set_state(state:string) {
-    return state != "U" ? true : false;
-  }
-
-  set_is_confirmed(state:string){
-    return state == "CO" ? true : false;
-  }
-
-
-  
-}
