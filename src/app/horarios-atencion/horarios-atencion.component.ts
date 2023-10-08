@@ -119,8 +119,8 @@ export class HorariosAtencionComponent {
 
 
   redirigirAEdicion(horario: any) {
-  // Reemplaza 'tu-vista-de-edicion' con la ruta correcta a tu vista de edición
-  this.router.navigate(['/tu-vista-de-edicion'], { state: { horario } });
+  //
+  this.router.navigate(['/editar-horarios'], { state: { horario } });
 }
 
 private loadSchedules(): void{

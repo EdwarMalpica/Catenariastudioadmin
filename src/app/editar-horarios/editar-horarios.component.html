@@ -1,66 +1,61 @@
 <div class="main-container">
   <div class="card-container container ">
-    <h2 class="title">Horarios de Atención</h2>
+
     <div class="row ">
       <div class="col-md-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <!-- Acá van las filas, en este caso el encabezado de las columnas -->
-              <th class="subtitle">Habilitado</th>
-              <th class="subtitle">Días</th>
-              <!-- <th class="subtitle">Acciones</th> -->
-              <th class="subtitle">Horas</th>
-              <th class="subtitle">Adicionar</th>
+        <div class="container-table shadow">
+          <div class="container-header">
+            <p class="title"><strong>Horarios de Atención</strong></p>
+            <hr style="margin-bottom:5px !important; margin-top:5px !important; " />
+          </div>
+          <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+              <tr *ngFor="let horario of horarios">
 
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let horario of horarios">
+                <td style="width: 220px;">
+                  <!-- <mat-icon class="lockIcon"> lock</mat-icon> -->
 
-              <td>
-                <!-- <mat-icon class="lockIcon"> lock</mat-icon> -->
-                <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon>
-                <mat-slide-toggle [(ngModel)]="horario.habilitado" color="primary"></mat-slide-toggle>
-              </td>
+                  <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon>
 
-              <!-- <mat-icon class="lockIcon">lock</mat-icon> -->
-              <td> <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon><strong>{{ horario.dia }}</strong>
-              </td>
+                  <mat-slide-toggle [(ngModel)]="horario.habilitado" color="primary"></mat-slide-toggle>
+                  <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon>
+                  <strong class="label-day">{{horario.dia }}</strong>
+                </td>
 
-              <td>
+                <!-- style="" -->
+                <td >
+                  <div style="display: flex;">
+                    <!-- <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip> -->
 
-                <!-- <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip> -->
+                    <div class="col"  style=" text-align: right;" >
+                      <ng-container *ngFor="let hora of horario.franjas">
+                        <mat-chip-row (removed)="deleteSchedule(horario.dia, hora) ">
+                          {{hora.hora_inicio}}
+                          -
+                          {{hora.hora_fin}}
+                          <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                          </button>
+                        </mat-chip-row>
+                      </ng-container>
+                    </div>
 
-
-                <ng-container *ngFor="let hora of horario.franjas">
-                  <mat-chip-row (removed)="deleteSchedule(horario.dia, hora) ">
-                    {{hora.hora_inicio}}
-
-                    -
-                    {{hora.hora_fin}}
-                    <button matChipRemove>
-                      <mat-icon>cancel</mat-icon>
-                    </button>
-                  </mat-chip-row>
-                </ng-container>
-
-              </td>
-              <td>
-                <button mat-mini-fab class="custom-fab" (click)="openDialog(horario.dia)"
-                  >
-                  <mat-icon>add</mat-icon></button>
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
+                    <div class="col-1" style="text-align: center;">
+                      <button mat-mini-fab class="custom-fab" (click)="openDialog(horario.dia)">
+                        <mat-icon>add</mat-icon></button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div class="d-flex justify-content-center">
           <div class="col-md-auto buttons">
-            <button class="btn mt-3 btn-acept btn-css d-inline text-center" (click)="saveSchedules()"
-              >Aceptar</button>
-            <button class="btn mt-3 btn-cancel btn-css d-inline text-center"
-              >Cancelar
+            <button class="btn mt-3 btn-acept btn-css d-inline text-center" (click)="saveSchedules()">Aceptar</button>
+            <button class="btn mt-3 btn-cancel btn-css d-inline text-center" (click)="cancel()">Cancelar
             </button>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { HorariosService } from '@app/services/horarios.service';
 import { HorariosResponse } from '@app/models/dtos/horarios-response.interface';
 import { HorariosRequest } from '@app/models/dtos/horarios-request.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-horarios',
@@ -22,7 +23,7 @@ export class EditarHorariosComponent {
   horariosToGuardar: any[] = [];
 
 
-  constructor(public dialog: MatDialog, private horariosService: HorariosService) {
+  constructor(public dialog: MatDialog, private horariosService: HorariosService, private router: Router) {
     // Definición de horarios:
     this.horarios = [
       // { habilitado: true, dia: 'lunes', horas: this.generarHoras(), horaInicio: '08:00 AM', horaFin: '04:00 PM'  },
@@ -111,7 +112,17 @@ export class EditarHorariosComponent {
   public saveSchedules(): void{
     let request:HorariosRequest = {horarios:this.horarios};
     this.horariosService.updatedSchedule(request).subscribe((response:any)=>{
-      console.log(response);
+
+    },
+    (exceptionVar:any)=>{
+      console.log(exceptionVar);
+      if (exceptionVar.status==200) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Las franjas horarias han sido guardadas con éxito',
+          showConfirmButton: false,
+        })
+      }
     }
 
     );
@@ -121,6 +132,10 @@ export class EditarHorariosComponent {
 
   private deleteFranjaHoraria(): void{
 
+  }
+
+  public cancel(){
+    this.router.navigate(['/horarios-atencion']);
   }
 
 }
