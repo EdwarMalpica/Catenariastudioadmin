@@ -27,7 +27,7 @@
                         </div>
                         <h2 class="subtitle_box" *ngIf="appointment.estado_cita_id == 2 " >Confirmado</h2>
                         <h2 class="subtitle_box" *ngIf="appointment.estado_cita_id == 3">Cancelada</h2>
-                        <div><button style="background: none; border: none;width: auto;"><img src="./assets/details.png" class="icons"></button></div>
+                        <div><button style="background: none; border: none;width: auto;" (click)="redirectTo(appointment.id)"><img src="./assets/details.png" class="icons"></button></div>
                     </div>
                     <div class="row_separator"> </div>  
                 </div>

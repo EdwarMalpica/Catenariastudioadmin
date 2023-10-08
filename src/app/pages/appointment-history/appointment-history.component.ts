@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Appointment, AppointmentList } from 'src/app/data_management/appointment_model';
 import { DataManagerService } from 'src/app/data_management/data_manager';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-appointment-history',
@@ -19,17 +21,12 @@ export class AppointmentHistoryComponent {
   endpoint_get_appointments = "citas"
   
   
-  
-  // appointments = [new Appointment("Juan Gonzales","28-07-23","U","mail@gmail.com","Estly interesado en el nuevo proyect"),
-  // new Appointment("Gabriela Quevedo","28-07-23","CO","mail@gmail.com","Estly interesado en el nuevo proyect"),
-  // new Appointment("Laura Casas","28-07-23","CA","mail@gmail.com","Estly interesado en el nuevo proyect"),
-  // new Appointment("Esteban Malpica","28-07-23","CO","mail@gmail.com","Estly interesado en el nuevo proyect"),]
-  
+ 
   appointments?:Appointment[] 
   current_appointments_selected?:Appointment[];
   isLoaded = false;
 
-  constructor(private dataManagerService: DataManagerService) {
+  constructor(private dataManagerService: DataManagerService, private router: Router) {
     this.filter_by_status();
   }
   
@@ -75,6 +72,14 @@ export class AppointmentHistoryComponent {
       console.log("Ya se ejecuto, se obtuvo lo siguiente: " , this.confirmedAppointments);
 
     }
+  }
+
+  /**
+   * 
+   * @param id id de la cita 
+   */
+  redirectTo(id:number) {
+    this.router.navigate(["appointment-detail/" + id]);
   }
 
 }

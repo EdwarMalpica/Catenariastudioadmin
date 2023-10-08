@@ -20,19 +20,19 @@
     <div class="info_appointment">
       <div class="subinfo_container">
         <h1 class="text subinfo_title">Nombre de Usario</h1>
-        <h2 class="subinfo_info">{{ appointment.user.name}}</h2>
+        <h2 class="subinfo_info">{{ appointment?.user?.name}}</h2>
       </div>
       <div class="text subinfo_container">
         <h1 class="subinfo_title">Fecha de la cita</h1>
-        <h2 class="subinfo_info">{{ appointment.fecha_cita }}</h2>
+        <h2 class="subinfo_info">{{ appointment?.fecha_cita }}</h2>
       </div>
       <div class="text subinfo_container">
         <h1 class="subinfo_title">Datos de contacto</h1>
-        <h2 class="subinfo_info">{{ appointment.user.email }}</h2>
+        <h2 class="subinfo_info">{{ appointment?.user?.email }}</h2>
       </div>
       <div class="text subinfo_container">
         <h1 class="subinfo_title">Mensajes</h1>
-        <h2 class="subinfo_info">{{ appointment.mensaje }}</h2>
+        <h2 class="subinfo_info">{{ appointment?.mensaje }}</h2>
       </div>
     </div>
 </div>

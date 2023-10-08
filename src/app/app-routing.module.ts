@@ -5,7 +5,7 @@ import { AppointmentDetailsComponent } from './pages/appointment-details/appoint
 
 const routes: Routes = [
   { path : 'appointment', component : AppointmentHistoryComponent},
-  { path : 'appointment-detail', component : AppointmentDetailsComponent},
+  { path : 'appointment-detail/:id', component : AppointmentDetailsComponent},
 
 
 ];
