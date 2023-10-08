@@ -16,6 +16,16 @@ import { LoginModule } from './pages/auth/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
+// Para componente de horario-atención --> MatIconModule, BrowserAnimationsModule
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatChipsModule} from '@angular/material/chips';
+
+
+
+
 
 
 @NgModule({
@@ -24,6 +34,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HeaderComponent,
     FooterComponent,
     PerfilComponent,
+    HorariosAtencionComponent
 
   ],
   imports: [
@@ -36,7 +47,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     MatIconModule,
     LoginModule,
+
     HttpClientModule,
+
+    MatButtonModule,
+    MatTableModule,
+    MatSlideToggleModule,
+    MatChipsModule
+
 
   ],
   providers: [],
