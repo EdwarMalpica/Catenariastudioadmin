@@ -6,44 +6,33 @@
 
 
 
-.main-container{
+.main-container {
   width: 100%;
-  // margin-top: 70px;
   color: white;
-  background-color: rgba(255, 255, 255, 0.5 );
+  background-color: rgba(255, 255, 255, 0.5);
   background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)), url("/assets/img/back.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-
-
 }
 
-.container{
+.container {
   padding: 40px;
-  /* background: rgba(255, 255, 255, 0.2); */
   border-radius: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  /* background: red; */
 }
 
-.card-container  {
-  /* background: yellow; */
-  padding: 50px 20px 20px 20px ;
-
-
+.card-container {
+  padding: 50px 20px 20px 20px;
 }
 
 .title {
   font-family: 'Quicksand', sans-serif;
   font-size: 25px;
-  // font-weight: 490;/*Semibold*/
-  // padding-bottom: 40px;
   color: #000000;
-  // text-decoration: underline;
   text-align: left;
 }
 
@@ -51,7 +40,6 @@
   font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   color: #000000;
-
 }
 
 .btn-css {
@@ -65,11 +53,9 @@
   align-items: center;
 }
 
-.buttons{
+.buttons {
   text-align: center;
   margin: 20px;
-  /* margin: 0;
-  padding: 0; */
 }
 
 
@@ -83,7 +69,6 @@
   display: flex;
   flex-direction: row;
   gap: 12px;
-  /* align-items: center; */
   justify-content: center;
   width: 180px;
   left: 741px;
@@ -94,19 +79,14 @@
   color: #000000;
   text-align: left;
   font: 700 20px "Quicksand", sans-serif;
-
-
 }
 
 .btn-acept {
-  // background: linear-gradient(315deg, #086970 -0.12%, #00A1B5 99.88%);
   box-shadow: 0px 0px 20px #46EEFA;
 }
 
 .btn-cancel {
-  // background: linear-gradient(315deg, #FF0A0A -0.12%, #010B0D 99.88%);
   box-shadow: 0px 0px 20px #FA4646;
-
   background: #ffffff;
   border-radius: 5px;
   border-style: solid;
@@ -127,7 +107,7 @@
   font: 700 20px "Quicksand", sans-serif;
 }
 
-.lockIcon{
+.lockIcon {
   font-size: 18px;
   color: #8C8C8C;
   margin-bottom: -10px;
@@ -136,59 +116,31 @@
 
 }
 
-
 :host ::ng-deep .mat-checked .mat-slide-toggle-bar {
   background-color: red;
 }
 
-
-
-/* Cambiar el color del icono de editar a rojo */
-.editar-icon {
-  color: #086970; /* Cambia este color según tus preferencias */
-}
-
-/* Cambiar el color del interruptor deslizante en estado desactivado */
-.mat-slide-toggle:not(.mat-checked) .mat-slide-toggle-bar {
-  background-color: red;
-
-}
-
-/* Cambiar el color del interruptor deslizante en estado activado */
-.mat-slide-toggle-checked .mat-slide-toggle-bar {
-  background-color: red; /* Cambia el color según tus preferencias */
-}
-
-/* Cambiar el color del interruptor deslizante en estado desactivado */
-.mat-slide-toggle:not(.mat-slide-toggle-checked) .mat-slide-toggle-bar {
-  background-color: yellow; /* Cambia el color según tus preferencias */
-}
-
 /* Cambia el color de fondo del mat-mini-fab a verde */
 .custom-fab {
-  background-color: #086970; /* Cambia este color según tus preferencias */
-  color: white; /* Cambia el color del texto/icono si es necesario */
+  background-color: #086970;
+  color: white;
 }
 
-
-
-.label-day{
-text-transform: uppercase;
-
+.label-day {
+  text-transform: uppercase;
 }
 
-.container-table{
+.container-table {
   padding: 30px;
   background-color: white;
-
 }
 
 hr {
   border-top: 3px solid #000000 !important;
-  margin-bottom:5px !important;
-  margin-top:5px !important;
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
 }
 
-.container-header{
+.container-header {
   margin-bottom: 30px;
 }

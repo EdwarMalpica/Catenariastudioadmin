@@ -9,20 +9,24 @@ import { Observable } from 'rxjs';
 })
 export class HorariosService {
 
+  private api:string = 'http://127.0.0.1:8000/api/horarios';
+
   constructor(private http: HttpClient) {
 
   }
 
+
+
   public getSchedule(): Observable<HorariosResponse>{
-    return this.http.get<HorariosResponse>('http://127.0.0.1:8000/api/horarios');
+    return this.http.get<HorariosResponse>(this.api);
   }
 
   public addSchedule(schedule:HorariosRequest): Observable<HorariosResponse>{
-    return this.http.post<HorariosResponse>('http://127.0.0.1:8000/api/horarios', schedule);
+    return this.http.post<HorariosResponse>(this.api, schedule);
   }
 
   public updatedSchedule(schedule:HorariosRequest): Observable<HorariosResponse>{
-    return this.http.put<HorariosResponse>('http://127.0.0.1:8000/api/horarios', schedule);
+    return this.http.post<HorariosResponse>(this.api, schedule);
   }
 
 

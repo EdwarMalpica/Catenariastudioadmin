@@ -16,23 +16,11 @@ export class EditarHorariosComponent {
 
   //Var a usar en los métodos: --> manejo los horarios
   horarios: any[];
-  horarioEditado: any
-  // horaInicio: string | null = null;
-  // horaFin: string | null = null;
-  //
-  horariosToGuardar: any[] = [];
-
 
   constructor(public dialog: MatDialog, private horariosService: HorariosService, private router: Router) {
     // Definición de horarios:
     this.horarios = [
-      // { habilitado: true, dia: 'lunes', horas: this.generarHoras(), horaInicio: '08:00 AM', horaFin: '04:00 PM'  },
-      // { dia: 'lunes', horas: [], hora: '10:00 AM', habilitado: true },
-      // { dia: 'martes', horas: [], hora: '10:00 AM', habilitado: true },
-      // { dia: 'miércoles', horas: [], habilitado: true },
-      // { dia: 'jueves', horas: [], habilitado: true },
-      // { dia: 'viernes', horas: [], habilitado: true },
-      // { dia: 'sábado', horas: [], habilitado: true },
+
     ];
     this.loadSchedules();
   }
@@ -47,8 +35,8 @@ export class EditarHorariosComponent {
         for (let i = 0; i < this.horarios.length; i++) {
           if (this.horarios[i].dia == dia) {
             this.horarios[i].franjas.push({
-              hora_inicio : result.horaInicio,
-              hora_fin : result.horaFin,
+              hora_inicio: result.horaInicio,
+              hora_fin: result.horaFin,
             });
           }
         }
@@ -92,49 +80,39 @@ export class EditarHorariosComponent {
     });
   }
 
-  // Lógica para guardar los horarios
-  guardarHorarios(horarios: any[]): void {
-    // Simula el guardado de horarios en el servidor
-
-  }
-
-  private loadSchedules(): void{
+  private loadSchedules(): void {
     this.horariosService.getSchedule().subscribe(
-      (schedules: HorariosResponse)=>{
+      (schedules: HorariosResponse) => {
         console.log(schedules);
-        this.horarios=schedules.horarios;
+        this.horarios = schedules.horarios;
       }
     );
 
 
   }
 
-  public saveSchedules(): void{
-    let request:HorariosRequest = {horarios:this.horarios};
-    this.horariosService.updatedSchedule(request).subscribe((response:any)=>{
+  public saveSchedules(): void {
+    let request: HorariosRequest = { horarios: this.horarios };
+    this.horariosService.updatedSchedule(request).subscribe((response: any) => {
 
     },
-    (exceptionVar:any)=>{
-      console.log(exceptionVar);
-      if (exceptionVar.status==200) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Las franjas horarias han sido guardadas con éxito',
-          showConfirmButton: false,
-        })
+      (exceptionVar: any) => {
+        console.log(exceptionVar);
+        if (exceptionVar.status == 200) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Las franjas horarias han sido guardadas con éxito',
+            showConfirmButton: false,
+
+          });
+          this.router.navigate(['/horarios-atencion']);
+        }
       }
-    }
 
     );
-
-
   }
 
-  private deleteFranjaHoraria(): void{
-
-  }
-
-  public cancel(){
+  public cancel() {
     this.router.navigate(['/horarios-atencion']);
   }
 

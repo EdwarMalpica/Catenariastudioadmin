@@ -12,26 +12,23 @@
             <thead>
             </thead>
             <tbody>
-              <ng-container *ngFor="let horario of horarios" >
-                <tr >
+              <ng-container *ngFor="let horario of horarios">
+                <tr>
 
                   <td [ngStyle]="{'background-color' :  horario.active  ? ''  : '#ECF0F1'} " style="width: 220px;">
-                    <!-- <mat-icon class="lockIcon"> lock</mat-icon> -->
-
                     <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon>
 
                     <mat-slide-toggle [(ngModel)]="horario.active" color="primary"></mat-slide-toggle>
                     <mat-icon class="material-icons-outlined lockIcon">lock</mat-icon>
                     <strong class="label-day">{{horario.dia }}</strong>
                   </td>
-                  <td  [ngStyle]="{'background-color' :  horario.active  ? ''  : '#ECF0F1'} ">
+                  <td [ngStyle]="{'background-color' :  horario.active  ? ''  : '#ECF0F1'} ">
                     <div style="font-style: italic; text-align: right; color: gray;" *ngIf="!horario.active">
                       <p>Este día se encuentra bloqueado</p>
                     </div>
                     <div style="display: flex;" *ngIf="horario.active">
-                      <!-- <mat-chip *ngFor="let hora of horario.horas" class="hora-chip">{{ hora }}</mat-chip> -->
 
-                      <div class="col"  style=" text-align: right;" >
+                      <div class="col" style=" text-align: right;">
                         <ng-container *ngFor="let hora of horario.franjas">
                           <mat-chip-row (removed)="deleteSchedule(horario.dia, hora) ">
                             {{hora.hora_inicio}}
