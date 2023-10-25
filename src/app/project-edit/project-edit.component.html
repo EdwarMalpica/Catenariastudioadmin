@@ -1,0 +1,107 @@
+<div class="main-container">
+  <div class="form-container">
+    <p class="title"><strong>Editar Proyecto</strong></p>
+    <br>
+    <div class="container-header">
+    </div>
+
+    <div class="container-inputs">
+
+      <form (submit)="guardarProyecto()">
+
+        <div class="row">
+
+          <div class="col-md-5">
+            <div class="form-group">
+              <label for="titulo" class="subtitle">Nombre</label>
+              <input type="text" class="subtitle" id="titulo" name="titulo" [(ngModel)]="proyecto.titulo" required
+                placeholder="Nombre de proyecto" />
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion" class="subtitle">Descripción</label>
+              <textarea class="subtitle" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" required
+                placeholder="Descripcción del proyecto"></textarea>
+            </div>
+          </div>
+
+          <div class="col-2">
+
+          </div>
+
+          <div class="col-md-5">
+
+            <div class="form-group">
+              <div class="d-flex justify-content-between">
+                <label for="fechaPublicacion" class="subtitle">Imágenes</label>
+                <button class="add-button" (click)="openImageFileInput()" type="button">añadir</button>
+                <input type="file" id="imageFileInput" style="display: none;" >
+              </div>
+              <div class="container-list">
+                <div class="container-list-item-container" *ngFor="let imagen of proyecto.imagenes">
+                  <div class="container-list-item">
+                    <div class="container-list-item-title">
+                      {{imagen}}
+                    </div>
+                    <mat-icon (click)="deleteImage(imagen)">close </mat-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="d-flex justify-content-between">
+                <label for="modelos" class="subtitle">Modelos 3D</label>
+                <button class="add-button" (click)="openModelFileInput()" type="button">añadir</button>
+                <input type="file" id="modelFileInput" style="display: none;" (change)="onModelo3DSelected($event)" accept=".glb, .gltf">
+              </div>
+              <div class="container-list">
+                <div class="container-list-item-container">
+                  <div class="container-list-item" *ngIf="model3DFile">
+                    <div class="container-list-item-title">
+                      {{model3DFile.name}}
+                    </div>
+                    <mat-icon>close</mat-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tipoProyecto" class="subtitle">Tipo de Proyecto</label>
+              <select class="subtitle" id="tipoProyecto" name="tipoProyecto" [(ngModel)]="proyecto.tipoProyecto"
+                required aria-placeholder="Seleccionar">
+                <option class="subtitle" value="null" disabled selected>Seleccionar tipo de proyecto</option>
+                <option class="subtitle" value="Diseño de Edificios">Diseño de Edificios</option>
+                <option class="subtitle" value="Planificación Urbana">Planificación Urbana</option>
+              </select>
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" style="margin-top: 50px;">
+
+            <div class="col-5 text-end">
+
+              <button type="submit" class="btn mt-3 btn-acept btn-css d-inline text-center">Guardar</button>
+
+            </div>
+
+            <div class="col-2">
+            </div>
+
+            <div class="col-5">
+              <button type="button" class="btn mt-3 btn-cancel  btn-css d-inline text-center">Cancelar</button>
+            </div>
+
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

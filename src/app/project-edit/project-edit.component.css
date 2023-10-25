@@ -1,0 +1,231 @@
+.form-group {
+  margin-bottom: 20px;
+
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-radius: 25 px;
+  /* controla el redondeo */
+  padding: 10px;
+  /* relleno para dar espacio dentro del campo de entrada */
+  border: 1px solid #ccc;
+  /* Borde */
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="file"] {
+  color: #000000;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+
+.container-input-type {
+  height: 40px;
+  background-color: white;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  color: black;
+  padding: 10px 5px 5px 5px;
+  text-align: center;
+  display: grid;
+  grid-column: 1fr;
+}
+
+.container-image-list {
+  background-color: #ccc;
+  width: 70%;
+  border-radius: 15px;
+
+
+}
+
+.main-container {
+  height: 100%;
+  width: 100%;
+  color: white;
+  /* background-color: #700808; */
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)), url("/assets/img/back.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 15px;
+}
+
+.form-container {
+  max-width: 80%;
+  /* Ajustar el valo !!!!!! */
+  margin: 0 auto;
+  /* Centrar horizontalmente */
+  margin-top: 30px;
+  height: 100%;
+
+}
+
+.title {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+  color: #000000;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  color: #000000;
+
+}
+
+.buttons {
+  text-align: center;
+  margin: 20px;
+
+}
+
+.button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.button-container button {
+  flex: 1;
+  /* Cada botón toma una parte igual del espacio disponible */
+}
+
+.btn-acept {
+  background: #ffffff;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #086970;
+  border-width: 1px;
+  padding: 13px 20px 13px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  /* align-items: center; */
+  justify-content: center;
+  width: 180px;
+  left: 741px;
+  top: 654px;
+  box-shadow: 0px 0px 20px 0px rgba(70, 238, 250, 1);
+  text-align: left;
+  font: 700 20px "Quicksand", sans-serif;
+  color: #000000;
+  text-align: left;
+  font: 700 20px "Quicksand", sans-serif;
+
+
+}
+
+/* .btn-acept {
+  box-shadow: 0px 0px 20px #46EEFA;
+} */
+
+.btn-cancel {
+  box-shadow: 0px 0px 20px #FA4646;
+  background: #ffffff;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #700808;
+  border-width: 1px;
+  padding: 13px 20px 13px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  left: 741px;
+  top: 654px;
+  box-shadow: 0px 0px 20px 0px rgba(70, 238, 250, 1);
+  color: #d60c0c;
+  text-align: left;
+  font: 700 20px "Quicksand", sans-serif;
+}
+
+/* Estilos para el botón "añadir" */
+.add-button {
+  border-radius: 13px;
+  font: "Quicksand", sans-serif;
+  cursor: pointer;
+  /* Cambia el cursor al pasar sobre el botón */
+  font-size: 13px;
+
+}
+
+button.add-button:hover {
+  background-color: #086970;
+  /* Cambia el color de fondo al pasar el cursor */
+  box-shadow: 0px 0px 20px 0px rgba(70, 238, 250, 1);
+}
+
+.container-list {
+  background-color: white;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  max-height: 150px;
+  min-height: 40px;
+  overflow: auto;
+  padding: 5px 5px 5px 5px;
+}
+
+.container-list-item {
+  background-color: #ccc;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  padding: 0px 1px 0px 5px;
+}
+
+.container-list-item>mat-icon {
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.container-list-item>mat-icon:hover {
+  background-color: gray;
+}
+
+.container-list-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5px 0px 5px 0px;
+}
+
+.container-list-item-title {
+  padding: 0px 20px 0px 20px;
+}
+
+.container-inputs {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 80px;
+}

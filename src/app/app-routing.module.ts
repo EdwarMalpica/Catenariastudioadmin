@@ -6,6 +6,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
 import { EditarHorariosComponent } from './editar-horarios/editar-horarios.component';
 import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
+import { ProjectEditComponent } from './project-edit/project-edit.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'horarios-atencion', component: HorariosAtencionComponent},
   { path: 'editar-horarios', component: EditarHorariosComponent},
   { path : 'appointment', component : AppointmentHistoryComponent},
-  { path : 'appointment-detail/:id', component : AppointmentDetailsComponent}
+  { path : 'appointment-detail/:id', component : AppointmentDetailsComponent},
+  { path : 'editar-proyecto/:id', component : ProjectEditComponent}
 
 ];
 

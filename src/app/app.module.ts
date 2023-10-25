@@ -33,6 +33,8 @@ import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-ho
 import { DialogoEliminarComponent } from './editar-horarios/dialogo-eliminar/dialogo-eliminar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MenuComponent } from './shared/components/menu/menu.component';
+import { ProjectEditComponent } from './project-edit/project-edit.component';
+
 
 
 
@@ -51,6 +53,9 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     DialogoNuevoHorarioComponent,
     DialogoEliminarComponent,
     MenuComponent,
+    AppComponent,
+    ProjectEditComponent,
+
 
   ],
   imports: [
