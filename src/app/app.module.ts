@@ -71,8 +71,7 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     MatDialogModule,
     ReactiveFormsModule,
     SweetAlert2Module,
-    HttpClientModule
-
+    HttpClientModule,
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
