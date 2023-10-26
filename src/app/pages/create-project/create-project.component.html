@@ -1,0 +1,78 @@
+<div class="main-container">
+    <div class="card-container container">
+      <h2 class="title">Editar información del perfil</h2>
+      <div class="containt">
+        <div class="row" >
+          <div class="mx-auto">
+            <form>
+              <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                  <div class="form-group space">
+                    <label for="nombre" class="subtitle">Nombre:</label>
+                    <input type="text" id="nombre" [(ngModel)]="name_inp" class="form-control subtitle" name="nombre" placeholder="Nombre del usuario">
+                  </div>
+                </div>
+
+                <!-- ------------------------------------------------------------------------------------ -->
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                  <div class="form-group space">
+                    <label for="apellido" class="subtitle">Descripción:</label>
+                    <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
+                   </div>
+                </div>
+
+                <!-- ------------------------------------------------------------------------------------ -->
+
+                
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                  <div class="form-group space">
+                    <label for="telefono" class="subtitle">Imagenes:</label>
+                    <p-fileUpload name="myfile[]" url="./upload.php" 
+                    accept="image/*"></p-fileUpload>
+                  </div>
+                </div>
+                
+
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                  <div class="form-group space">
+                    <label for="telefono" class="subtitle">Modelos:</label>
+                    <p-fileUpload name="myfile[]" url="./upload.php" 
+                    accept="image/*"></p-fileUpload>
+                  </div>
+                </div>
+
+                
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                  <div class="form-group space">
+                    <label for="telefono" class="subtitle">Tipo de proyecto:</label>
+                    <div class="dropdown" >
+                      <p-dropdown [options]="options_dropdown" [(ngModel)]="selectedTypeProject" placeholder="Tipo de proyecto" 
+                      [virtualScroll]="true" [virtualScrollItemSize]="20" [style] = "{'width':'100%'}"></p-dropdown>                    
+                    </div>
+                  </div>
+                </div>
+               
+                
+
+              
+            
+            </div>
+
+
+
+
+              <div class="row justify-content-md-center btn-container">
+                <button class="btn-acept btn-css" >Guardar</button>
+                <button class="btn btn-cancel btn-css">Cancelar</button>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

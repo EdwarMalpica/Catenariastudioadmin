@@ -34,6 +34,14 @@ import { DialogoEliminarComponent } from './editar-horarios/dialogo-eliminar/dia
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MenuComponent } from './shared/components/menu/menu.component';
 
+import {FileUploadModule} from 'primeng/fileupload';
+import { CreateProjectComponent } from './pages/create-project/create-project.component';
+import { EditorModule } from 'primeng/editor';
+import { InputMaskModule } from 'primeng/inputmask'; 
+import { DropdownModule } from 'primeng/dropdown';
+
+
+
 
 
 
@@ -51,6 +59,7 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     DialogoNuevoHorarioComponent,
     DialogoEliminarComponent,
     MenuComponent,
+    CreateProjectComponent
 
   ],
   imports: [
@@ -71,7 +80,12 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     MatDialogModule,
     ReactiveFormsModule,
     SweetAlert2Module,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule,
+    EditorModule,
+    InputMaskModule,
+    DropdownModule,
+    
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
