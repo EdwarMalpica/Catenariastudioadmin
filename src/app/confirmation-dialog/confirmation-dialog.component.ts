@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-confirmation-dialog',
@@ -10,16 +10,16 @@ export class ConfirmationDialogComponent {
 
   constructor(
 
-    // public dialogRef: MatDialogRef<DialogoEliminarComponent>,
-    // @Inject(MAT_DIALOG_DATA) public data: any
+    public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   onCancelClick(): void {
-    // this.dialogRef.close(false);
+    this.dialogRef.close(false);
   }
 
   onDeleteClick(): void {
-    // this.dialogRef.close(true);
+    this.dialogRef.close(true);
   }
 
 }
