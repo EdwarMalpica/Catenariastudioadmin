@@ -1,5 +1,5 @@
 <div class="dropdown">
-    <button class="dropbtn" (click)="toggleDropdown()">{{ buttonText }} <span class="triangle_button ">▼</span></button>
+    <button class="dropbtn" (click)="toggleDropdown()">{{ buttonText }} <span class="triangle_button " style="height: 2px;">▼</span></button>
     <div class="dropdown-content" *ngIf="isDropdownOpen">
         <a (click)="updateButtonText(option)" *ngFor="let option of options_dropdown" >{{option}}</a>
     </div>

@@ -36,6 +36,14 @@ import { MenuComponent } from './shared/components/menu/menu.component';
 import { ProjectsCatalogComponent } from './pages/projects-catalog/projects-catalog.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
 
+import {FileUploadModule} from 'primeng/fileupload';
+import { CreateProjectComponent } from './pages/create-project/create-project.component';
+import { EditorModule } from 'primeng/editor';
+import { InputMaskModule } from 'primeng/inputmask'; 
+import { DropdownModule } from 'primeng/dropdown';
+
+
+
 
 
 
@@ -53,6 +61,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
     DialogoNuevoHorarioComponent,
     DialogoEliminarComponent,
     MenuComponent,
+    CreateProjectComponent
     ProjectsCatalogComponent,
     ProjectDetailsComponent
 
@@ -75,7 +84,12 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
     MatDialogModule,
     ReactiveFormsModule,
     SweetAlert2Module,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule,
+    EditorModule,
+    InputMaskModule,
+    DropdownModule,
+    
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
