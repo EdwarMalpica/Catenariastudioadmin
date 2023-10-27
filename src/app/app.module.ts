@@ -39,7 +39,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
 import {FileUploadModule} from 'primeng/fileupload';
 import { CreateProjectComponent } from './pages/create-project/create-project.component';
 import { EditorModule } from 'primeng/editor';
-import { InputMaskModule } from 'primeng/inputmask'; 
+import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 
 
@@ -61,7 +61,7 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogoNuevoHorarioComponent,
     DialogoEliminarComponent,
     MenuComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
     ProjectsCatalogComponent,
     ProjectDetailsComponent
 
@@ -89,7 +89,7 @@ import { DropdownModule } from 'primeng/dropdown';
     EditorModule,
     InputMaskModule,
     DropdownModule,
-    
+
 
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

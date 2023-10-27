@@ -16,7 +16,6 @@ export class ProjectsCatalogComponent implements OnInit {
     this.ApiUrl = this.api.apiUrl;
     this.api.get('/proyectos').subscribe((data) =>{
       this.proyectos = data['proyectos'];
-      console.log(this.proyectos);
     }, (error) => {
       console.log(error);
     }, () => {
@@ -24,4 +23,7 @@ export class ProjectsCatalogComponent implements OnInit {
     });
   }
 
+  createProject(){
+    this.route.navigate(['/create-project']);
+  }
 }
