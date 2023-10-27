@@ -1,37 +1,78 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiServiceService } from '@app/services/api/api-service.service';
 
 @Component({
   selector: 'app-create-project',
   templateUrl: './create-project.component.html',
-  styleUrls: ['./create-project.component.css']
+  styleUrls: ['./create-project.component.css'],
 })
-
-
 export class CreateProjectComponent {
-  
-  option_selected_dropdown = "";
-  options_dropdown = ["Proyecto residencial", "Proyecto comercial", "Proyecto industrial", "Proyecto educativo", "Proyecto de salud", "Proyecto de entretenimiento", "Proyecto de restauración", "Proyecto de transporte", "Proyecto de urbanismo", "Proyecto sostenible"];
+  titulo;
+  fecha_creacion;
+  descripcion;
+  user_id;
+  contenido;
+  miniatura;
+  model;
+  img: any[] = [];
+  formulario: FormGroup;
 
-  text:string
-  name_inp:string
-  selectedTypeProject:string
-  description_inp:string
-  
-
-  selectedOption: string = 'Selecciona una opción';
-  options: string[] = ['Opción 1', 'Opción 2', 'Opción 3'];
-
-  onSelectOption(option: string): void {
-    this.selectedOption = option;
+  constructor(private api: ApiServiceService, private fb: FormBuilder, private router:Router) {
+    this.formulario = this.fb.group({
+      titulo: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      contenido: ['', Validators.required],
+    });
   }
 
-  receiveMessage($event: string) {
-    this.option_selected_dropdown = $event;
+  uploadFileImg(event) {
+    for (let file of event.files) {
+      this.img.push(file);
+    }
   }
 
-  getName(){
-    console.log(this.name_inp)
+  uploadFileMiniatura(event) {
+    this.miniatura = event.files[0];
+  }
+  uploadFileModel(event) {
+    this.model = event.files[0];
   }
 
+  createProject() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    const data = {
+        titulo: this.formulario.get('titulo').value,
+        fecha_creacion: formattedDate,
+        descripcion: this.formulario.get('descripcion').value,
+        user_id: 1,
+        contenido: this.formulario.get('contenido').value,
+    }
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(data));
+    for (let i = 0; i < this.img.length; i++) {
+      formData.append('img'+i, this.img[i]);
+    }
+    formData.append('miniatura', this.miniatura);
+    formData.append('model', this.model);
 
+    this.api.postFile('/proyectos/create', formData).subscribe(
+      (data) => {
+        alert('Proyecto creado correctamente');
+        this.router.navigate(['/project-catalog']);
+      },
+      (error) => {
+        alert('Error al crear el proyecto');
+      },
+      () => {
+        console.log('Peticion finalizada');
+      }
+    );
+  }
 }

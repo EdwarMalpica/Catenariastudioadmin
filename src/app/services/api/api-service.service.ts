@@ -24,5 +24,8 @@ export class ApiServiceService {
   delete(url){
     return this.http.delete(this.apiUrl + '/api' + url);
   }
+  postFile(url, data:FormData){
+    return this.http.post(this.apiUrl + '/api' + url, data);
+  }
 
 }

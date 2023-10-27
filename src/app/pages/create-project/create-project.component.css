@@ -10,67 +10,67 @@
     /*Transparencia 0=transparente 1=opaco */
     background-color: rgba(255, 255, 255, 0.5 );
     background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)), url("/assets/img/back.jpeg");
-  
+
     /* background-image: url("/assets/img/back.jpeg"); */
     background-repeat: no-repeat;
     background-size: cover;
-  
+
   }
-  
+
   .card-container  {
-  
+
     padding: 50px 20px 20px 20px ;
-  
+
   }
 
   /* Estilo para el contenedor del editor */
 p-editor {
     width: 100%; /* Establece el ancho del editor según tus necesidades */
   }
-  
+
   /* Estilo para el área de texto del editor */
   p-editor .ql-editor {
     min-height: 200px; /* Establece la altura mínima del área de texto */
     font-size: 16px; /* Tamaño de fuente */
     line-height: 1.5; /* Espaciado entre líneas */
   }
-  
+
   /* Estilo para los botones de la barra de herramientas */
   p-editor .ql-toolbar {
     background-color: #f4f4f4; /* Cambia el color de fondo de la barra de herramientas */
   }
-  
+
   /* Estilo para los botones de la barra de herramientas */
   p-editor .ql-toolbar button {
     background-color: #337ab7; /* Cambia el color de fondo de los botones */
     color: #fff; /* Cambia el color del texto de los botones */
     cursor: pointer;
   }
-  
+
   /* Estilo para el cursor del editor de texto */
   p-editor .ql-cursor {
     border-color: #337ab7; /* Cambia el color del cursor del editor */
   }
-  
+
   /* Estilo para el resaltado del texto seleccionado */
   p-editor .ql-editor .ql-chosen {
     background-color: #337ab7; /* Cambia el color de fondo del texto seleccionado */
     color: #fff; /* Cambia el color del texto seleccionado */
   }
-  
+
   /* Estilo para los enlaces */
   p-editor .ql-editor a {
     color: #337ab7; /* Cambia el color de los enlaces */
     text-decoration: underline; /* Agrega subrayado a los enlaces */
   }
-  
+
   .dropdown_types{
     border-radius: 0;
     background-color: rebeccapurple;
-    
+
 
   }
-  
+
   .description{
     height: 200px;
   }
@@ -83,27 +83,27 @@ p-editor {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
-  
+
   mat-icon{
     font-size: 20px;
     vertical-align: bottom;
-  
+
   }
-  
+
   .space {
     margin-bottom: 40px;
   }
-  
+
   input{
     border: 2px solid #ccc; /* Borde sólido de 1 píxel con color gris */
     border-radius: 5px; /* Bordes redondeados */
   }
-  
+
   input:focus {
     border-color: #086970; /* Cambia el color del borde cuando el input está enfocado */
     box-shadow: 0px 0px 20px 0px rgba(70, 238, 250, 1);/* Agrega una sombra alrededor del input cuando está enfocado */
   }
-  
+
   .title {
     font-family: 'Quicksand', sans-serif;
     /* margin-top: 650px; */
@@ -116,18 +116,18 @@ p-editor {
     text-decoration: underline;
     text-align: left;
   }
-  
+
   .subtitle {
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     color: #000000;
-  
+
   }
-  
+
   .btn-css {
     margin: 20px;
   }
-  
+
   .btn-container {
     margin-top: 30px;
     display: flex;
@@ -135,14 +135,14 @@ p-editor {
     align-items: center;
     /* height: 100vh; */
   }
-  
+
   .buttons {
     /* text-align: center;
     margin: 0;
     padding: 0; */
   }
-  
-  
+
+
   .btn-acept {
     background: #ffffff;
     border-radius: 5px;
@@ -166,17 +166,22 @@ p-editor {
     text-align: left;
     font: 700 20px "Quicksand", sans-serif;
   }
-  
+   .btn-acept.btn-css:disabled {
+      background-color: #ccc; /* Cambia el color de fondo cuando está deshabilitado */
+      color: #888; /* Cambia el color del texto cuando está deshabilitado */
+      cursor: not-allowed; /* Cambia el cursor a 'no permitido' cuando está deshabilitado */
+    }
+
   .btn-cancel {
     /* align-items: center;
     padding: 8px 27px;
     font-size: 10px;
     gap: 12px; */
-  
+
     /* background: linear-gradient(315deg, #FF0A0A -0.12%, #010B0D 99.88%);
     box-shadow: 0px 0px 20px #FA4646;
     border-radius: 10px;
-  
+
     font-family: 'Quicksand';
     font-style: normal;
     color: #FFFFFF; */
@@ -200,8 +205,7 @@ p-editor {
     text-align: left;
     font: 700 20px "Quicksand", sans-serif;
     /* position: relative; */
-  
-  
-  
+
+
+
   }
-  
