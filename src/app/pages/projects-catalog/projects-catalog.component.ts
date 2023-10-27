@@ -1,53 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { ApiServiceService } from '@app/services/api/api-service.service';
 
 @Component({
   selector: 'app-projects-catalog',
   templateUrl: './projects-catalog.component.html',
-  styleUrls: ['./projects-catalog.component.css']
+  styleUrls: ['./projects-catalog.component.css'],
 })
-export class ProjectsCatalogComponent {
+export class ProjectsCatalogComponent implements OnInit {
+  constructor(private api: ApiServiceService, private route: Router) {}
 
-
-project = new Project("Casas bonitas","03/07/2023","Projecto sobre casas de residencia para familias grandes","Conjunto residencial")
-project_list = [this.project,this.project,this.project,this.project,this.project,this.project,this.project]
-
-option_selected_dropdown = "";
-options_dropdown = ["Proyecto residencial", "Proyecto comercial", "Proyecto industrial", "Proyecto educativo", "Proyecto de salud", "Proyecto de entretenimiento", "Proyecto de restauración", "Proyecto de transporte", "Proyecto de urbanismo", "Proyecto sostenible"];
-
-
-receiveMessage($event: string) {
-  this.option_selected_dropdown = $event;
-}
-redirectTo(){
-
-}
-
-}
-
-
-
-
-
-
-
-export class Project{
-
-  name:string
-  fecha_proyecto:string
-  description:string
-  type:string
-  images:string[]
-
-  constructor(name,fecha_proyecto,description,type){
-    this.name = name
-    this.fecha_proyecto = fecha_proyecto
-    this.description = description
-    this.type = type
+  proyectos = [];
+  ApiUrl;
+  ngOnInit(): void {
+    this.ApiUrl = this.api.apiUrl;
+    this.api.get('/proyectos').subscribe((data) =>{
+      this.proyectos = data['proyectos'];
+      console.log(this.proyectos);
+    }, (error) => {
+      console.log(error);
+    }, () => {
+      console.log('Peticion finalizada');
+    });
   }
-
-  set_images(url){
-    this.images.push(url)
-  }
-
 
 }

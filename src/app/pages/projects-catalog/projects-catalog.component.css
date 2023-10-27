@@ -6,9 +6,24 @@
 .main_container{
     width: 100%;
     position: relative;
-    
-}
 
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_add_project{
+  border-radius: 5px;
+  border: 1px solid #086970;
+  background: #FFF;
+  color: #000;
+  text-shadow: 0px 0px 10px rgba(217, 141, 255, 0.50);
+  font-family: Quicksand, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 1%;
+}
 .text{
     color: #000;
     text-align: center;
@@ -22,7 +37,7 @@
 .sub_text button{
     border-radius: 25px;
     margin: auto;
-    
+
 
 }
 
@@ -60,7 +75,6 @@
     border: 2px solid #858585;
     background: #FFF;
     display: grid;
-    grid-template-rows: repeat(4,1fr);
     padding: 30px;
     overflow-y: auto;
 }
@@ -91,11 +105,14 @@
     font-size: 22px;
     color: black;
     border: solid;
-    border-width: 70%;
     border-left: none;
     border-top: none;
     border-bottom: none;
     border-color: #086970;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .row_separator{
     border: 0;
@@ -105,7 +122,7 @@
 
 .subcontainer{
     width: 100%;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .icons_confirm{
@@ -116,10 +133,17 @@
     border-bottom: none;
     border-color: #086970;
     height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .icons{
     height: 45px;
     margin-left: 10px;
+}
+.miniatura{
+  width: 200px;
+  height: 200px;
 }
 .icons:hover{
     height: 47px;
@@ -149,7 +173,7 @@
         height: 20px;
     }
 
-   
+
 
     .row_box{
         padding: 0;
