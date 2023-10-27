@@ -47,12 +47,12 @@
 
 .box{
     width: 80%;
-    height: 80%;
+    height: auto;
+    padding: 15px;
     border-radius: 30px;
     border: 2px solid #858585;
     background: #FFF;
     display: grid;
-    grid-template-rows: repeat(5,1fr);
     padding: 30px;
     overflow-y: auto;
 }
@@ -113,6 +113,9 @@
     height: 35px;
     margin-left: 10px;
 }
+.icons:hover{
+    height: 40px;
+}
 
 @media screen and (max-width: 768px){
 
@@ -135,6 +138,9 @@
     .icons{
         margin-left: 0;
         height: 20px;
+    }
+    .icons:hover{
+        height: 23px;
     }
 
     .row_box{

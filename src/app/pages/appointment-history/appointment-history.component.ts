@@ -20,6 +20,7 @@ export class AppointmentHistoryComponent {
   unconfirmedAppointments: Appointment[] = [];
   futureAppointments: Appointment[] = [];
   endpoint_get_appointments = "citas"
+  endpoint_get_appointments_edit = "citas/update"
   
   
  
@@ -67,7 +68,6 @@ export class AppointmentHistoryComponent {
   filter_by_status(){
     if(this.appointments != undefined){
       for (const appointment of this.appointments) {
-
         console.log("ESTADO DE LA CITA ACTUAL EVALUADA: " , appointment.estado_cita_id)
         if (appointment.estado_cita_id === 2) {
           this.confirmedAppointments.push(appointment);
@@ -101,6 +101,32 @@ export class AppointmentHistoryComponent {
    */
   redirectTo(id:number) {
     this.router.navigate(["appointment-detail/" + id]);
+  }
+
+
+  create_body_edit(id:number,date:string,message:string,is_confirmed:boolean){
+    return {
+      "id":id,
+      "fecha_cita":date,
+      "mensaje":message,
+      "estado_cita_id": is_confirmed?2:1
+    }
+  }
+
+
+  /**
+   * 
+   * @param is_confirm Si es true la confirma si no la cancela
+   */
+  to_confirm_appointment(is_confirm:boolean,id:number,date:string,message:string){
+      this.dataManagerService.editAppointment(
+        this.endpoint_get_appointments_edit,
+        this.create_body_edit(id,date,message,is_confirm),
+      ).subscribe(response => {
+        console.log('Respuesta:', response);
+        // Accede al cuerpo de la respuesta
+        console.log('Cuerpo de la respuesta:', response); // Esto imprimirá el cuerpo de la respuesta
+      },);
   }
 
 }
