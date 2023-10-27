@@ -1,0 +1,39 @@
+<div class="body">
+    <div style="width: 100%; display: flex; justify-content: center;"></div><img src="./assets/background.png" style="position: absolute; height: 1000px; width: 100%"></div>
+    <div class="main_container">
+        <h1 class="text header_text">Catálogo de proyectos</h1>
+        <h2 class="text sub_text">A continuación todos los proyectos creados:</h2>
+        <div>
+            <button class="button_add_project sub_text">Agregar Proyectos</button>
+        </div>
+        <div class="appointments_container" >
+            <div class="box">
+                <div class="row_box">
+                    <h2 class="title_box">Nombre</h2>
+                    <h2 class="title_box">Fecha</h2>
+                    <h2 class="title_box">Descripción</h2>
+                    <h2 class="title_box" >Detalles</h2>
+                    <h2 class="title_box" style="border-right: none;">Opciones</h2>
+                </div>    
+                
+                <div class="row_separator"> </div>  
+                
+               <div *ngFor="let project of project_list"  class="subcontainer">
+                    <div class="row_box" >
+                        <h2 class="subtitle_box">{{project.name}}</h2>
+                        <h2 class="subtitle_box">{{project.fecha_proyecto}}</h2>
+                        <h2 class="subtitle_box">{{project.description}}</h2>
+                        <div class="subtitle_box" style="margin-bottom:15px;"><button style="background: none; border: none;width: auto;" ><img src="./assets/details.png" class="icons"></button></div>
+                        <div class="icons_confirm">
+                            <button style="background: none; border: none" class="icons"><img src="./assets/edit_project.png" class="icons"></button>
+                            <button style="background: none; border: none" class="icons"><img src="./assets/delete_project.png" class="icons"></button>
+                        </div>
+                    </div>
+                    <div class="row_separator"> </div>  
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    
