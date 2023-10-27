@@ -19,6 +19,13 @@
     line-height: normal;
 }
 
+.sub_text button{
+    border-radius: 25px;
+    margin: auto;
+    
+
+}
+
 .header_text{
     margin-top: 100px;
 }
