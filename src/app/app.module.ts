@@ -75,8 +75,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
     MatDialogModule,
     ReactiveFormsModule,
     SweetAlert2Module,
-    HttpClientModule
-
+    HttpClientModule,
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
