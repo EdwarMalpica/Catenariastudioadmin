@@ -1,11 +1,13 @@
 <div class="main-container">
     <div class="card-container container">
-      <h2 class="title">Editar información del perfil</h2>
+      <h2 class="title">Crear proyecto</h2>
       <div class="containt">
         <div class="row" >
           <div class="mx-auto">
             <form>
               <div class="row">
+
+
                 <div class="col-sm-12 col-md-12 col-lg-6">
                   <div class="form-group space">
                     <label for="nombre" class="subtitle">Nombre:</label>
@@ -13,13 +15,17 @@
                   </div>
                 </div>
 
-                <!-- ------------------------------------------------------------------------------------ -->
+
+
                 <div class="col-sm-12 col-md-12 col-lg-6">
                   <div class="form-group space">
-                    <label for="apellido" class="subtitle">Descripción:</label>
-                    <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
-                   </div>
+                    <label for="nombre" class="subtitle">Descripción:</label>
+                    <input type="text" id="nombre" [(ngModel)]="description_inp" class="form-control subtitle" name="nombre" placeholder="Descripción corta" style="height: 100px;">
+                  </div>
                 </div>
+
+                <!-- ------------------------------------------------------------------------------------ -->
+
 
                 <!-- ------------------------------------------------------------------------------------ -->
 
@@ -27,6 +33,15 @@
                 <div class="col-sm-12 col-md-12 col-lg-6">
                   <div class="form-group space">
                     <label for="telefono" class="subtitle">Imagenes:</label>
+                    <p-fileUpload name="myfile[]" url="./upload.php" 
+                    accept="image/*"></p-fileUpload>
+                  </div>
+                </div>
+
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                  <div class="form-group space">
+                    <label for="telefono" class="subtitle">Miniatura:</label>
                     <p-fileUpload name="myfile[]" url="./upload.php" 
                     accept="image/*"></p-fileUpload>
                   </div>
@@ -41,19 +56,13 @@
                     accept="image/*"></p-fileUpload>
                   </div>
                 </div>
-
                 
-
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                  <div class="form-group space">
-                    <label for="telefono" class="subtitle">Tipo de proyecto:</label>
-                    <div class="dropdown" >
-                      <p-dropdown [options]="options_dropdown" [(ngModel)]="selectedTypeProject" placeholder="Tipo de proyecto" 
-                      [virtualScroll]="true" [virtualScrollItemSize]="20" [style] = "{'width':'100%'}"></p-dropdown>                    
-                    </div>
-                  </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 w-100">
+                  <div class="form-group space ">
+                    <label for="apellido" class="subtitle">Contenido:</label>
+                    <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
+                   </div>
                 </div>
-               
                 
 
               

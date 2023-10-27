@@ -15,6 +15,7 @@ export class CreateProjectComponent {
   text:string
   name_inp:string
   selectedTypeProject:string
+  description_inp:string
   
 
   selectedOption: string = 'Selecciona una opción';
