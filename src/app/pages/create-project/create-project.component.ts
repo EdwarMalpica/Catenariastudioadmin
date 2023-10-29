@@ -32,6 +32,7 @@ export class CreateProjectComponent {
     for (let file of event.files) {
       this.img.push(file);
     }
+    
   }
 
   uploadFileMiniatura(event) {
