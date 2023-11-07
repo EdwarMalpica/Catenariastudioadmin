@@ -9,6 +9,7 @@ import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-ho
 import { CreateProjectComponent } from './pages/create-project/create-project.component';
 import { ProjectsCatalogComponent } from './pages/projects-catalog/projects-catalog.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path : 'appointment-detail/:id', component : AppointmentDetailsComponent},
   { path : 'appointment-detail/:id', component : AppointmentDetailsComponent},
   { path : 'create-project', component : CreateProjectComponent},
+  { path : 'create-article', component : CreateArticleComponent},
   { path : 'project-catalog', component : ProjectsCatalogComponent},
   { path : 'project-details/:id', component : ProjectDetailsComponent},
 
