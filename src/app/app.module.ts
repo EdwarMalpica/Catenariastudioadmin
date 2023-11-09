@@ -41,6 +41,8 @@ import { CreateProjectComponent } from './pages/create-project/create-project.co
 import { EditorModule } from 'primeng/editor';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
+import { ArticleCatalogComponent } from './pages/article-catalog/article-catalog.component';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
 
 
 
@@ -63,7 +65,9 @@ import { DropdownModule } from 'primeng/dropdown';
     MenuComponent,
     CreateProjectComponent,
     ProjectsCatalogComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ArticleCatalogComponent,
+    CreateArticleComponent
 
   ],
   imports: [

@@ -9,12 +9,14 @@ import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-ho
 import { CreateProjectComponent } from './pages/create-project/create-project.component';
 import { ProjectsCatalogComponent } from './pages/projects-catalog/projects-catalog.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { ArticleCatalogComponent } from './pages/article-catalog/article-catalog.component';
+import { CreateArticleComponent } from './pages/create-article/create-article.component';
 
 
 const routes: Routes = [
   { path: 'perfil', component: PerfilComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-   { path: 'home', loadChildren: () => import('./pages/home/home-routing.module').then(m => m.HomeRoutingModule) },
+  { path: 'home', loadChildren: () => import('./pages/home/home-routing.module').then(m => m.HomeRoutingModule) },
   { path: 'noutFound', loadChildren: () => import('./pages/not-found/not-found-routing.module').then(m => m.NotFoundRoutingModule) },
   { path: 'admin', loadChildren: () => import('./pages/admin/admin-routing.module').then(m => m.AdminRoutingModule) },
   { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path : 'create-project', component : CreateProjectComponent},
   { path : 'project-catalog', component : ProjectsCatalogComponent},
   { path : 'project-details/:id', component : ProjectDetailsComponent},
+  { path : 'article-catalog', component : ArticleCatalogComponent},
+  { path : 'create-article', component : CreateArticleComponent},
 
 
 ];
