@@ -1,0 +1,21 @@
+<!-- <div>
+  <h2>Reporte de Autenticaciones</h2>
+  <p>Número total de autenticaciones: {{ totalAutenticaciones }}</p>
+</div> -->
+<h2 class="title">Reporte de Autenticaciones</h2>
+
+<div class="center-div">
+  <ngx-charts-bar-vertical
+    [view]="[500, 300]"
+    [results]="data"
+    [gradient]="false"
+    [xAxis]="true"
+    [yAxis]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxisLabel]="'Fecha'"
+    [yAxisLabel]="'Número de Autenticaciones'">
+  </ngx-charts-bar-vertical>
+</div>
+
+
