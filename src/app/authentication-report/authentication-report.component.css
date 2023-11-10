@@ -1,0 +1,16 @@
+.center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 40px;
+  font-weight: 490;/*Semibold*/
+  padding-bottom: 50px;
+  color: #000000;
+  text-decoration: underline;
+  text-align: center;
+  margin: 25px;
+}

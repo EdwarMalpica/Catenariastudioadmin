@@ -41,6 +41,8 @@ import { CreateProjectComponent } from './pages/create-project/create-project.co
 import { EditorModule } from 'primeng/editor';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
+import { AuthenticationReportComponent } from './authentication-report/authentication-report.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -63,7 +65,8 @@ import { DropdownModule } from 'primeng/dropdown';
     MenuComponent,
     CreateProjectComponent,
     ProjectsCatalogComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    AuthenticationReportComponent
 
   ],
   imports: [
@@ -89,6 +92,7 @@ import { DropdownModule } from 'primeng/dropdown';
     EditorModule,
     InputMaskModule,
     DropdownModule,
+    NgxChartsModule
 
 
   ],
