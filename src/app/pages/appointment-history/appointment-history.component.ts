@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Appointment, AppointmentList } from 'src/app/data_management/appointment_model';
-import { DataManagerService } from 'src/app/data_management/data_manager';
+import { Appointment, AppointmentList } from '@app/modules/data_management/appointment_model';
+import { DataManagerService } from '@app/modules/data_management/data_manager';
 import { Router } from '@angular/router';
 
 
@@ -21,17 +21,17 @@ export class AppointmentHistoryComponent {
   futureAppointments: Appointment[] = [];
   endpoint_get_appointments = "citas"
   endpoint_get_appointments_edit = "citas/update"
-  
-  
- 
-  appointments?:Appointment[] 
+
+
+
+  appointments?:Appointment[]
   current_appointments_selected?:Appointment[];
   isLoaded = false;
 
   constructor(private dataManagerService: DataManagerService, private router: Router) {
-    
+
   }
-  
+
 
   ngOnInit(): void {
     try {
@@ -43,9 +43,9 @@ export class AppointmentHistoryComponent {
           this.current_appointments_selected = this.appointments
           this.isLoaded = true;
           this.filter_by_status();
-        });      
+        });
     } catch (error) {
-      
+
     }
   }
 
@@ -81,13 +81,13 @@ export class AppointmentHistoryComponent {
 
       }
     }
-  
+
 
 
   /**
    * Filtrar citas futuras
-   * @param appointmentDate 
-   * @returns 
+   * @param appointmentDate
+   * @returns
    */
   isFutureDate(appointmentDate: string): boolean {
     const appointmentDateObj = new Date(appointmentDate);
@@ -96,8 +96,8 @@ export class AppointmentHistoryComponent {
   }
 
   /**
-   * 
-   * @param id id de la cita 
+   *
+   * @param id id de la cita
    */
   redirectTo(id:number) {
     this.router.navigate(["appointment-detail/" + id]);
@@ -115,7 +115,7 @@ export class AppointmentHistoryComponent {
 
 
   /**
-   * 
+   *
    * @param is_confirm Si es true la confirma si no la cancela
    */
   to_confirm_appointment(is_confirm:boolean,id:number,date:string,message:string){

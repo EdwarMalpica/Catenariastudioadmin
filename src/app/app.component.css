@@ -7,3 +7,10 @@ mat-sidenav-container{
   height: 100px;
   padding: 10px;
 }
+.bg-app{
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  height: 100%;
+  background-image: url("../assets/img/loginSide.jpg");
+}

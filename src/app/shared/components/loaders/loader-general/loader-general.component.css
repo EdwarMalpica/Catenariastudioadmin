@@ -1,0 +1,27 @@
+.loader{
+  position: fixed;
+  top:0;
+  left:0;
+  block-size: 100vh;
+  inline-size: 100vw;
+  background: white;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.loader img{
+  width: 300px;
+  animation: fadeEffect 3s infinite;
+}
+@keyframes fadeEffect {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
