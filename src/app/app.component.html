@@ -1,23 +1,21 @@
+<div class="bg-app tw-w-3/6">
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side">
-    <mat-toolbar color="primary">
-      Menu Admin
-    </mat-toolbar>
-    <app-sidebar></app-sidebar>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="row background-header">
-      <div class="col-3" >
-        <app-header  (toggleSidenav)="sidenav.toggle()"></app-header>
-      </div >
-      <div class="col-9" >
-        <app-menu></app-menu>
-      </div>
-    </div>
-    <div class="row">
-      <router-outlet></router-outlet>
-    </div>
+</div>
+<app-header></app-header>
+<router-outlet></router-outlet>
+<!-- Alerts -->
+<!-- Alert Error -->
+<app-alert-error></app-alert-error>
+<!-- Alert Success -->
+<app-alert-success></app-alert-success>
+<!-- Alert Warning -->
+<app-alert-warn></app-alert-warn>
+<!-- Alert Info -->
+<app-alert-info></app-alert-info>
+<!-- Alert Message -->
+<app-alert-message></app-alert-message>
 
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+<!-- Loaders -->
+<app-loader-general *ngIf="isLoading|async">
+</app-loader-general>

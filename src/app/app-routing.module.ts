@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppointmentHistoryComponent } from './pages/appointment-history/appointment-history.component';
 import { AppointmentDetailsComponent } from './pages/appointment-details/appointment-details.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { HorariosAtencionComponent } from './horarios-atencion/horarios-atencion.component';
+import { PerfilComponent } from './modules/perfil/perfil.component';
+import { HorariosAtencionComponent } from './modules/horarios-atencion/horarios-atencion.component';
 import { EditarHorariosComponent } from './editar-horarios/editar-horarios.component';
-import { DialogoNuevoHorarioComponent } from './editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
 import { CreateProjectComponent } from './pages/create-project/create-project.component';
 import { ProjectsCatalogComponent } from './pages/projects-catalog/projects-catalog.component';
 import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { LoginComponent } from './core/components/login/login.component';
 
 
 const routes: Routes = [
@@ -17,7 +17,7 @@ const routes: Routes = [
    { path: 'home', loadChildren: () => import('./pages/home/home-routing.module').then(m => m.HomeRoutingModule) },
   { path: 'noutFound', loadChildren: () => import('./pages/not-found/not-found-routing.module').then(m => m.NotFoundRoutingModule) },
   { path: 'admin', loadChildren: () => import('./pages/admin/admin-routing.module').then(m => m.AdminRoutingModule) },
-  { path: 'login', loadChildren: () => import('./pages/auth/login/login-routing.module').then(m => m.LoginRoutingModule) },
+  { path: 'login',component: LoginComponent },
   { path: 'horarios-atencion', component: HorariosAtencionComponent},
   { path: 'editar-horarios', component: EditarHorariosComponent},
   { path : 'appointment', component : AppointmentHistoryComponent},

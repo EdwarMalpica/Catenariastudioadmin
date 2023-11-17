@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_URL } from '@app/const/constantes';
+import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
 
 export class ApiServiceService {
 
-  apiUrl = API_URL;
+  apiUrl = environment.apiUrl;
 
   constructor(private http:HttpClient) { }
 

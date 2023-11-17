@@ -1,27 +1,12 @@
-
-    <ng-container *ngIf="!isAdmin; else viewAdmin">
-    <div class="cate-title">
-      <a class="navbar-brand" href="#">
-        <div class="row">
-          <div class="col-4 icon-container">
-            <img src="./assets/img/logo.png" alt="">
-          </div>
-          <div class="col-8 d-flex flex-column justify-content-center">
-            <span class="titleFont">CATENARIA </span>
-            <span class="subTitleFont">ADMIN</span>
-          </div>
-        </div>
-      </a>
+<div class="cate-title">
+  <a class="" >
+    <div class="tw-flex tw-items-center">
+      <div class="">
+        <img class="tw-ml-10" src="./assets/img/logo.png" alt="">
+      </div>
+      <div class="">
+        <span class="titleFont">CATENARIA - ADMIN</span>
+      </div>
     </div>
-  </ng-container>
-
-<!-- <mat-toolbar  class="header-nav"> -->
-
-<!-- </mat-toolbar> -->
-
-<ng-template #viewAdmin>
-  <button mat-icon-button (click)="onToggleSidenav()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span class="spacer"></span>
-</ng-template>
+  </a>
+</div>
