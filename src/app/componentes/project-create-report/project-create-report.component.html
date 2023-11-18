@@ -1,0 +1,13 @@
+<div class="main_container">
+    <div class="chart_container">
+        <p-chart type="bar" class="chart" [data]="basicData" [options]="basicOptions"></p-chart>
+    </div>
+    <div class="text_container">
+        <p-card header="Informacion General" class="text_card"> Según los proyectos registrados con un total de {{this.total_project}} registros, se realizó el analisis concluyendo en : </p-card>
+        <p-card class="text_card" >Mayor Tipo de proyectos registrados {{this.top_element_key}} con un numero total de {{this.top_element_values}} registros en el sistema.</p-card>
+        <p-card class="text_card" >Menor Tipo de proyectos encontrados {{this.button_element_key}} con un numero numero de apariciones de  {{this.button_element_values}}</p-card>
+    </div>
+
+   
+    
+</div>

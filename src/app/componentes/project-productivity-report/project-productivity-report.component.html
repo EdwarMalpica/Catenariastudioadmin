@@ -1,0 +1,11 @@
+<div class="main_container">
+    <div class="chart_container">
+        <p-chart type="line" [data]="basicData" [options]="basicOptions" class="chart"></p-chart>
+    </div>
+    <div class="text_container">
+        <p-card header="Informacion General" class="text_card"> A continuación encontramos el reporte de productividad acerca del la creación de proyectos, con un total de {{this.proyectos.length}} analisados </p-card>
+        <p-card class="text_card" >Los meses con mayor productividad en la publiacion de proyectos fueron : {{this.highestMonths}} con un total de {{this.highestValue}} publicaciones.</p-card>
+        <p-card class="text_card" >Por otra parte, los meses con menor productividad en la publiacion de proyectos fueron : {{this.lowestMonths}} con un total de {{this.lowestValue}} publicaciones.</p-card>
+        <p-card class="text_card" >Permitiendo obtner una vista a nivel general de la productividad enfocandonos a la creación de proyectos</p-card>
+    </div>
+</div>

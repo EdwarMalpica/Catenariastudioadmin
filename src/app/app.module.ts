@@ -41,6 +41,12 @@ import { CreateProjectComponent } from './pages/create-project/create-project.co
 import { EditorModule } from 'primeng/editor';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
+import { ProjectCreateReportComponent } from './componentes/project-create-report/project-create-report.component';
+import { ReportsComponent } from './pages/reports/reports/reports.component';
+import { ChartModule } from 'primeng/chart';
+import { ProjectProductivityReportComponent } from './componentes/project-productivity-report/project-productivity-report.component';
+import {CardModule} from 'primeng/card';
+
 
 
 
@@ -63,7 +69,11 @@ import { DropdownModule } from 'primeng/dropdown';
     MenuComponent,
     CreateProjectComponent,
     ProjectsCatalogComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    ProjectCreateReportComponent,
+    ReportsComponent,
+    ProjectProductivityReportComponent,
+    
 
   ],
   imports: [
@@ -89,8 +99,9 @@ import { DropdownModule } from 'primeng/dropdown';
     EditorModule,
     InputMaskModule,
     DropdownModule,
-
-
+    ChartModule,
+    CardModule
+    
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
