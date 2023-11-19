@@ -43,18 +43,18 @@ $theme-colors: (
 :root{
   --primary: #086970;
   --danger: orangered;
-  --font-primary: 'Quicsand', sans-serif;
+  --font-primary: 'Quicksand', sans-serif;
     --font-titles: 'Bahiana', cursive;
     --color-font-primary: #FFFFFF;
-    --color-error: #ff0000;
-    --color-warn: #ffff00;
-    --color-success: #00ff00;
-    --color-info: #00ffff;
+    --color-error: #ffffff;
+    --color-warn: #ffffff;
+    --color-success: #ffffff;
+    --color-info: #ffffff;
     --gradient-primary: linear-gradient(315deg, #000000 50%, #086970);
-    --gradient-error: linear-gradient(198deg, rgba(255, 0, 0, 0.60) -1.81%, rgba(255, 0, 0, 0.10) 78%);
-    --gradient-warn: linear-gradient(198deg, rgba(255, 255, 0, 0.60) -1.81%, rgba(255, 255, 0, 0.10) 78%);
-    --gradient-success: linear-gradient(198deg, rgba(0, 255, 0, 0.60) -1.81%, rgba(0, 255, 0, 0.10) 78%);
-    --gradient-info: linear-gradient(198deg, rgba(0, 255, 255, 0.60) -1.81%, rgba(0, 255, 255, 0.10) 78%);
+    --gradient-error: linear-gradient(198deg, rgba(255, 0, 0, 1) -1.81%, rgba(255, 0, 0, 0.5) 78%);
+    --gradient-warn: linear-gradient(198deg, rgba(255, 255, 0, 1) -1.81%, rgba(255, 255, 0, 0.5) 78%);
+    --gradient-success: linear-gradient(198deg, rgba(0, 255, 0, 1) -1.81%, rgba(0, 255, 0, 0.5) 78%);
+    --gradient-info: linear-gradient(198deg, rgba(0, 255, 255,1) -1.81%, rgba(0, 255, 255, 0.5) 78%);
 }
 
 @import "node_modules/bootstrap/scss/bootstrap";
@@ -65,7 +65,7 @@ $theme-colors: (
 }
 
 * {
-  font-family: Quicksand, sans-serif;
+  font-family:var(--font-primary);
   color: black;
 }
 
@@ -143,4 +143,8 @@ app-header {
 
 .gradient-info {
   background: var(--gradient-info);
+}
+app-appointment-details{
+  width: 100%;
+  height: 100%;
 }

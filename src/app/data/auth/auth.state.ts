@@ -17,7 +17,7 @@ export interface AuthState {
 }
 
 export const initialState: AuthState = {
-  token: '',
+  token: '293|s8CCYDKFc48Y2kGS5pexKpFsvejawpNw9yN0zASVed29b3cb',
   user: {
     id: 0,
     name: '',

@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Credential } from '../../../models/credential';
-import { AuthService } from '../../../services/auth/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -40,7 +38,6 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log('fui llamado boton de submit');
     if (this.loginForm.valid) {
       this.store.dispatch(isLoadingLogin({ isLoading: true }));
       this.store.dispatch(

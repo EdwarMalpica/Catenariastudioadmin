@@ -1,0 +1,60 @@
+<div class="tw-flex tw-flex-col tw-w-full tw-items-center">
+  <div class="tw-flex tw-flex-col tw-w-9/12 tw-items-center">
+    <h1 class="header_text">Citas Agendadas</h1>
+    <h2 class="sub_text">
+      Revisa las citas agendadas por tus clientes, ponte en contacto con ellos y confirma o cancela sus citas.
+    </h2>
+  </div>
+  <div class="dropdown_container tw-mb-10">
+    <app-dropdown [options_dropdown]=" this.options_dropdown" (messageEvent)="receiveMessage($event)"></app-dropdown>
+  </div>
+
+  <div class="appointments_container">
+    <div class="box">
+      <div class="row_box">
+        <h2 class="title_box">Nombre</h2>
+        <h2 class="title_box">Fecha de cita</h2>
+        <h2 class="title_box">Estado</h2>
+        <h2 class="title_box" style="border-right: none;">Detalles</h2>
+      </div>
+      <div class="row_separator"> </div>
+
+
+      <div *ngFor="let appointment of current_appointments_selected" class="subcontainer">
+        <div class="row_box">
+          <h2 class="subtitle_box">{{appointment.user.name}}</h2>
+          <h2 class="subtitle_box">{{appointment.fecha_cita}}</h2>
+          <div *ngIf="isLoadding|async">
+            <app-loader-button></app-loader-button>
+          </div>
+          <div *ngIf="!(isLoadding|async)">
+            <div class="icons_confirm" *ngIf="appointment.estado_cita_id == 1">
+              <button style="background: none; border: none" class="icons"
+                (click)="changeState(true,appointment.id,appointment.fecha_cita,appointment.mensaje)">
+                <span class="material-symbols-outlined">
+                  check_circle
+                </span>
+              </button>
+              <button style="background: none; border: none" class="icons"
+                (click)="changeState(false,appointment.id,appointment.fecha_cita,appointment.mensaje)">
+                <span class="material-symbols-outlined">
+                  event_busy
+                </span>
+              </button>
+            </div>
+            <h2 class="subtitle_box" *ngIf="appointment.estado_cita_id == 2 ">Confirmado</h2>
+            <h2 class="subtitle_box" *ngIf="appointment.estado_cita_id == 3">Cancelada</h2>
+          </div>
+          <div>
+            <button style="background: none; border: none;width: auto;" [routerLink]="'/appointments/'+appointment.id">
+              <span class="material-symbols-outlined">
+                wysiwyg
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="row_separator"> </div>
+      </div>
+    </div>
+  </div>
+</div>

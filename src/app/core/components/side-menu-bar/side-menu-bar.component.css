@@ -1,0 +1,45 @@
+li{
+  list-style: none;
+  margin: 20px 0;
+  width: 150px;
+  height: 50px;
+}
+.bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+a{
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover{
+  transition: 0.3s;
+  font-size: 30px;
+}
+button{
+  color: var(--primary);
+  font-size: 25px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+button:hover{
+  background-color: white;
+  color: var(--primary-dark);
+}
+button:focus{
+  background-color: white;
+  color: var(--primary-dark);
+}
+button:active{
+  background-color: white;
+  color: var(--primary-dark);
+}
+
+
