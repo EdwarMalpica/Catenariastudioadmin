@@ -1,0 +1,11 @@
+   
+   <h1 class="text" style="margin-top: 25px; margin-left: 20px;">Reportes</h1>
+   <h2 style="margin-top: 30px; text-align: center;"> A continuación se encuentran los tipos de reportes suministrados para los proyectos</h2>
+   <p-dropdown class="d-flex align-items-center justify-content-center mt-5 text"  [options]="this.option_reports" [(ngModel)]="this.selected_report" optionLabel="name"  placeholder="Seleccione reporte"></p-dropdown>
+   <div class="container">
+        <app-project-create-report *ngIf="selected_report['name'] == this.option_reports[0]['name']"></app-project-create-report>
+        <app-project-productivity-report *ngIf="selected_report['name'] == this.option_reports[1]['name']"></app-project-productivity-report>
+        <app-users-registry-report *ngIf="selected_report['name'] == this.option_reports[2]['name']"></app-users-registry-report>
+        <app-users-visits-report *ngIf="selected_report['name'] == this.option_reports[3]['name']"></app-users-visits-report>
+        <app-appointments-visits-report *ngIf="selected_report['name'] == this.option_reports[4]['name']"></app-appointments-visits-report>
+     </div>
