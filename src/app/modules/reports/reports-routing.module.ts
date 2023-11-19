@@ -4,11 +4,12 @@ import { UsersRegistryReportComponent } from './users-registry-report/users-regi
 import { ProjectProductivityReportComponent } from './project-productivity-report/project-productivity-report.component';
 import { ProjectCreateReportComponent } from './project-create-report/project-create-report.component';
 import { AppointmentsVisitsReportComponent } from './appointments-visits-report/appointments-visits-report.component';
+import { UsersVisitsReportComponent } from './users-visits-report/users-visits-report.component';
 
 const routes: Routes = [
   {path: 'users',component:UsersRegistryReportComponent},
   {path: 'proyects',component:ProjectProductivityReportComponent},
-  {path: 'articulos', component: ProjectCreateReportComponent},
+  {path: 'articulos', component: UsersVisitsReportComponent},
   {path: 'citas', component: AppointmentsVisitsReportComponent}
 ];
 

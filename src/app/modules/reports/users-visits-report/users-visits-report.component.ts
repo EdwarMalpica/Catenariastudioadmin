@@ -61,7 +61,7 @@ export class UsersVisitsReportComponent {
   }
 
   load_data_articles() {
-    this.api.get('/logs/articles').subscribe(
+    this.api.get('logs/articles').subscribe(
       (data) => {
         this.registries_users_data_articles =
           data['visitToArticlesForLast12Month'];

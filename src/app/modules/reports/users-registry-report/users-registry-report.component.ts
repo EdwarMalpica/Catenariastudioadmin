@@ -32,6 +32,7 @@ export class UsersRegistryReportComponent {
 
   load_data(){
     this.api.get('logs/users').subscribe((data) =>{
+      console.log(data)
       this.registries_users_data = data['registerUsersForLast12Month'];
       this.set_months();
       this.indicesNumerosMinimos()

@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ApiService } from '@app/core/services/api.service';
+import { URL_API_GET_APOINTMENTS, URL_API_GET_APOINTMENTS_REPORT } from '@app/data/constants/constants';
+import { isLoading } from '@app/data/shared/shared.action';
 import { of } from 'rxjs';
 
 @Component({
@@ -30,6 +32,9 @@ export class AppointmentsVisitsReportComponent {
   max_months = []
   max_value = 0
   @Output() messageEvent = new EventEmitter<boolean>();
+  appointment: any;
+  store: any;
+  alerts: any;
 
 
 
@@ -41,12 +46,22 @@ export class AppointmentsVisitsReportComponent {
 
 
   ngOnInit(): void {
-
+    this.api.get(`${ URL_API_GET_APOINTMENTS_REPORT}`).subscribe({
+      next: (report: any) => {
+        this.appointment = report.cita;
+        console.log("TTTTT",this.appointment['citasForLast12Month']);
+        
+        this.store.dispatch(isLoading({ isLoading: false }));
+      },
+      error: (error) => {
+        this.alerts.showError(error.error.message);
+        this.store.dispatch(isLoading({ isLoading: false }));
+      },
+    });
   }
 
   load_data(){
     this.api.get('logs/citas').subscribe((data) =>{
-      console.log("data " , data)
       this.appointment_data = data['citasForLast12Month'];
       this.total_appointment = data["visitToAllCitas"]
       this.set_months()
@@ -81,19 +96,13 @@ export class AppointmentsVisitsReportComponent {
             {
                 data: this.values_months,
                 backgroundColor: [
-                    documentStyle.getPropertyValue('--red-500'),
-                    documentStyle.getPropertyValue('--green-500'),
-                    documentStyle.getPropertyValue('--yellow-500'),
-                    documentStyle.getPropertyValue('--bluegray-500'),
-                    documentStyle.getPropertyValue('--blue-500'),
-                    documentStyle.getPropertyValue('--orange-500'),
-                    documentStyle.getPropertyValue('--purple-500'),
-                    documentStyle.getPropertyValue('--gray-500'),
-                    documentStyle.getPropertyValue('--black-500'),
-                    documentStyle.getPropertyValue('--teal-500'),
-                    documentStyle.getPropertyValue('--pink-500'),
-                    documentStyle.getPropertyValue('--indigo-500'),
-                    documentStyle.getPropertyValue('--amber-800')
+                  '#EC407A',
+                  '#AB47BC',
+                  '#42A5F5',
+                  '#7E57C2',
+                  '#66BB6A',
+                  '#FFCA28',
+                  '#26A69A'
                 ],
                 label: 'My dataset'
             }
@@ -139,7 +148,6 @@ export class AppointmentsVisitsReportComponent {
     let array = this.values_months
     for (let i = 0; i < array.length; i++) {
       const current_number = array[i];
-      console.log("Actual valor:  " ,current_number)
       if (current_number > this.max_value) {
         this.max_value = current_number;
         this.max_months.push(this.months[i])

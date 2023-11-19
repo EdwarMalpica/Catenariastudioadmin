@@ -27,9 +27,7 @@ export class ProjectCreateReportComponent {
 
 
 
-
   constructor(private api: ApiService, private route: Router) {
-    this.messageEvent.emit(true);
     this.load_data();
   }
 

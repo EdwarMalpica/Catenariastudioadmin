@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  API_URL = environment.apiUrl;
+  API_URL = "https://grupo3devops.online"; 
   isAuth: Observable<boolean>;
   headers: HttpHeaders = new HttpHeaders();
   isToken: boolean = false;

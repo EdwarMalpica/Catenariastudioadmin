@@ -26,6 +26,12 @@
     justify-content: center;
 }
 
+.text_card_3{
+    width: 100%;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
 .text_card{
     width: 100%;
 }
