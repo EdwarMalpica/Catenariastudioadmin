@@ -31,7 +31,7 @@ export class AppointmentsVisitsReportComponent {
   max_value = 0
   @Output() messageEvent = new EventEmitter<boolean>();
 
-  
+
 
   constructor(private api: ApiService, private route: Router) {
     this.messageEvent.emit(true);
@@ -43,9 +43,9 @@ export class AppointmentsVisitsReportComponent {
   ngOnInit(): void {
 
   }
-  
+
   load_data(){
-    this.api.get('/logs/citas').subscribe((data) =>{
+    this.api.get('logs/citas').subscribe((data) =>{
       console.log("data " , data)
       this.appointment_data = data['citasForLast12Month'];
       this.total_appointment = data["visitToAllCitas"]
@@ -53,7 +53,7 @@ export class AppointmentsVisitsReportComponent {
       this.indicesNumerosMinimos()
       this.found_max_months()
       this.set_chart_properties()
-      
+
       this.loaded = true
     }, (error) => {
       console.log(error);
@@ -69,13 +69,13 @@ export class AppointmentsVisitsReportComponent {
     });
     const maxNumber: number = Math.max(...this.values_months);
   }
-  
+
 
   set_chart_properties(){
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-    
+
     this.data = {
         datasets: [
             {
@@ -100,7 +100,7 @@ export class AppointmentsVisitsReportComponent {
         ],
         labels: this.months
     };
-    
+
     this.options = {
         plugins: {
             legend: {
@@ -123,7 +123,7 @@ export class AppointmentsVisitsReportComponent {
     let array = this.values_months
     let minimo = array[0];
     let indicesMinimos: number[] = [0];
-  
+
     for (let i = 0; i < array.length; i++) {
       const elementoActual = array[i];
       if (elementoActual <= minimo) {
@@ -131,19 +131,19 @@ export class AppointmentsVisitsReportComponent {
         minimo = elementoActual;
         this.minim_months.push(this.months[i])
         indicesMinimos = [i];
-      } 
+      }
     }
   }
 
   found_max_months(){
-    let array = this.values_months  
+    let array = this.values_months
     for (let i = 0; i < array.length; i++) {
       const current_number = array[i];
       console.log("Actual valor:  " ,current_number)
       if (current_number > this.max_value) {
         this.max_value = current_number;
         this.max_months.push(this.months[i])
-      } 
+      }
     }
   }
 

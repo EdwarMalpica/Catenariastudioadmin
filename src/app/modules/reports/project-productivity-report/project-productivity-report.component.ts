@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { ApiServiceService } from '@app/services/api/api-service.service';
+import { ApiService } from '@app/core/services/api.service';
 import { of } from 'rxjs';
 @Component({
   selector: 'app-project-productivity-report',
@@ -9,13 +9,13 @@ import { of } from 'rxjs';
 })
 export class ProjectProductivityReportComponent implements OnInit {
 
-  
+
   basicData: any;
   basicOptions:any
   lineStylesData:any
   proyectos:any
   ApiUrl;
-  report_projects_by_month : Record<string, number> = {}; //Almacena los mese por numero de proyectos creados 
+  report_projects_by_month : Record<string, number> = {}; //Almacena los mese por numero de proyectos creados
   highestValue = Number.MIN_SAFE_INTEGER;
   lowestValue = Number.MAX_SAFE_INTEGER;
   highestMonths: string[] = [];
@@ -24,7 +24,7 @@ export class ProjectProductivityReportComponent implements OnInit {
   @Output() messageEvent = new EventEmitter<boolean>();
 
 
-  constructor(private api: ApiServiceService, private route: Router){
+  constructor(private api: ApiService, private route: Router){
     this.messageEvent.emit(true);
     this.load_data()
   }
@@ -37,7 +37,7 @@ export class ProjectProductivityReportComponent implements OnInit {
     const patronMes = /\b\d{4}-(\d{2})-\d{2}\b/;
     this.proyectos.forEach(current_project => {
       let date = current_project["fecha_creacion"].split("-")
-      dates.push(date[1]) //extraemos solo el mes de la fecha 
+      dates.push(date[1]) //extraemos solo el mes de la fecha
     });
     this.report_projects_by_month = this.countMonths(dates)
     this.getExtremeMonths()
@@ -45,8 +45,7 @@ export class ProjectProductivityReportComponent implements OnInit {
   }
 
   load_data(){
-    this.ApiUrl = this.api.apiUrl;
-    this.api.get('/proyectos').subscribe((data) =>{
+    this.api.get('proyectos').subscribe((data) =>{
       this.proyectos = data['proyectos'];
       this.loaded = true
       this.count_by_month()
@@ -74,11 +73,11 @@ export class ProjectProductivityReportComponent implements OnInit {
 
   countMonths(monthsArray: string[]): Record<string, number> {
     const monthsCounted: Record<string, number> = {};
-  
+
     for (const month of monthsArray) {
       // Assuming the month is in the format "01", "02", ..., "12"
       const fullMonthName = new Date(`${month}-01-01`).toLocaleString('default', { month: 'long' });
-  
+
       // Increment the frequency of the month in the object
       monthsCounted[fullMonthName] = (monthsCounted[fullMonthName] || 0) + 1;
     }
@@ -92,17 +91,17 @@ export class ProjectProductivityReportComponent implements OnInit {
 
     for (const monthName of monthNames) {
       const value = months[monthName];
-  
+
       if (value > this.highestValue) {
-        this.highestMonths.length = 0; 
+        this.highestMonths.length = 0;
         this.highestMonths.push(monthName);
         this.highestValue = value;
       } else if (value === this.highestValue) {
         this.highestMonths.push(monthName);
       }
-  
+
       if (value < this.lowestValue) {
-        this.lowestMonths.length = 0; 
+        this.lowestMonths.length = 0;
         this.lowestMonths.push(monthName);
         this.lowestValue = value;
       } else if (value === this.lowestValue) {
@@ -111,12 +110,12 @@ export class ProjectProductivityReportComponent implements OnInit {
     }
 
   }
-    
 
 
-  
-  
-  
 
-  
+
+
+
+
+
 }

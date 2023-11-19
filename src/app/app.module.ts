@@ -39,15 +39,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { appReducer } from './data/app.state';
 import { AuthEffects } from './data/auth/auth.effects';
-import { ProjectCreateReportComponent } from './modules/reports/project-create-report/project-create-report.component';
-import { ReportsComponent } from './modules/reports//reports/reports.component';
 import { ChartModule } from 'primeng/chart';
-import { ProjectProductivityReportComponent } from './modules/reports/project-productivity-report/project-productivity-report.component';
 import {CardModule} from 'primeng/card';
-import { UsersRegistryReportComponent } from './modules/reports/users-registry-report/users-registry-report.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import { UsersVisitsReportComponent } from './modules/reports/users-visits-report/users-visits-report.component';
-import { AppointmentsVisitsReportComponent } from './modules/reports/appointments-visits-report/appointments-visits-report.component';
 
 
 

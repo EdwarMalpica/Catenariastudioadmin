@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiServiceService } from '@app/services/api/api-service.service';
+import { ApiService } from '@app/core/services/api.service';
 
 @Component({
   selector: 'app-users-visits-report',
@@ -33,14 +33,13 @@ export class UsersVisitsReportComponent {
   @Output() messageEvent = new EventEmitter<boolean>();
 
 
-  constructor(private api: ApiServiceService, private route: Router) {
+  constructor(private api: ApiService, private route: Router) {
     this.messageEvent.emit(true);
     this.load_data_projects();
   }
 
   load_data_projects() {
-    this.ApiUrl = this.api.apiUrl;
-    this.api.get('/logs/proyects').subscribe(
+    this.api.get('logs/proyects').subscribe(
       (data) => {
         this.registries_users_data_projects =
           data['visitToProyectsForLast12Month'];
@@ -62,7 +61,6 @@ export class UsersVisitsReportComponent {
   }
 
   load_data_articles() {
-    this.ApiUrl = this.api.apiUrl;
     this.api.get('/logs/articles').subscribe(
       (data) => {
         this.registries_users_data_articles =
@@ -150,24 +148,24 @@ export class UsersVisitsReportComponent {
   }
   found_max_months(option: string) {
     if (option == 'A') {
-      let array = this.values_months_projects 
+      let array = this.values_months_projects
       for (let i = 0; i < array.length; i++) {
         const current_number = array[i];
         console.log("Actual valor:  " ,current_number)
         if (current_number > this.max_users_month_project) {
           this.max_users_month_project = current_number;
           this.max_months_project.push(this.months_projects[i])
-        } 
+        }
       }
     } else {
-      let array = this.values_months_articles 
+      let array = this.values_months_articles
       for (let i = 0; i < array.length; i++) {
         const current_number = array[i];
         console.log("Actual valor:  " ,current_number)
         if (current_number > this.max_users_month_article) {
           this.max_users_month_article= current_number;
           this.max_months_article.push(this.months_articles[i])
-        } 
+        }
       }
     }
   }

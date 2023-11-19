@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiServiceService } from '@app/services/api/api-service.service';
+import { ApiService } from '@app/core/services/api.service';
 
 @Component({
   selector: 'app-users-registry-report',
@@ -24,15 +24,14 @@ export class UsersRegistryReportComponent {
   @Output() messageEvent = new EventEmitter<boolean>();
 
 
-  constructor(private api: ApiServiceService, private route: Router){
+  constructor(private api: ApiService, private route: Router){
     this.messageEvent.emit(true);
     this.load_data()
   }
 
 
   load_data(){
-    this.ApiUrl = this.api.apiUrl;
-    this.api.get('/logs/users').subscribe((data) =>{
+    this.api.get('logs/users').subscribe((data) =>{
       this.registries_users_data = data['registerUsersForLast12Month'];
       this.set_months();
       this.indicesNumerosMinimos()
@@ -73,27 +72,27 @@ export class UsersRegistryReportComponent {
     let array = this.values_months
     let minimo = array[0];
     let indicesMinimos: number[] = [0];
-  
+
     for (let i = 0; i < array.length; i++) {
       const elementoActual = array[i];
       if (elementoActual <= minimo) {
         minimo = elementoActual;
         this.minim_months.push(this.months[i])
         indicesMinimos = [i];
-      } 
+      }
     }
     return indicesMinimos;
   }
 
   found_max_months(){
-    let array = this.values_months  
+    let array = this.values_months
     let max_indices: number[] = [0];
     for (let i = 0; i < array.length; i++) {
       const current_number = array[i];
       if (current_number >= this.max_value) {
         this.max_value = current_number;
         this.max_months.push(this.months[i])
-      } 
+      }
     }
   }
 }

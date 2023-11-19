@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { ApiServiceService } from '@app/services/api/api-service.service';
+import { ApiService } from '@app/core/services/api.service';
 import { of } from 'rxjs';
 
 @Component({
@@ -26,9 +26,9 @@ export class ProjectCreateReportComponent {
 
 
 
-  
 
-  constructor(private api: ApiServiceService, private route: Router) {
+
+  constructor(private api: ApiService, private route: Router) {
     this.messageEvent.emit(true);
     this.load_data();
   }
@@ -37,16 +37,15 @@ export class ProjectCreateReportComponent {
   ngOnInit(): void {
 
   }
-  
+
   load_data(){
-    this.ApiUrl = this.api.apiUrl;
-    this.api.get('/proyectos').subscribe((data) =>{
+    this.api.get('proyectos').subscribe((data) =>{
       this.proyectos = data['proyectos'];
       this.loaded = true
       this.get_number_publication();
       this.set_chart_properties();
       this.sort_data()
-      
+
     }, (error) => {
       console.log(error);
     }, () => {
@@ -59,7 +58,7 @@ export class ProjectCreateReportComponent {
   }
 
   /**
-   * 
+   *
    * @returns tipos de publicaciones regisradps
    */
   get_number_publication(){
@@ -69,9 +68,9 @@ export class ProjectCreateReportComponent {
       if(current_project["tipo_publicacion_id"] in this.report_type_projects){
         this.report_type_projects[current_project["tipo_publicacion_id"]] += 1
       }else{
-        this.report_type_projects[current_project["tipo_publicacion_id"]] = 1 
+        this.report_type_projects[current_project["tipo_publicacion_id"]] = 1
       }
-      
+
     });
   }
 
@@ -84,7 +83,7 @@ export class ProjectCreateReportComponent {
     this.button_element_key  = Object.keys(sortedObject)[sortedArray.length - 1]
     this.button_element_values  = Object.values(sortedObject)[sortedArray.length - 1]
     this.total_project = Object.values(this.report_type_projects).reduce((acumulador, valorActual) => acumulador + valorActual, 0);
-    
+
   }
 
 
