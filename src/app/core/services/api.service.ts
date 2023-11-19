@@ -21,7 +21,7 @@ export class ApiService {
     private store: Store<AppState>,
     private alerts: AlertsService
   ) {
-     this.store.select(getToken).subscribe({
+    this.store.select(getToken).subscribe({
       next: (token) => {
         if (token) {
           this.headers = new HttpHeaders({
@@ -36,7 +36,6 @@ export class ApiService {
       },
     });
   }
-
 
   get(url: string) {
     if (this.isToken) {
@@ -66,7 +65,6 @@ export class ApiService {
     } else {
       return this.http.put(`${this.API_URL}/api/${url}`, data);
     }
-
   }
 
   delete(url: string) {
@@ -76,6 +74,15 @@ export class ApiService {
       });
     } else {
       return this.http.delete(`${this.API_URL}/api/${url}`);
+    }
+  }
+  postFormData(url: string, data: FormData) {
+    if (this.isToken) {
+      return this.http.post(`${this.API_URL}/api/${url}`, data, {
+        headers: this.headers,
+      });
+    } else {
+      return this.http.post(`${this.API_URL}/api/${url}`, data);
     }
   }
 }
