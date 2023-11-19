@@ -63,7 +63,8 @@ import { AppointmentsVisitsReportComponent } from './modules/reports/appointment
     DialogoNuevoHorarioComponent,
     DialogoEliminarComponent,
     MenuComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+
 
   ],
   imports: [
@@ -89,6 +90,9 @@ import { AppointmentsVisitsReportComponent } from './modules/reports/appointment
     EditorModule,
     InputMaskModule,
     DropdownModule,
+    ChartModule,
+    CardModule,
+    ProgressSpinnerModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
