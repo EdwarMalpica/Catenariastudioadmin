@@ -26,7 +26,6 @@ import { DialogoNuevoHorarioComponent } from './modules/horarios/editar-horarios
 import { DialogoEliminarComponent } from './modules/horarios/editar-horarios/dialogo-eliminar/dialogo-eliminar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MenuComponent } from './shared/components/menu/menu.component';
-import { ProjectDetailsComponent } from './modules/proyects/project-details/project-details.component';
 
 import {FileUploadModule} from 'primeng/fileupload';
 import { EditorModule } from 'primeng/editor';
@@ -54,7 +53,6 @@ import { AuthEffects } from './data/auth/auth.effects';
     DialogoNuevoHorarioComponent,
     DialogoEliminarComponent,
     MenuComponent,
-    ProjectDetailsComponent
 
   ],
   imports: [
@@ -76,8 +74,6 @@ import { AuthEffects } from './data/auth/auth.effects';
     ReactiveFormsModule,
     SweetAlert2Module,
     HttpClientModule,
-    FileUploadModule,
-    EditorModule,
     InputMaskModule,
     DropdownModule,
     StoreModule.forRoot(appReducer),
