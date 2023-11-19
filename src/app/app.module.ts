@@ -49,6 +49,7 @@ import {CardModule} from 'primeng/card';
 import { UsersRegistryReportComponent } from './componentes/users-registry-report/users-registry-report.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { UsersVisitsReportComponent } from './componentes/users-visits-report/users-visits-report.component';
+import { AppointmentsVisitsReportComponent } from './componentes/appointments-visits-report/appointments-visits-report.component';
 
 
 
@@ -76,7 +77,8 @@ import { UsersVisitsReportComponent } from './componentes/users-visits-report/us
     ReportsComponent,
     ProjectProductivityReportComponent,
     UsersRegistryReportComponent,
-    UsersVisitsReportComponent
+    UsersVisitsReportComponent,
+    AppointmentsVisitsReportComponent
     
 
   ],
@@ -106,8 +108,6 @@ import { UsersVisitsReportComponent } from './componentes/users-visits-report/us
     ChartModule,
     CardModule,
     ProgressSpinnerModule,
-    
-    
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

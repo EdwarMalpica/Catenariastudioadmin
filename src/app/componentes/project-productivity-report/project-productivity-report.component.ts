@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ApiServiceService } from '@app/services/api/api-service.service';
 import { of } from 'rxjs';
@@ -21,8 +21,11 @@ export class ProjectProductivityReportComponent implements OnInit {
   highestMonths: string[] = [];
   lowestMonths: string[] = [];
   loaded = false
+  @Output() messageEvent = new EventEmitter<boolean>();
+
 
   constructor(private api: ApiServiceService, private route: Router){
+    this.messageEvent.emit(true);
     this.load_data()
   }
 

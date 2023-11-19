@@ -11,12 +11,19 @@ export class ReportsComponent implements OnInit {
     { name: 'Tipos de proyectos'},
     { name: 'Creación proyectos'},
     { name: 'Registros usuarios'},
-    { name: 'Visitas de usuarios'},
+    { name: 'Visitas de proyectos y artículos'},
+    { name: 'Visitas citas'},
 ];
 
 selected_report:string 
+report_loaded = false
 
 constructor(){
+  this.report_loaded = false
+}
+
+receiveMessage() {
+  console.log("CAMBIOOOO  OOOOO")
 }
   ngOnInit(): void {
   }

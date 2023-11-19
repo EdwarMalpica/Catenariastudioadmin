@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiServiceService } from '@app/services/api/api-service.service';
 
@@ -19,9 +19,13 @@ export class UsersRegistryReportComponent {
   max_users_month = 0
   total_registries = 0
   minim_months = []
-  
+  max_months = []
+  max_value = 0
+  @Output() messageEvent = new EventEmitter<boolean>();
+
 
   constructor(private api: ApiServiceService, private route: Router){
+    this.messageEvent.emit(true);
     this.load_data()
   }
 
@@ -30,9 +34,9 @@ export class UsersRegistryReportComponent {
     this.ApiUrl = this.api.apiUrl;
     this.api.get('/logs/users').subscribe((data) =>{
       this.registries_users_data = data['registerUsersForLast12Month'];
-      console.log(this.registries_users_data)
       this.set_months();
       this.indicesNumerosMinimos()
+      this.found_max_months()
       this.set_properties_chart()
       this.loaded = true
     }, (error) => {
@@ -43,6 +47,7 @@ export class UsersRegistryReportComponent {
   }
 
   set_properties_chart(){
+    const documentStyle = getComputedStyle(document.documentElement);
     this.basicData = {
         labels: this.months,
         datasets: [
@@ -50,7 +55,7 @@ export class UsersRegistryReportComponent {
                 label: 'Publicaciones en meses',
                 data: this.values_months,
                 fill: false,
-                borderColor: '#42A5F5',
+                borderColor: documentStyle.getPropertyValue('--green-500'),
                 tension: .4
             }]}
   }
@@ -69,21 +74,26 @@ export class UsersRegistryReportComponent {
     let minimo = array[0];
     let indicesMinimos: number[] = [0];
   
-    for (let i = 1; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       const elementoActual = array[i];
-  
-      if (elementoActual < minimo) {
-        // Nuevo mínimo encontrado, reiniciar el array de índices
+      if (elementoActual <= minimo) {
         minimo = elementoActual;
         this.minim_months.push(this.months[i])
         indicesMinimos = [i];
-      } else if (elementoActual === minimo) {
-        // Mismo mínimo encontrado, agregar el índice al array
-        indicesMinimos.push(i);
-      }
-      // Si el elemento actual es mayor, no hacemos nada y continuamos con el siguiente elemento.
+      } 
     }
-  
     return indicesMinimos;
+  }
+
+  found_max_months(){
+    let array = this.values_months  
+    let max_indices: number[] = [0];
+    for (let i = 0; i < array.length; i++) {
+      const current_number = array[i];
+      if (current_number >= this.max_value) {
+        this.max_value = current_number;
+        this.max_months.push(this.months[i])
+      } 
+    }
   }
 }
