@@ -1,4 +1,4 @@
-<div class="main_container">
+<div class="main_container" *ngIf="loaded">
     <div class="chart_container">
         <p-chart type="line" [data]="basicData" [options]="basicOptions" class="chart"></p-chart>
     </div>
@@ -8,4 +8,7 @@
         <p-card class="text_card" >Por otra parte, los meses con menor productividad en la publiacion de proyectos fueron : {{this.lowestMonths}} con un total de {{this.lowestValue}} publicaciones.</p-card>
         <p-card class="text_card" >Permitiendo obtner una vista a nivel general de la productividad enfocandonos a la creación de proyectos</p-card>
     </div>
+</div>
+<div style="display: flex; justify-content: center;margin-top: 30px;" *ngIf="!loaded">
+    <p-progressSpinner></p-progressSpinner>
 </div>

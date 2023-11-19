@@ -20,6 +20,7 @@ export class ProjectProductivityReportComponent implements OnInit {
   lowestValue = Number.MAX_SAFE_INTEGER;
   highestMonths: string[] = [];
   lowestMonths: string[] = [];
+  loaded = false
 
   constructor(private api: ApiServiceService, private route: Router){
     this.load_data()
@@ -44,6 +45,7 @@ export class ProjectProductivityReportComponent implements OnInit {
     this.ApiUrl = this.api.apiUrl;
     this.api.get('/proyectos').subscribe((data) =>{
       this.proyectos = data['proyectos'];
+      this.loaded = true
       this.count_by_month()
       this.set_properties_chart()
 

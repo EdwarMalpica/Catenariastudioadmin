@@ -1,0 +1,13 @@
+<div class="main_container" *ngIf="loaded">
+    <div class="chart_container">
+        <p-chart type="line" [data]="basicData" [options]="basicOptions" class="chart"></p-chart>
+    </div>
+    <div class="text_container">
+        <p-card header="Informacion General" class="text_card"> Habiendo analizado un total de {{total_registries}} registros de usuarios registrados organizando usuarios según fecha de registro por meses del ultimo año se resalta que:  </p-card>
+        <p-card class="text_card" >La mayor cantidad de usuarios registrados en el sistema en un mes fue de {{max_users_month}}</p-card>
+        <p-card class="text_card" >En el ultimo año el mes con menor cantidad de usuarios registrados fueron: {{minim_months}}  </p-card>
+    </div>
+</div>
+<div style="display: flex; justify-content: center;margin-top: 30px;" *ngIf="!loaded">
+    <p-progressSpinner ></p-progressSpinner>
+</div>

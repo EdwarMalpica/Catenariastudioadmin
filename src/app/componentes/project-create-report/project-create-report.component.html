@@ -1,4 +1,4 @@
-<div class="main_container">
+<div class="main_container" *ngIf="loaded">
     <div class="chart_container">
         <p-chart type="bar" class="chart" [data]="basicData" [options]="basicOptions"></p-chart>
     </div>
@@ -7,7 +7,7 @@
         <p-card class="text_card" >Mayor Tipo de proyectos registrados {{this.top_element_key}} con un numero total de {{this.top_element_values}} registros en el sistema.</p-card>
         <p-card class="text_card" >Menor Tipo de proyectos encontrados {{this.button_element_key}} con un numero numero de apariciones de  {{this.button_element_values}}</p-card>
     </div>
-
-   
-    
+</div>
+<div style="display: flex; justify-content: center;margin-top: 30px;" *ngIf="!loaded">
+    <p-progressSpinner></p-progressSpinner>
 </div>

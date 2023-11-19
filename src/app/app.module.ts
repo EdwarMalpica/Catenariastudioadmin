@@ -46,7 +46,9 @@ import { ReportsComponent } from './pages/reports/reports/reports.component';
 import { ChartModule } from 'primeng/chart';
 import { ProjectProductivityReportComponent } from './componentes/project-productivity-report/project-productivity-report.component';
 import {CardModule} from 'primeng/card';
-
+import { UsersRegistryReportComponent } from './componentes/users-registry-report/users-registry-report.component';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { UsersVisitsReportComponent } from './componentes/users-visits-report/users-visits-report.component';
 
 
 
@@ -73,6 +75,8 @@ import {CardModule} from 'primeng/card';
     ProjectCreateReportComponent,
     ReportsComponent,
     ProjectProductivityReportComponent,
+    UsersRegistryReportComponent,
+    UsersVisitsReportComponent
     
 
   ],
@@ -100,7 +104,9 @@ import {CardModule} from 'primeng/card';
     InputMaskModule,
     DropdownModule,
     ChartModule,
-    CardModule
+    CardModule,
+    ProgressSpinnerModule,
+    
     
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

@@ -9,16 +9,16 @@ export class ReportsComponent implements OnInit {
 
   option_reports= [
     { name: 'Tipos de proyectos'},
-    { name: 'Creación publicaciones'},
+    { name: 'Creación proyectos'},
+    { name: 'Registros usuarios'},
+    { name: 'Visitas de usuarios'},
 ];
 
-selected_report:string
+selected_report:string 
 
 constructor(){
-  console.log(this.selected_report)
 }
   ngOnInit(): void {
-    console.log(this.selected_report)
   }
 
 

@@ -21,6 +21,7 @@ export class ProjectCreateReportComponent {
   total_project = 0
   proyectos = [];
   ApiUrl;
+  loaded = false
 
 
   
@@ -38,9 +39,11 @@ export class ProjectCreateReportComponent {
     this.ApiUrl = this.api.apiUrl;
     this.api.get('/proyectos').subscribe((data) =>{
       this.proyectos = data['proyectos'];
+      this.loaded = true
       this.get_number_publication();
       this.set_chart_properties();
       this.sort_data()
+      
     }, (error) => {
       console.log(error);
     }, () => {
