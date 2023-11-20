@@ -31,6 +31,14 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   {
+    path: 'articles',
+    loadChildren: () =>
+      import('./modules/articles/articles.module').then(
+        (m) => m.ArticlesModule
+      ),
+    canActivate: [authGuard],
+  },
+  {
     path: 'horarios',
     loadChildren: () =>
       import('./modules/horarios/horarios.module').then(
@@ -38,6 +46,7 @@ const routes: Routes = [
       ),
     canActivate: [authGuard],
   },
+  {path:'logs',loadChildren:()=>import('./modules/logs/logs.module').then(m=>m.LogsModule),canActivate:[authGuard]}
 ];
 
 @NgModule({

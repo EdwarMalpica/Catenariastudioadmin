@@ -1,5 +1,5 @@
 <div class="tw-mt-20 tw-flex tw-min-h-screen tw-w-full tw-items-center tw-justify-center tw-flex-col">
-  <h2 class="title">Crear proyecto</h2>
+  <h2 class="title">Crear articulo</h2>
   <div class="containt">
     <div class="row">
       <div class="mx-auto">
@@ -9,7 +9,7 @@
               <div class="form-group space">
                 <label for="titulo" class="subtitle">Titulo:</label>
                 <input type="text" formControlName="titulo" [(ngModel)]="titulo" class="form-control subtitle"
-                  name="titulo" placeholder="Titulo del proyecto" required>
+                  name="titulo" placeholder="Titulo del articulo" required>
                 <p style="color: red; font-size: small;" text="Campo requerido"
                   *ngIf="formulario.get('titulo').hasError('required') && formulario.get('titulo').touched">*Campo
                   requerido</p>
@@ -49,17 +49,6 @@
                   cancelLabel="Cancelar" accept="image/*" (onSelect)="uploadFileMiniatura($event)">
                   <ng-template pTemplate="content">
                     <p style="font-size: small;">Extensiones permitidas: png, jpg, jpeg</p>
-                  </ng-template>
-                </p-fileUpload>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-6">
-              <div class="form-group space">
-                <label for="telefono" class="subtitle">Modelo: </label>
-                <p-fileUpload name="myfile[]" [showUploadButton]="false" chooseLabel="Seleccionar"
-                  cancelLabel="Cancelar" accept="" (onSelect)="uploadFileModel($event)">
-                  <ng-template pTemplate="content">
-                    <p style="font-size: small;">Extensiones permitidas: glb, gtlf</p>
                   </ng-template>
                 </p-fileUpload>
               </div>

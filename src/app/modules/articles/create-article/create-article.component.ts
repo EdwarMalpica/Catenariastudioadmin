@@ -1,27 +1,25 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '@app/core/services/api.service';
-import { AppState } from '@app/data/app.state';
-import { isLoadingButton } from '@app/data/shared/shared.action';
-import { getIsLoadingButton } from '@app/data/shared/shared.selector';
-import { AlertsService } from '@app/shared/services/alerts.service';
 import { Store } from '@ngrx/store';
+import { AppState } from '@app/data/app.state';
+import { AlertsService } from '@app/shared/services/alerts.service';
 import { Observable } from 'rxjs';
-
+import { getIsLoadingButton } from '@app/data/shared/shared.selector';
+import { isLoadingButton } from '@app/data/shared/shared.action';
 @Component({
-  selector: 'app-create-project',
-  templateUrl: './create-project.component.html',
-  styleUrls: ['./create-project.component.css'],
+  selector: 'app-create-article',
+  templateUrl: './create-article.component.html',
+  styleUrls: ['./create-article.component.css'],
 })
-export class CreateProjectComponent implements OnInit {
+export class CreateArticleComponent implements OnInit{
   titulo;
   fecha_creacion;
   descripcion;
   user_id;
   contenido;
   miniatura;
-  model;
   img: any[] = [];
   formulario: FormGroup;
   isLoadingButton:Observable<boolean>;
@@ -51,9 +49,7 @@ export class CreateProjectComponent implements OnInit {
   uploadFileMiniatura(event) {
     this.miniatura = event.files[0];
   }
-  uploadFileModel(event) {
-    this.model = event.files[0];
-  }
+
 
   createProject() {
     this.store.dispatch(isLoadingButton({ isLoadingButton: true }));
@@ -70,18 +66,17 @@ export class CreateProjectComponent implements OnInit {
       contenido: this.formulario.get('contenido').value,
     };
     const formData = new FormData();
+    formData.append('data', JSON.stringify(data));
     for (let i = 0; i < this.img.length; i++) {
       formData.append('img' + i, this.img[i]);
     }
     formData.append('miniatura', this.miniatura);
-    formData.append('model', this.model);
 
-    formData.append('data', JSON.stringify(data));
-    this.api.postFormData('proyectos/create', formData).subscribe(
+    this.api.postFormData('articulos/create', formData).subscribe(
       (data) => {
-        this.alerts.showSuccess('Proyecto creado correctamente');
-        this.router.navigate(['/proyects']);
+        this.alerts.showSuccess('Articulo creado correctamente');
         this.store.dispatch(isLoadingButton({ isLoadingButton: false }));
+        this.router.navigate(['/articles']);
       },
       (error) => {
         this.alerts.showError(error.error.message);

@@ -15,6 +15,7 @@ export class ApiService {
   isAuth: Observable<boolean>;
   headers: HttpHeaders = new HttpHeaders();
   isToken: boolean = false;
+  headersFormData: HttpHeaders = new HttpHeaders();
 
   constructor(
     private http: HttpClient,
@@ -26,6 +27,10 @@ export class ApiService {
         if (token) {
           this.headers = new HttpHeaders({
             'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            Authorization: token ? `Bearer ${token}` : '',
+          });
+          this.headersFormData = new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             Authorization: token ? `Bearer ${token}` : '',
           });
@@ -79,7 +84,7 @@ export class ApiService {
   postFormData(url: string, data: FormData) {
     if (this.isToken) {
       return this.http.post(`${this.API_URL}/api/${url}`, data, {
-        headers: this.headers,
+        headers: this.headersFormData,
       });
     } else {
       return this.http.post(`${this.API_URL}/api/${url}`, data);
