@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/data/app.state';
 import { AlertsService } from '@app/shared/services/alerts.service';
-import { getIsLoadingLogin, isAuthenticated } from '@app/data/auth/auth.selector';
+import {
+  getIsLoadingLogin,
+  isAuthenticated,
+} from '@app/data/auth/auth.selector';
 import { isLoadingLogin, loginStart } from '@app/data/auth/auth.action';
 
 @Component({
@@ -24,16 +27,17 @@ export class LoginComponent {
     private alerts: AlertsService
   ) {}
   ngOnInit(): void {
-    this.isAuth = this.store.select(isAuthenticated);
     this.isLoading = this.store.select(getIsLoadingLogin);
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
-    this.isAuth.subscribe((isAuth) => {
-      if (isAuth) {
-        this.router.navigate(['/']);
-      }
+    this.store.select(isAuthenticated).subscribe({
+      next: (data) => {
+        if (data) {
+          this.router.navigate(['/home']);
+        }
+      },
     });
   }
 

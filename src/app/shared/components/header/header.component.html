@@ -1,4 +1,4 @@
-<div class="cate-title">
+<div class="cate-title tw-flex tw-justify-between">
   <a class="" >
     <div class="tw-flex tw-items-center">
       <div class="">
@@ -9,4 +9,5 @@
       </div>
     </div>
   </a>
+  <a class="btn btn-primary" *ngIf="isAuth|async" (click)="logout()">Cerrar sesion</a>
 </div>
