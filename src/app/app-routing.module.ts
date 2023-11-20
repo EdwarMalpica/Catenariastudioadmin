@@ -46,6 +46,7 @@ const routes: Routes = [
       ),
     canActivate: [authGuard],
   },
+  {path:'logs',loadChildren:()=>import('./modules/logs/logs.module').then(m=>m.LogsModule),canActivate:[authGuard]}
 ];
 
 @NgModule({

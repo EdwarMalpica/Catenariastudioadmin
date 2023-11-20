@@ -2,13 +2,19 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '@app/core/services/api.service';
+import { AppState } from '@app/data/app.state';
+import { isLoadingButton } from '@app/data/shared/shared.action';
+import { getIsLoadingButton } from '@app/data/shared/shared.selector';
+import { AlertsService } from '@app/shared/services/alerts.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-project',
   templateUrl: './create-project.component.html',
   styleUrls: ['./create-project.component.css'],
 })
-export class CreateProjectComponent implements OnInit{
+export class CreateProjectComponent implements OnInit {
   titulo;
   fecha_creacion;
   descripcion;
@@ -18,10 +24,13 @@ export class CreateProjectComponent implements OnInit{
   model;
   img: any[] = [];
   formulario: FormGroup;
+  isLoadingButton:Observable<boolean>;
   constructor(
     private api: ApiService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>,
+    private alerts: AlertsService
   ) {
     this.formulario = this.fb.group({
       titulo: ['', Validators.required],
@@ -30,7 +39,7 @@ export class CreateProjectComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-
+    this.isLoadingButton = this.store.select(getIsLoadingButton);
   }
 
   uploadFileImg(event) {
@@ -47,6 +56,7 @@ export class CreateProjectComponent implements OnInit{
   }
 
   createProject() {
+    this.store.dispatch(isLoadingButton({ isLoadingButton: true }));
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -60,23 +70,24 @@ export class CreateProjectComponent implements OnInit{
       contenido: this.formulario.get('contenido').value,
     };
     const formData = new FormData();
-    formData.append('data', JSON.stringify(data));
     for (let i = 0; i < this.img.length; i++) {
       formData.append('img' + i, this.img[i]);
     }
     formData.append('miniatura', this.miniatura);
     formData.append('model', this.model);
 
-    this.api.postFormData('/proyectos/create', formData).subscribe(
+    formData.append('data', JSON.stringify(data));
+    this.api.postFormData('proyectos/create', formData).subscribe(
       (data) => {
-        alert('Proyecto creado correctamente');
-        this.router.navigate(['/project-catalog']);
+        this.alerts.showSuccess('Proyecto creado correctamente');
+        this.router.navigate(['/proyects']);
+        this.store.dispatch(isLoadingButton({ isLoadingButton: false }));
       },
       (error) => {
-        alert('Error al crear el proyecto');
+        this.alerts.showError(error.error.message);
+        this.store.dispatch(isLoadingButton({ isLoadingButton: false }));
       },
       () => {
-        console.log('Peticion finalizada');
       }
     );
   }

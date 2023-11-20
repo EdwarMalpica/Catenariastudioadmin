@@ -1,47 +1,58 @@
-import { Component } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '@app/core/services/api.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/data/app.state';
+import { AlertsService } from '@app/shared/services/alerts.service';
+import { Observable } from 'rxjs';
+import { getIsLoadingButton } from '@app/data/shared/shared.selector';
+import { isLoadingButton } from '@app/data/shared/shared.action';
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
-  styleUrls: ['./create-article.component.css']
+  styleUrls: ['./create-article.component.css'],
 })
-export class CreateArticleComponent {
+export class CreateArticleComponent implements OnInit{
   titulo;
   fecha_creacion;
   descripcion;
   user_id;
   contenido;
   miniatura;
-  model;
   img: any[] = [];
   formulario: FormGroup;
-
-  constructor(private api: ApiService, private fb: FormBuilder, private router:Router) {
+  isLoadingButton:Observable<boolean>;
+  constructor(
+    private api: ApiService,
+    private fb: FormBuilder,
+    private router: Router,
+    private store: Store<AppState>,
+    private alerts: AlertsService
+  ) {
     this.formulario = this.fb.group({
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required],
       contenido: ['', Validators.required],
     });
   }
+  ngOnInit(): void {
+    this.isLoadingButton = this.store.select(getIsLoadingButton);
+  }
 
   uploadFileImg(event) {
     for (let file of event.files) {
       this.img.push(file);
     }
-    
   }
 
   uploadFileMiniatura(event) {
     this.miniatura = event.files[0];
   }
-  uploadFileModel(event) {
-    this.model = event.files[0];
-  }
+
 
   createProject() {
+    this.store.dispatch(isLoadingButton({ isLoadingButton: true }));
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -61,16 +72,17 @@ export class CreateArticleComponent {
     }
     formData.append('miniatura', this.miniatura);
 
-    this.api.postFormData('/articulos/create', formData).subscribe(
+    this.api.postFormData('articulos/create', formData).subscribe(
       (data) => {
-        alert('Proyecto creado correctamente');
-        this.router.navigate(['/project-catalog']);
+        this.alerts.showSuccess('Articulo creado correctamente');
+        this.store.dispatch(isLoadingButton({ isLoadingButton: false }));
+        this.router.navigate(['/articles']);
       },
       (error) => {
-        alert('Error al crear el proyecto');
+        this.alerts.showError(error.error.message);
+        this.store.dispatch(isLoadingButton({ isLoadingButton: false }));
       },
       () => {
-        console.log('Peticion finalizada');
       }
     );
   }

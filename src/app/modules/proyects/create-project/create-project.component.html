@@ -77,7 +77,10 @@
 
           </div>
           <div class="row justify-content-md-center btn-container">
-            <button class="btn-acept btn-css" [disabled]="!formulario.valid" (click)="createProject()">Guardar</button>
+            <button class="btn-acept btn-css" [disabled]="!formulario.valid" (click)="createProject()">
+              <app-loader-button *ngIf="isLoadingButton|async"></app-loader-button>
+              <div for="" *ngIf="!(isLoadingButton|async)">Guardar</div>
+            </button>
             <button class="btn btn-cancel btn-css" [routerLink]="''">Cancelar</button>
           </div>
         </form>

@@ -39,7 +39,7 @@ export class ArticleCatalogComponent {
   getArticles() {
     this.api.get('articulos').subscribe({
       next: (data: any) => {
-        this.articles = data.proyectos;
+        this.articles = data.articulos;
         this.store.dispatch(isLoading({ isLoading: false }));
       },
       error: (error) => {
