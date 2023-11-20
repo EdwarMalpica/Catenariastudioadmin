@@ -1,26 +1,24 @@
-.spacer{
-  /* flex: 1 1 auto; */
-}
+
 
 a{
   text-decoration: none;
   color: #fff;
 }
 
-.header-nav {
-/* background: radial-gradient(126.75% 126.75% at 50% 50%, #086970 0%, rgba(30, 33, 69, 1) 100%); */
+.btn{
+  margin-top: 20px;
+  font-weight: bold;
+  height: 45px;
 }
 
 .titleFont {
 height: 36px;
-font-family: 'Bahiana';
 text-align: left;
 font-size: 36px;
 }
 
 .subTitleFont {
 font-size: 14px;
-font-family: 'Bahiana';
 text-align: left;
 }
 

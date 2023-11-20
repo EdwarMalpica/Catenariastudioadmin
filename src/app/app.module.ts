@@ -22,14 +22,9 @@ import {MatChipsModule} from '@angular/material/chips';
 
 //Ventanas modales
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogoNuevoHorarioComponent } from './modules/horarios/editar-horarios/dialogo-nuevo-horario/dialogo-nuevo-horario.component';
-import { DialogoEliminarComponent } from './modules/horarios/editar-horarios/dialogo-eliminar/dialogo-eliminar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MenuComponent } from './shared/components/menu/menu.component';
-import { ProjectDetailsComponent } from './modules/proyects/project-details/project-details.component';
 
-import {FileUploadModule} from 'primeng/fileupload';
-import { EditorModule } from 'primeng/editor';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DropdownModule } from 'primeng/dropdown';
 import { CoreModule } from './core/core.module';
@@ -47,18 +42,13 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     PerfilComponent,
-    DialogoNuevoHorarioComponent,
-    DialogoEliminarComponent,
     MenuComponent,
-    ProjectDetailsComponent,
-
 
   ],
   imports: [
@@ -80,8 +70,6 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     ReactiveFormsModule,
     SweetAlert2Module,
     HttpClientModule,
-    FileUploadModule,
-    EditorModule,
     InputMaskModule,
     DropdownModule,
     ChartModule,

@@ -37,5 +37,8 @@ export class DialogoNuevoHorarioComponent {
   closeDialog(horario: any){
     this.activemodal.close(horario);
   }
+  closeDialogCancel(){
+    this.activemodal.close();
+  }
 
 }

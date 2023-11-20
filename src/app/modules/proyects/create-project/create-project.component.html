@@ -1,83 +1,87 @@
-<div class="main-container">
-    <div class="card-container container">
-      <h2 class="title">Crear proyecto</h2>
-      <div class="containt">
-        <div class="row" >
-          <div class="mx-auto">
-            <form [formGroup]="formulario">
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                  <div class="form-group space">
-                    <label for="titulo" class="subtitle">Titulo:</label>
-                    <input type="text" formControlName="titulo" [(ngModel)]="titulo" class="form-control subtitle" name="titulo" placeholder="Titulo del proyecto" required>
-                    <p style="color: red; font-size: small;" text="Campo requerido" *ngIf="formulario.get('titulo').hasError('required') && formulario.get('titulo').touched">*Campo requerido</p>
-                  </div>
-                </div>
-
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                  <div class="form-group space">
-                    <label for="Descripción" class="subtitle">Descripción:</label>
-                    <input type="text" formControlName="descripcion" [(ngModel)]="descripcion" class="form-control subtitle" name="descripcion" placeholder="Descripción corta" style="height: 100px;">
-                    <p style="color: red; font-size: small;" text="Campo requerido" *ngIf="formulario.get('descripcion').hasError('required') && formulario.get('descripcion').touched">*Campo requerido</p>
-                  </div>
-                </div>
-                <!-- ------------------------------------------------------------------------------------ -->
-                <!-- ------------------------------------------------------------------------------------ -->
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                  <div class="form-group space">
-                    <label for="Imagenes" class="subtitle">Imagenes:</label>
-                    <p-fileUpload name="imagenes[]" [multiple]="true"  mode="advanced" [showUploadButton]="false" chooseLabel="Seleccionar" cancelLabel="Cancelar"
-                    accept="image/*" (onSelect)="uploadFileImg($event)" >
-                    <ng-template pTemplate="content">
-                      <p *ngIf="img.length == 0">Arrastre y suelte archivos para subirlos</p>
-                      <p style="font-size: small; line-height: 0.9;">Extensiones permitidas: png, jpg, jpeg <br>
-                        Archivos Seleccionados: {{img.length}}
-                      </p>
-                    </ng-template>
-                  </p-fileUpload>
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                  <div class="form-group space">
-                    <label for="telefono" class="subtitle">Miniatura:</label>
-                    <p-fileUpload name="myfile[]" [showUploadButton]="false" chooseLabel="Seleccionar" cancelLabel="Cancelar"
-                    accept="image/*" (onSelect)="uploadFileMiniatura($event)">
-                    <ng-template pTemplate="content">
-                      <p style="font-size: small;">Extensiones permitidas: png, jpg, jpeg</p>
-                    </ng-template>
-                  </p-fileUpload>
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                  <div class="form-group space">
-                    <label for="telefono" class="subtitle">Modelo: </label>
-                    <p-fileUpload name="myfile[]" [showUploadButton]="false" chooseLabel="Seleccionar" cancelLabel="Cancelar"
-                    accept="" (onSelect)="uploadFileModel($event)">
-                    <ng-template pTemplate="content">
-                      <p style="font-size: small;">Extensiones permitidas: glb, gtlf</p>
-                    </ng-template>
-                  </p-fileUpload>
-                  </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 w-100">
-                  <div class="form-group space ">
-                    <label for="apellido" class="subtitle">Contenido:</label>
-                    <p style="color: red; font-size: small;" text="Campo requerido"
-                      *ngIf="formulario.get('contenido').hasError('required') && formulario.get('contenido').touched">*Campo requerido
-                    </p>
-                    <p-editor [(ngModel)]="contenido" formControlName="contenido" [style]="{'height':'500px'}"></p-editor>
-                  </div>
-                </div>
-
-            </div>
-              <div class="row justify-content-md-center btn-container">
-                <button class="btn-acept btn-css" [disabled]="!formulario.valid" (click)="createProject()" >Guardar</button>
-                <button class="btn btn-cancel btn-css" [routerLink]="''">Cancelar</button>
+<div class="tw-mt-20 tw-flex tw-min-h-screen tw-w-full tw-items-center tw-justify-center tw-flex-col">
+  <h2 class="title">Crear proyecto</h2>
+  <div class="containt">
+    <div class="row">
+      <div class="mx-auto">
+        <form [formGroup]="formulario">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group space">
+                <label for="titulo" class="subtitle">Titulo:</label>
+                <input type="text" formControlName="titulo" [(ngModel)]="titulo" class="form-control subtitle"
+                  name="titulo" placeholder="Titulo del proyecto" required>
+                <p style="color: red; font-size: small;" text="Campo requerido"
+                  *ngIf="formulario.get('titulo').hasError('required') && formulario.get('titulo').touched">*Campo
+                  requerido</p>
               </div>
-            </form>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group space">
+                <label for="Descripción" class="subtitle">Descripción:</label>
+                <input type="text" formControlName="descripcion" [(ngModel)]="descripcion" class="form-control subtitle"
+                  name="descripcion" placeholder="Descripción corta" style="height: 100px;">
+                <p style="color: red; font-size: small;" text="Campo requerido"
+                  *ngIf="formulario.get('descripcion').hasError('required') && formulario.get('descripcion').touched">
+                  *Campo requerido</p>
+              </div>
+            </div>
+            <!-- ------------------------------------------------------------------------------------ -->
+            <!-- ------------------------------------------------------------------------------------ -->
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group space">
+                <label for="Imagenes" class="subtitle">Imagenes:</label>
+                <p-fileUpload name="imagenes[]" [multiple]="true" mode="advanced" [showUploadButton]="false"
+                  chooseLabel="Seleccionar" cancelLabel="Cancelar" accept="image/*" (onSelect)="uploadFileImg($event)">
+                  <ng-template pTemplate="content">
+                    <p *ngIf="img.length == 0">Arrastre y suelte archivos para subirlos</p>
+                    <p style="font-size: small; line-height: 0.9;">Extensiones permitidas: png, jpg, jpeg <br>
+                      Archivos Seleccionados: {{img.length}}
+                    </p>
+                  </ng-template>
+                </p-fileUpload>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group space">
+                <label for="telefono" class="subtitle">Miniatura:</label>
+                <p-fileUpload name="myfile[]" [showUploadButton]="false" chooseLabel="Seleccionar"
+                  cancelLabel="Cancelar" accept="image/*" (onSelect)="uploadFileMiniatura($event)">
+                  <ng-template pTemplate="content">
+                    <p style="font-size: small;">Extensiones permitidas: png, jpg, jpeg</p>
+                  </ng-template>
+                </p-fileUpload>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <div class="form-group space">
+                <label for="telefono" class="subtitle">Modelo: </label>
+                <p-fileUpload name="myfile[]" [showUploadButton]="false" chooseLabel="Seleccionar"
+                  cancelLabel="Cancelar" accept="" (onSelect)="uploadFileModel($event)">
+                  <ng-template pTemplate="content">
+                    <p style="font-size: small;">Extensiones permitidas: glb, gtlf</p>
+                  </ng-template>
+                </p-fileUpload>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 w-100">
+              <div class="form-group space ">
+                <label for="apellido" class="subtitle">Contenido:</label>
+                <p style="color: red; font-size: small;" text="Campo requerido"
+                  *ngIf="formulario.get('contenido').hasError('required') && formulario.get('contenido').touched">*Campo
+                  requerido
+                </p>
+                <p-editor [(ngModel)]="contenido" formControlName="contenido" [style]="{'height':'500px'}"></p-editor>
+              </div>
+            </div>
+
           </div>
-        </div>
+          <div class="row justify-content-md-center btn-container">
+            <button class="btn-acept btn-css" [disabled]="!formulario.valid" (click)="createProject()">Guardar</button>
+            <button class="btn btn-cancel btn-css" [routerLink]="''">Cancelar</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-
+</div>
