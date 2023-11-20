@@ -46,9 +46,7 @@ export class ProjectsCatalogComponent implements OnInit {
     });
   }
 
-  createProject() {
-    this.route.navigate(['/create-project']);
-  }
+
   deleteProject(id: any) {
     this.selectedProjectId = id;
     this.store.dispatch(isLoadingButton({ isLoadingButton: true }));

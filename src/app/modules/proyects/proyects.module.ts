@@ -20,7 +20,7 @@ import { SharedModule } from '@app/shared/shared.module';
     ReactiveFormsModule,
     EditorModule,
     FileUploadModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class ProyectsModule { }
