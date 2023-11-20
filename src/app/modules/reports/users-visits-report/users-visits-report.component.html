@@ -1,0 +1,22 @@
+<div class="main_container" *ngIf="loaded">
+    <div class="text_container">
+        <p-card header="Informacion General" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }"> Habiendo analizado un total de {{(total_visits_projects + total_visits_articles)}} registros de usuarios sobre vistas a proyectos y artículos según fecha de actividad por meses del ultimo año se resalta que:  </p-card>
+        
+        <p-card class="text_card_2" [style]="{borderRadius: '15px',color: 'white'}">
+            <div class="chart_container">
+                <p-chart type="line" [data]="basicData" [options]="basicOptions" class="chart"></p-chart>
+            </div>
+        </p-card>
+
+        <p-card class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }" >El mes con mayor cantidad de visitas de proyectos fue {{max_months_project}} con un total de {{this.max_users_month_project}}
+            <br>Por otra parte el mes con mayor cantidad de visitas de en articulos fue {{max_months_article}} con un total de {{this.max_users_month_article}}
+            <br>Por ultimo se destaca que los proyectos con mayores visitas fueron <ul style="margin-left: 5px; list-style-type: circle; margin-top:  5px;" class="text_card_top"  *ngFor="let project of most_visited_project"><li> Nombre proyecto: {{project['project']}} con {{project['visits']}} visitas </li> </ul>
+            <br>En cuanto a los artículos encontramos que los más visitados son: <ul style="margin-left: 5px; list-style-type: circle; margin-top:  5px;" class="text_card_top"  *ngFor="let article of most_visited_articles"><li> Nombre artículo: {{article['article']}} con {{article['visits']}} visitas </li> </ul>
+        </p-card>
+
+        
+    </div>
+</div>
+<div style="display: flex; justify-content: center;margin-top: 30px;" *ngIf="!loaded">
+    <p-progressSpinner ></p-progressSpinner>
+</div>

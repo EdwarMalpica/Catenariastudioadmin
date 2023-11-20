@@ -1,2 +1,25 @@
-<button class="btn btn-primary">Que a</button>
+<div class="bg-app tw-w-3/6" [ngClass]="{'bg-filter': isAuth|async}">
 
+</div>
+<app-header></app-header>
+<app-side-menu-bar class="tw-w-96 tw-h-screen" *ngIf="isAuth | async"></app-side-menu-bar>
+<div class="tw-flex">
+  <div class="tw-w-96 tw-h-screen" [ngClass]="{'tw-hidden':!(isAuth|async)}"></div>
+  <router-outlet></router-outlet>
+</div>
+<!-- Alerts -->
+<!-- Alert Error -->
+<app-alert-error></app-alert-error>
+<!-- Alert Success -->
+<app-alert-success></app-alert-success>
+<!-- Alert Warning -->
+<app-alert-warn></app-alert-warn>
+<!-- Alert Info -->
+<app-alert-info></app-alert-info>
+<!-- Alert Message -->
+<app-alert-message></app-alert-message>
+
+
+<!-- Loaders -->
+<app-loader-general *ngIf="isLoading|async">
+</app-loader-general>

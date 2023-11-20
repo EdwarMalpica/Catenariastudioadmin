@@ -1,0 +1,25 @@
+<div class="tw-flex tw-w-full tw-h-screen tw-items-center tw-justify-center">
+  <div class="bg-login">
+    <h1 class="tw-text-3xl tw-font-bold tw-text-center">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="tw-flex tw-flex-col ">
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" name="email" required="" placeholder="Email" id="email" />
+          <label for="" style="color: red;" *ngIf="loginForm.get('email')?.touched && !loginForm.get('email')?.valid "> Email
+            invalido*</label>
+      </div>
+      <div class="tw-flex tw-flex-col ">
+        <label for="password">Contraseña</label>
+        <input type="password" formControlName="password" required name="password" placeholder="Contraseña" />
+          <label for="" style="color: red;" *ngIf="loginForm.get('password')?.touched && !loginForm.get('password')?.valid ">
+            Contraseña es necesaria*</label>
+      </div>
+      <div class="tw-flex tw-flex-col">
+        <button type="submit" class="btn btn-primary">
+          <app-loader-button *ngIf="isLoading|async"></app-loader-button>
+          <span for="" *ngIf="!(isLoading|async)">Login</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

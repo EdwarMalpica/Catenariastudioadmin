@@ -1,0 +1,35 @@
+
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn{
+  margin-top: 20px;
+  font-weight: bold;
+  height: 45px;
+}
+
+.titleFont {
+height: 36px;
+text-align: left;
+font-size: 36px;
+}
+
+.subTitleFont {
+font-size: 14px;
+text-align: left;
+}
+
+.cate-title {
+color: #FFF;
+text-align: center;
+font-style: normal;
+line-height: normal;
+}
+
+.icon-container{
+  width: 100px;
+
+}

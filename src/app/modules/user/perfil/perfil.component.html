@@ -1,0 +1,70 @@
+<div class="main-container">
+  <div class="card-container container ">
+    <h2 class="title">Editar información del perfil</h2>
+    <div class="containt">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+          <form (ngSubmit)="guardarPerfil()">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group space">
+                  <label for="nombre" class="subtitle">
+                    Nombre: <mat-icon  fontIcon="edit"></mat-icon></label>
+                  <input type="text" id="nombre" class="form-control subtitle" [(ngModel)]="nombre" name="nombre"
+                    placeholder="Nombre del usuario">
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group space">
+                  <label for="apellido" class="subtitle">Apellido: <mat-icon fontIcon="edit"></mat-icon></label>
+                  <input type="text" id="apellido" class="form-control  subtitle" [(ngModel)]="apellido" name="apellido"
+                    placeholder="Apellido del usuario">
+                </div>
+              </div>
+
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group space">
+                  <label for="fechaNacimiento" class="subtitle">Fecha de Nacimiento: <mat-icon  fontIcon="edit"></mat-icon></label>
+                  <input type="date" id="fechaNacimiento" class="form-control subtitle " [(ngModel)]="fechaNacimiento"
+                    name="16/16/1655">
+                </div>
+              </div>
+
+
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="form-group space">
+                  <div class="form-group space">
+                    <label for="telefono" class="subtitle">Teléfono: <mat-icon  fontIcon="edit"></mat-icon></label>
+                    <input type="tel" id="telefono" class="form-control  subtitle" [(ngModel)]="telefono" name="telefono"
+                      placeholder="3000000000">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <label for="email" class="subtitle">Email:</label>
+                <input type="email" id="email@mail.com" class="form-control subtitle" [(ngModel)]="email" name="email"
+                  placeholder="E-mail del usuario">
+              </div>
+            </div>
+
+
+            <div class="row justify-content-md-center btn-container">
+
+
+
+                <!-- <button class="btn-acept btn-css " (click)="guardarPerfil()">Guardar</button>
+                <button class="btn btn-cancel btn-css" (click)="cancelarEdicion()">Cancelar</button> -->
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

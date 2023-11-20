@@ -1,0 +1,4 @@
+:host ::ng-deep .p-toast-message{
+  background: transparent;
+  box-shadow: none;
+}

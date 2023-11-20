@@ -1,0 +1,174 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "primeng/resources/themes/lara-dark-teal/theme.css";
+@import "primeng/resources/primeng.css";
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$CatenariaStudioAdmin-primary: mat.define-palette(mat.$indigo-palette);
+$CatenariaStudioAdmin-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$CatenariaStudioAdmin-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$CatenariaStudioAdmin-theme: mat.define-light-theme((color: (primary: $CatenariaStudioAdmin-primary,
+        accent: $CatenariaStudioAdmin-accent,
+        warn: $CatenariaStudioAdmin-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($CatenariaStudioAdmin-theme);
+
+
+/* You can add global styles to this file, and also import other style files */
+
+$theme-colors: (
+  "primary": #086970,
+  "danger": orangered
+);
+:root{
+  --primary: #086970;
+  --danger: orangered;
+  --font-primary: 'Quicksand', sans-serif;
+    --font-titles: 'Bahiana', cursive;
+    --color-font-primary: #FFFFFF;
+    --color-error: #ffffff;
+    --color-warn: #ffffff;
+    --color-success: #ffffff;
+    --color-info: #ffffff;
+    --gradient-primary: linear-gradient(315deg, #000000 50%, #086970);
+    --gradient-error: linear-gradient(198deg, rgba(255, 0, 0, 1) -1.81%, rgba(255, 0, 0, 0.5) 78%);
+    --gradient-warn: linear-gradient(198deg, rgba(255, 255, 0, 1) -1.81%, rgba(255, 255, 0, 0.5) 78%);
+    --gradient-success: linear-gradient(198deg, rgba(0, 255, 0, 1) -1.81%, rgba(0, 255, 0, 0.5) 78%);
+    --gradient-info: linear-gradient(198deg, rgba(0, 255, 255,1) -1.81%, rgba(0, 255, 255, 0.5) 78%);
+}
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: Bahiana;
+  src: url("assets/font/Bahiana-Regular.ttf") format("opentype");
+}
+
+* {
+  font-family:var(--font-primary);
+  color: black;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0
+}
+app-login{
+  width: 100%;
+  height: 100%;
+}
+
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90vw;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+.color-error {
+  color: var(--color-error);
+}
+
+.color-font-primary {
+  color: var(--color-font-primary) !important;
+}
+
+.color-success {
+  color: var(--color-success);
+}
+
+.color-warn {
+  color: var(--color-warn);
+}
+
+.color-info {
+  color: var(--color-info);
+}
+
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.backgroundGradient {
+  height: 100%;
+  background: radial-gradient(80.7% 80.7% at 50% 50%, #086970 0%, rgba(19, 17, 17, 0) 100%);
+}
+.btn {
+  font-family: Quicksand, sans-serif !important;
+  color: white;
+  font-weight: bold;
+}
+.btn-primary {
+  background-color: #086970 !important;
+}
+.btn-primary:hover {
+  background-color: #19a5af !important;
+}
+.alert {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.gradient-error {
+  background: var(--gradient-error);
+}
+
+.gradient-warn {
+  background: var(--gradient-warn);
+}
+
+.gradient-success {
+  background: var(--gradient-success);
+}
+
+.gradient-info {
+  background: var(--gradient-info);
+}
+app-appointment-details{
+  width: 100%;
+  height: 100%;
+}
+app-horarios-atencion{
+  width: 100%;
+  height: 100%;
+}
+app-editar-horarios{
+  width: 100%;
+  height: 100%;
+}
+app-users-registry-report{
+  width: 100%;
+  height: 100%;
+}
+.material-symbols-outlined:hover {
+  color: #086970;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #086970;
+}

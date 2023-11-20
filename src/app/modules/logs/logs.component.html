@@ -1,0 +1,25 @@
+<div class="tw-flex tw-mt-32 tw-min-h-screen tw-flex-col tw-w-full tw-items-center ">
+  <h2>Reporte de Logs</h2>
+
+  <table>
+    <caption>Logs</caption>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Tipo Log</th>
+        <th>Descripcion</th>
+        <th>Ip de origen</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of logs">
+        <td>{{log.id}}</td>
+        <td>{{log.tipo_log_id}}</td>
+        <td>{{log.descripcion}}</td>
+        <td>{{log.ip}}</td>
+        <td>{{log.created_at}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

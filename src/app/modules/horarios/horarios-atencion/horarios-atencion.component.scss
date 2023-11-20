@@ -1,0 +1,30 @@
+.title{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 45px;
+  color: var(--primary);
+}
+
+table {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba($color: #ffffff, $alpha: 0.8);
+  display: flex;
+  flex-direction: column;
+}
+tr{
+  border-bottom: 1px solid #086970;
+  margin: 10px 20px;
+}
+td{
+  padding: 10px;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--primary);
+}
+.btn{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 20px;
+}

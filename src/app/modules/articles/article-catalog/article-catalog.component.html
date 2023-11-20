@@ -1,0 +1,54 @@
+<div class="tw-flex tw-flex-col tw-min-h-screen tw-w-full tw-mt-32 tw-justify-center tw-items-center">
+  <h1 class="text header_text">Catálogo de articulos</h1>
+  <h2 class="text sub_text">A continuación todos los articulos creados:</h2>
+  <div class="flex">
+    <button class="btn btn-primary  " [routerLink]="'create'">
+      <div class="tw-flex tw-items-center">
+        Agregar Articulo
+        <span class="material-symbols-outlined" style="color: white;">
+          add_circle
+        </span>
+      </div>
+    </button>
+  </div>
+  <div class="appointments_container">
+    <div class="box">
+      <div class="row_box">
+        <h2 class="title_box">Foto</h2>
+        <h2 class="title_box">Titulo</h2>
+        <h2 class="title_box">Fecha de Creacion</h2>
+        <h2 class="title_box">Descripción</h2>
+        <h2 class="title_box" style="border-right: none;">Opciones</h2>
+      </div>
+
+      <div class="row_separator"> </div>
+
+      <div *ngFor="let project of articles" class="subcontainer">
+        <div class="row_box">
+          <div class="subtitle_box" style="margin-bottom:15px;">
+            <img [src]="ApiUrl+project.miniatura_path" class="miniatura" alt="Miniatura">
+          </div>
+          <h2 class="subtitle_box">{{project.titulo}}</h2>
+          <h2 class="subtitle_box">{{project.fecha_creacion}}</h2>
+          <h2 class="subtitle_box">{{project.descripcion}}</h2>
+          <div class="icons_confirm" *ngIf="!(selectedProjectId == project.id)">
+            <button style="background: none; border: none" class="icons">
+              <span class="material-symbols-outlined">
+                edit
+              </span>
+            </button>
+            <button (click)="deleteProject(project.id)" style="background: none; border: none" class="icons">
+              <span class="material-symbols-outlined" style="color: red;">
+                delete
+              </span>
+            </button>
+          </div>
+          <div class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" *ngIf="isLoadingButton|async">
+            <app-loader-button *ngIf="selectedProjectId == project.id"></app-loader-button>
+          </div>
+        </div>
+        <div class="row_separator"> </div>
+      </div>
+    </div>
+  </div>
+</div>

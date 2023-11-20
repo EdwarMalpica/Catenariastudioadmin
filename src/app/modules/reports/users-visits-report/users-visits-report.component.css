@@ -1,0 +1,69 @@
+.text{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 200;
+    font-size: 20px;
+    color: #000000;
+    padding: 0;
+}
+
+.chart_container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.text_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    margin-top: 40px;
+    float: right;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.text_card{
+    width: 100%;
+}
+.text_card_2{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.text_card_3{
+    width: 100%;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.text_card{
+    width: 100%;
+}
+
+.chart{
+    width: 100%;
+    height: 100%;
+}
+
+.main_container{
+    width: 85%;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+
+
+
+
+
+
+

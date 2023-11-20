@@ -1,0 +1,13 @@
+<div class="cate-title tw-flex tw-justify-between">
+  <a class="" >
+    <div class="tw-flex tw-items-center">
+      <div class="">
+        <img class="tw-ml-10" src="./assets/img/logo.png" alt="">
+      </div>
+      <div class="">
+        <span class="titleFont">CATENARIA - ADMIN</span>
+      </div>
+    </div>
+  </a>
+  <a class="btn btn-primary" *ngIf="isAuth|async" (click)="logout()">Cerrar sesion</a>
+</div>

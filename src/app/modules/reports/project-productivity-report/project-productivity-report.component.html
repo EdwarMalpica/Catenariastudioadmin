@@ -1,0 +1,17 @@
+<div class="main_container tw-mt-20">
+    <h2 class="title tw-mt-20">Reporte de Proyectos</h2>
+    <div class="text_container">
+        <p-card header="Informacion General" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }"> A continuación encontramos el reporte de productividad acerca del la creación de proyectos, con un total de {{this.proyectos.length}} analisados </p-card>
+
+        <p-card class="text_card_2"  [style]="{borderRadius: '15px',color: 'white'}" >
+            <div class="chart_container">
+                <p-chart type="line" [data]="basicData" [options]="basicOptions" class="chart"></p-chart>
+            </div>
+        </p-card>
+
+        <p-card class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">Los meses con mayor productividad en la publiacion de proyectos fueron : {{this.highestMonths}} con un total de {{this.highestValue}} publicaciones.
+            <br>Por otra parte, los meses con menor productividad en la publiacion de proyectos fueron : {{this.lowestMonths}} con un total de {{this.lowestValue}} publicaciones.
+            <br>Permitiendo obtner una vista a nivel general de la productividad enfocandonos a la creación de proyectos
+        </p-card>
+ </div>
+</div>
