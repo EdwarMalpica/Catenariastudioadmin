@@ -1,6 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { ApiService } from '@app/core/services/api.service';
+import { AppState } from '@app/data/app.state';
+import { isLoading } from '@app/data/shared/shared.action';
+import { AlertsService } from '@app/shared/services/alerts.service';
+import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 
 @Component({
@@ -21,13 +25,17 @@ export class ProjectCreateReportComponent {
   total_project = 0
   proyectos = [];
   ApiUrl;
-  loaded = false
   @Output() messageEvent = new EventEmitter<boolean>();
 
 
 
 
-  constructor(private api: ApiService, private route: Router) {
+  constructor(
+    private api: ApiService,
+     private route: Router,
+     private store:Store<AppState>,
+     private alerts:AlertsService) {
+      this.store.dispatch(isLoading({ isLoading: true }));
     this.load_data();
   }
 
@@ -39,15 +47,15 @@ export class ProjectCreateReportComponent {
   load_data(){
     this.api.get('proyectos').subscribe((data) =>{
       this.proyectos = data['proyectos'];
-      this.loaded = true
+      this.store.dispatch(isLoading({ isLoading: false }));
       this.get_number_publication();
       this.set_chart_properties();
       this.sort_data()
 
     }, (error) => {
-      console.log(error);
+      this.alerts.showError(error.error.message);
+      this.store.dispatch(isLoading({ isLoading: false }));
     }, () => {
-      console.log('Peticion finalizada');
     });
   }
   get_types_projects(types_registered: string[]): string[] {

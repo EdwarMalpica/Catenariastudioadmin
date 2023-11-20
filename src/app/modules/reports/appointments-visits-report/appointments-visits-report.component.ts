@@ -1,16 +1,18 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiService } from '@app/core/services/api.service';
-import { URL_API_GET_APOINTMENTS, URL_API_GET_APOINTMENTS_REPORT } from '@app/data/constants/constants';
+import { AppState } from '@app/data/app.state';
+import { URL_API_GET_APOINTMENTS_REPORT } from '@app/data/constants/constants';
 import { isLoading } from '@app/data/shared/shared.action';
-import { of } from 'rxjs';
+import { AlertsService } from '@app/shared/services/alerts.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-appointments-visits-report',
   templateUrl: './appointments-visits-report.component.html',
   styleUrls: ['./appointments-visits-report.component.css']
 })
-export class AppointmentsVisitsReportComponent {
+export class AppointmentsVisitsReportComponent implements OnInit{
 
 
   data: any;
@@ -38,24 +40,28 @@ export class AppointmentsVisitsReportComponent {
 
 
 
-  constructor(private api: ApiService, private route: Router) {
+  constructor(
+    private api: ApiService,
+    private route: Router,
+    private storeN:Store<AppState>,
+    private alertsN:AlertsService) {
     this.messageEvent.emit(true);
+    this.storeN.dispatch(isLoading({ isLoading: true }));
     this.set_months()
     this.load_data();
   }
 
 
   ngOnInit(): void {
+
     this.api.get(`${ URL_API_GET_APOINTMENTS_REPORT}`).subscribe({
       next: (report: any) => {
         this.appointment = report.cita;
-        console.log("TTTTT",this.appointment['citasForLast12Month']);
-        
-        this.store.dispatch(isLoading({ isLoading: false }));
+        this.storeN.dispatch(isLoading({ isLoading: false }));
       },
       error: (error) => {
         this.alerts.showError(error.error.message);
-        this.store.dispatch(isLoading({ isLoading: false }));
+        this.storeN.dispatch(isLoading({ isLoading: false }));
       },
     });
   }
@@ -68,12 +74,12 @@ export class AppointmentsVisitsReportComponent {
       this.indicesNumerosMinimos()
       this.found_max_months()
       this.set_chart_properties()
-
-      this.loaded = true
+      this.storeN.dispatch(isLoading({ isLoading: false }));
     }, (error) => {
-      console.log(error);
+      this.alerts.showError(error.error.message);
+      this.store.dispatch(isLoading({ isLoading: false }));
     }, () => {
-      console.log('Peticion finalizada');
+      this.storeN.dispatch(isLoading({ isLoading: false }));
     });
   }
 
@@ -82,7 +88,8 @@ export class AppointmentsVisitsReportComponent {
       this.months.push(currentObject['mes'])
       this.values_months.push(currentObject['valor'])
     });
-    const maxNumber: number = Math.max(...this.values_months);
+    this.months = this.months.reverse();
+    this.values_months = this.values_months.reverse();
   }
 
 
@@ -104,7 +111,7 @@ export class AppointmentsVisitsReportComponent {
                   '#FFCA28',
                   '#26A69A'
                 ],
-                label: 'My dataset'
+                label: 'Citas Agendadas'
             }
         ],
         labels: this.months

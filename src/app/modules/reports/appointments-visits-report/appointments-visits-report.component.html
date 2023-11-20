@@ -1,5 +1,6 @@
-<div class="main_container" *ngIf="loaded">
+<div class="main_container tw-mt-20">
     <div class="text_container">
+      <h2>Reporte de Citas</h2>
         <p-card header="Informacion General" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }"> La siguiente grafica que encontramos, representa la relacion de la cantidad de agendamiento de citas por mes, siendo un total de {{this.total_appointment}} analizados se evidencia que: </p-card>
         <p-card class="text_card_2" [style]="{borderRadius: '15px',color: 'white'}">
             <div class="chart_container">
@@ -11,9 +12,6 @@
             <br>Por otra parte, los meses con menor tendencia a agendamiento de citas fueron : <ul *ngFor="let month of minim_months" style="margin-left: 5px; list-style-type: circle; margin-top:  5px;"> <li> Mes: {{month}}</li></ul> con un valor de {{minim_value}}
             <br>Mediante lo cual tendremos un vistazo general de los meses en que los clientes pueden tener más tendencia a la compra
         </p-card>
- 
+
     </div>
-</div>
-<div style="display: flex; justify-content: center;margin-top: 30px;" *ngIf="!loaded">
-    <p-progressSpinner></p-progressSpinner>
 </div>
