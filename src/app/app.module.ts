@@ -34,6 +34,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { appReducer } from './data/app.state';
 import { AuthEffects } from './data/auth/auth.effects';
+import { ChartModule } from 'primeng/chart';
+import {CardModule} from 'primeng/card';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
@@ -69,6 +72,9 @@ import { AuthEffects } from './data/auth/auth.effects';
     HttpClientModule,
     InputMaskModule,
     DropdownModule,
+    ChartModule,
+    CardModule,
+    ProgressSpinnerModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([AuthEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),

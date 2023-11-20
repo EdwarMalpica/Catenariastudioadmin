@@ -1,0 +1,74 @@
+<div class="main_container tw-mt-20 tw-pt-20">
+  <h2 class="title">
+    Reporte de Usuarios
+  </h2>
+  <div class="text_container tw-w-full">
+      <h3>Visitas a la pagina</h3>
+    <div class="tw-flex tw-gap-5 tw-w-full ">
+      <p-card header="Totales" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+       {{visitToThePage}}
+      </p-card>
+      <p-card header="Esta semana" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{visitToThePageThisWeek}}
+      </p-card>
+      <p-card header="Este mes" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{visitToThePageLastMonth}}
+      </p-card>
+      <p-card header="Ultimo año" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{visitToThePageLastYear}}
+      </p-card>
+    </div>
+    <h3>Visitas ultimo año</h3>
+    <p-card class="text_card_2" [style]="{borderRadius: '15px',color: 'white'}">
+      <div class="chart_container">
+        <p-chart type="bar" [data]="dataVisitToThePage" [options]="configCharts" class="chart"></p-chart>
+      </div>
+    </p-card>
+  </div>
+  <div class="text_container tw-w-full">
+    <h3>Registro de usuarios</h3>
+    <div class="tw-flex tw-gap-5 tw-w-full ">
+      <p-card header="Totales" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{registerUsers}}
+      </p-card>
+      <p-card header="Esta semana" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{registerUsersThisWeek}}
+      </p-card>
+      <p-card header="Este mes" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{registerUsersLastMonth}}
+      </p-card>
+      <p-card header="Ultimo año" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{registerUsersLastYear}}
+      </p-card>
+    </div>
+    <h3>Usuarios registrados en el ultimo año</h3>
+    <p-card class="text_card_2" [style]="{borderRadius: '15px',color: 'white'}">
+      <div class="chart_container">
+        <p-chart type="bar" [data]="dataRegisterUsers" [options]="configCharts" class="chart"></p-chart>
+      </div>
+    </p-card>
+  </div>
+  <div class="text_container tw-w-full">
+    <h3>Login de usuarios</h3>
+    <div class="tw-flex tw-gap-5 tw-w-full ">
+      <p-card header="Totales" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{loginUsers}}
+      </p-card>
+      <p-card header="Esta semana" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{loginUsersThisWeek}}
+      </p-card>
+      <p-card header="Este mes" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{loginUsersLastMonth}}
+      </p-card>
+      <p-card header="Ultimo año" class="text_card" [style]="{borderRadius: '15px',color: 'white',opacity: 0.8 }">
+        {{loginUsersLastYear}}
+      </p-card>
+    </div>
+    <h3>Login de usuarios en el ultimo año</h3>
+    <p-card class="text_card_2" [style]="{borderRadius: '15px',color: 'white'}">
+      <div class="chart_container">
+        <p-chart type="bar" [data]="dataLoginUsers" [options]="configCharts" class="chart"></p-chart>
+      </div>
+    </p-card>
+  </div>
+</div>
