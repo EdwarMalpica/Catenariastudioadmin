@@ -10,6 +10,7 @@ import { AppState } from '../app.state';
 import { AlertsService } from 'src/app/shared/services/alerts.service';
 import { isLoading } from '../shared/shared.action';
 import { URL_API_LOGIN } from '../constants/constants';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
@@ -18,7 +19,8 @@ export class AuthEffects {
     private apiService: ApiService,
     private authService: AuthService,
     private store: Store<AppState>,
-    private alerts: AlertsService
+    private alerts: AlertsService,
+    private router:Router
   ) {}
 
   login$ = createEffect(() =>
@@ -86,6 +88,7 @@ export class AuthEffects {
         ofType(logout),
         map((action) => {
           this.authService.logout();
+          this.router.navigate(['/login']);
           return action;
         })
       ),

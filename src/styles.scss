@@ -77,12 +77,16 @@ body {
 body {
   margin: 0
 }
-
+app-login{
+  width: 100%;
+  height: 100%;
+}
 
 app-header {
   position: fixed;
   top: 0;
   left: 0;
+  width: 90vw;
 }
 .color-error {
   color: var(--color-error);

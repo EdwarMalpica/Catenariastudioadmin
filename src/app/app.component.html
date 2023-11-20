@@ -4,7 +4,7 @@
 <app-header></app-header>
 <app-side-menu-bar class="tw-w-96 tw-h-screen" *ngIf="isAuth | async"></app-side-menu-bar>
 <div class="tw-flex">
-  <div class="tw-w-96 tw-h-screen"></div>
+  <div class="tw-w-96 tw-h-screen" [ngClass]="{'tw-hidden':!(isAuth|async)}"></div>
   <router-outlet></router-outlet>
 </div>
 <!-- Alerts -->
